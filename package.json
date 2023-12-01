@@ -1,0 +1,29 @@
+{
+  "name": "ssbarbee",
+  "version": "1.0.0",
+  "description": "Readme file from github profile page",
+  "main": "index.js",
+  "dependencies": {
+    "mustache": "4.2.0",
+    "node-fetch": "2.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssbarbee/ssbarbee.git"
+  },
+  "keywords": [
+    "readme",
+    "file",
+    "autoloader"
+  ],
+  "author": "ssbarbee@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssbarbee/ssbarbee/issues"
+  },
+  "homepage": "https://github.com/ssbarbee/ssbarbee#readme"
+}

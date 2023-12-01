@@ -104,7 +104,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <p align="center">
     <code><a href="https://github.com/"><img alt="GitHub" title="GitHub" src="./assets/github.png" height="42"></a></code>
     <code><a href="https://www.npmjs.com"><img alt="NPM" title="NPM" src="./assets/npm.png" height="42"></a></code>
-    <code><a href="https://www.jetbrains.com/webstorm/"><img alt="Webstorm" title="Webstorm" src="./assets/webstorm-logo.png" height="42"></a></code>
+    <code><a href="https://www.jetbrains.com/webstorm/"><img alt="Webstorm" title="Webstorm" src="assets/webstorm.png" height="42"></a></code>
 </p>
 <br>
 
@@ -155,7 +155,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Friday, December 1 at 11:30 PM GMT+1</b>
+Last refresh: <b>Friday, December 1 at 11:32 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

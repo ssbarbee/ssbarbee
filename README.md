@@ -20,8 +20,8 @@
 
 <!-- Description about me -->
 <h2 align="center"> 🤔 About me 👨‍💻 </h2>
-Hey there! 👋 I'm **Filip Bozhinovski**, but you may know me as 'ssbarbee' 🕵🏼‍♂️.
-Hailing from the beautiful country of **Macedonia 🇲🇰🇲🇰**, I'm passionate about creating innovative solutions 🖥️.
+Hey there! 👋 I'm <b>Filip Bozhinovski</b>, but you may know me as <b>ssbarbee</b> 🕵🏼‍♂️.
+Hailing from the beautiful country of <b>Macedonia 🇲🇰🇲🇰</b>, I'm passionate about creating innovative solutions 🖥️.
 
 But I'm more than just a coding machine 🤖; I'm a genuine human on a mission to learn and craft remarkable projects with ❤️, all while connecting with amazing individuals along the way 🚀.
 
@@ -58,7 +58,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
           🤝 I’m looking to collaborate on Open Source Projects
         </li>
         <li>
-          🌱 I’m currently learning NextJS & NestJS;
+          🌱 I’m currently learning NextJS, NestJS & PixiJS;
         </li>
         <li>
           👨🏻‍💻 Most of my projects are available on [Github](https://github.com/ssbarbee?tab=repositories)
@@ -155,7 +155,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Friday, December 1 at 11:22 PM GMT+1</b>
+Last refresh: <b>Friday, December 1 at 11:30 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

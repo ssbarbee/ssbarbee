@@ -61,16 +61,16 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
           🌱 I’m currently learning NextJS, NestJS & PixiJS;
         </li>
         <li>
-          👨🏻‍💻 Most of my projects are available on [Github](https://github.com/ssbarbee?tab=repositories)
+          👨🏻‍💻 Most of my projects are available on (Github)[https://github.com/ssbarbee?tab=repositories]
         </li>
         <li>
           💬 Ask me about anything tech related, I am happy to help (if you have questions with linux you can ask me🐧);
         </li>
         <li>
-          📫 Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/filip-bozhinovski-306464122/)
+          📫 Feel free to contact me on (LinkedIn)[https://www.linkedin.com/in/filip-bozhinovski-306464122/]
         </li>
         <li>
-          🏃 When I am free, I like jogging and doing half-marathons
+            🏃 When I am free, I like jogging and doing half-marathons
         </li>
     </td>
   </tr>
@@ -155,7 +155,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Friday, December 1 at 11:35 PM GMT+1</b>
+Last refresh: <b>Friday, December 1 at 11:39 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

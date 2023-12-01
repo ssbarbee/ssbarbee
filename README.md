@@ -20,10 +20,10 @@
 
 <!-- Description about me -->
 <h2 align="center"> 🤔 About me 👨‍💻 </h2>
-Hey there! 👋 I'm <b>Filip Bozhinovski</b>, but you may know me as <b>ssbarbee</b> 🕵🏼‍♂️.
-Hailing from the beautiful country of <b>Macedonia 🇲🇰🇲🇰</b>, I'm passionate about creating innovative solutions 🖥️.
+Hey there! 👋 I'm <b>Filip Bozhinovski</b>, but you may know me as <b>ssbarbee</b>.
+Originating from the sunny realm of <b>Macedonia 🇲🇰🇲🇰</b>, I am enthusiastic about crafting innovative frontend solutions 🖥️.
 
-But I'm more than just a coding machine 🤖; I'm a genuine human on a mission to learn and craft remarkable projects with ❤️, all while connecting with amazing individuals along the way 🚀.
+However, I'm more than just a programming automaton 🤖. I'm an authentic individual driven by a passion to learn and create extraordinary projects with love ❤️, and in the process, I enjoy engaging with wonderful people on this journey 🚀.
 
 If you're seeking someone with a positive attitude, a thirst for knowledge, and a dedication to continuous learning 📚, look no further. Feel free to reach out for collaboration on exciting new projects 📨; I'm always open to working together!
 
@@ -42,7 +42,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
         <td><b>6°C</b></td>
         <td><b>06:42 AM</b></td>
         <td><b>04:04 PM</b></td>
-        <td><b>100%</b></td>
+        <td><b>93%</b></td>
     </tr>
 </table>
 
@@ -155,7 +155,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Friday, December 1 at 11:39 PM GMT+1</b>
+Last refresh: <b>Friday, December 1 at 11:44 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

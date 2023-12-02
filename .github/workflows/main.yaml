@@ -12,12 +12,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout current repository to main branch
-        uses: actions/checkout@v2.3.4
-      - name: Setup Node.js 13.x
-        uses: actions/setup-node@v2.4.0
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          node-version: "13.x"
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.9.0'
+          cache: 'yarn'
       - name: Cache dependencies and build outputs
         uses: actions/cache@v2.1.6
         with:
@@ -26,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Update README file
-        run: node index.js
+        run: yarn update
       - name: Commit and push new README.md
         run: |-
           git config --global user.name "ssbarbee"

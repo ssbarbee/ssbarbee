@@ -25,14 +25,12 @@ jobs:
           key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
       - name: Install dependencies
         run: npm install
-      - name: Generate README file
+      - name: Update README file
         run: node index.js
-        env:
-          OPEN_WEATHER_MAP_KEY: ${{secrets.OPEN_WEATHER_MAP_KEY}}
       - name: Commit and push new README.md
         run: |-
           git diff
-          git config --global user.email "${{secrets.GLOBAL_USER_EMAIL}}"
-          git config --global user.name "${{secrets.GLOBAL_USER_NAME}}"
+          git config --global user.email ssbarbee@gmail.com
+          git config --global user.name ssbarbee
           git commit -a -m "chore: hourly content update" || exit 0
           git push

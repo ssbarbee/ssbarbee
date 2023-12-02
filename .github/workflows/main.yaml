@@ -29,7 +29,6 @@ jobs:
         run: node index.js
       - name: Commit and push new README.md
         run: |-
-          git diff
           git config --global user.name "ssbarbee"
           git config --global user.email "ssbarbee@gmail.com"
           git commit -a -m "chore: hourly content update" || exit 0

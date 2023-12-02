@@ -32,4 +32,4 @@ jobs:
           git config --global user.name "ssbarbee"
           git config --global user.email "ssbarbee@gmail.com"
           git commit -a -m "chore: hourly content update" || exit 0
-          git push -f
+          git push

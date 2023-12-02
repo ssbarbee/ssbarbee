@@ -21,4 +21,4 @@ jobs:
           git config user.email "ssbarbee@gmail.com"
           git add -A .
           git commit -m "docs: update 3D activity graph"
-          git push -f
+          git push

@@ -148,14 +148,14 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 ## Activity Graph
 <p align="center">
-  <img src="./profile-3d-contrib/profile-night-view.svg" width="100%"/>
+  <img src="./profile-3d-contrib/profile-night-green.svg" width="100%"/>
 </p>
 
 <br>
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Saturday, December 2 at 11:11 PM GMT+1</b>
+Last refresh: <b>Saturday, December 2 at 11:16 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

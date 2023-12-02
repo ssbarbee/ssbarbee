@@ -28,7 +28,7 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
       - name: Install dependencies
-        run: npm install
+        run: yarn --immutable
       - name: Update README file
         run: yarn update
       - name: Commit and push new README.md

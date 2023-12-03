@@ -59,7 +59,6 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
     <code><a href="https://www.gnu.org/software/bash"><img alt="Bash" title="Bash" src="./assets/bash.png" height="42"></a></code>
     <code><a href="https://daringfireball.net/projects/markdown"><img alt="Markdown" title="Markdown" src="./assets/markdown.png" height="42"></a></code>
 </p>
-<br>
 
 ### Languages/Frameworks I'm good at:
 <p>
@@ -67,7 +66,6 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
     <code><a href="https://pixijs.com/guides"><img alt="PixiJS" title="PixiJS" src="./assets/pixijs.png" height="42"></a></code>
     <code><a href="https://dotnet.microsoft.com/en-us/"><img alt="C#" title="Dotnet" src="./assets/csharp.png" height="42"></a></code>
 </p>
-<br>
 
 ### Environments I work with:
 <p>
@@ -75,7 +73,6 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
     <code><a href="https://www.npmjs.com"><img alt="NPM" title="NPM" src="./assets/npm.png" height="42"></a></code>
     <code><a href="https://www.jetbrains.com/webstorm/"><img alt="Webstorm" title="Webstorm" src="assets/webstorm.png" height="42"></a></code>
 </p>
-<br>
 
 <!-- Github stats section -->
 ## 📊 Github stats
@@ -90,11 +87,9 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 </p>
 
 <!-- Projects section -->
-
 ## 📘 My top open source projects
 
 <!-- Based on: Repo info cards - https://github.com/anuraghazra/github-readme-stats -->
-<p>
 <p style="widht: 100%;">
     <a href="https://github.com/ssbarbee/react-metamask-avatar"><img align="left" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=react-metamask-avatar&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
     <a href="https://github.com/ssbarbee/app-store-ratings"><img align="right" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=app-store-ratings&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
@@ -103,7 +98,6 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <p style="widht: 100%;">
     <a href="https://github.com/ssbarbee/iap-apple"><img align="right" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin?username=ssbarbee&repo=iap-apple&theme=react&border_color=7cebf5&border_radius=10&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true" alt="custom-icon-badges"></a>
     <a href="https://github.com/ssbarbee/pixijs-adventure"><img align="left" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=pixijs-adventure&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
-</p>
 </p>
 
 <p>&#8192;</p>
@@ -124,7 +118,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Sunday, December 3 at 7:41 PM GMT+1</b>
+Last refresh: <b>Sunday, December 3 at 7:46 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

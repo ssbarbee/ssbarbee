@@ -30,15 +30,15 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <!-- Skopje's weather table -->
 ## 🇲🇰 Skopje's Weather, if you want to visit! ⛅
 
-<table align="center" style="width:50%">
-    <tr style="text-align:center">
+<table>
+    <tr>
         <th>Weather</th>
         <th>Temperature</th>
         <th>Sunrise</th>
         <th>Sunset</th>
         <th>Humidity</th>
     </tr>
-    <tr style="text-align:center">
+    <tr>
         <td><b>overcast clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;04n.png></td>
         <td><b>4°C</b></td>
         <td><b>06:44 AM</b></td>
@@ -48,7 +48,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 </table>
 
 # Languages/Frameworks I'm great at:
-<p align="center">
+<p>
     <code><a href="https://reactjs.org/"><img alt="ReactJS" title="ReactJS" src="./assets/react.png" height="42"></a></code>
     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img alt="JavaScript" title="JavaScript" src="./assets/js.png" height="42"></a></code>
     <code><a href="https://docs.nestjs.com/"><img alt="NestJS" title="NestJS" src="./assets/NestJS.png" height="42"></a></code>
@@ -62,7 +62,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <br>
 
 # Languages/Frameworks I'm good at:
-<p align="center">
+<p>
     <code><a href="https://nextjs.org/"><img alt="NextJS" title="NextJS" src="./assets/nextjs.png" height="42"></a></code>
     <code><a href="https://pixijs.com/guides"><img alt="PixiJS" title="PixiJS" src="./assets/pixijs.png" height="42"></a></code>
     <code><a href="https://dotnet.microsoft.com/en-us/"><img alt="C#" title="Dotnet" src="./assets/csharp.png" height="42"></a></code>
@@ -70,7 +70,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <br>
 
 # Environments I work with:
-<p align="center">
+<p>
     <code><a href="https://github.com/"><img alt="GitHub" title="GitHub" src="./assets/github.png" height="42"></a></code>
     <code><a href="https://www.npmjs.com"><img alt="NPM" title="NPM" src="./assets/npm.png" height="42"></a></code>
     <code><a href="https://www.jetbrains.com/webstorm/"><img alt="Webstorm" title="Webstorm" src="assets/webstorm.png" height="42"></a></code>
@@ -81,7 +81,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 ## 📊 Github stats
 
 <!-- Based on: https://github.com/anuraghazra/github-readme-stats -->
-<p align="center">
+<p>
     <br/>
     <a href="https://github.com/anuraghazra/github-readme-stats"><img alt="ssbarbee's Github Stats" src="https://github-readme-stats.vercel.app/api/?username=ssbarbee&show_icons=true&count_private=true&theme=react&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true&border_color=7cebf5&border_radius=10" height="192px"/></a>
     <a href="https://github.com/anuraghazra/github-readme-stats"><img alt="ssbarbee's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ssbarbee&langs_count=8&layout=compact&theme=react&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true&border_color=7cebf5&border_radius=10" height="192px"/></a>
@@ -94,20 +94,20 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 ## 📘 My top open source projects
 
 <!-- Based on: Repo info cards - https://github.com/anuraghazra/github-readme-stats -->
-<p align="center">
-<p style="widht: 100%;" align="center">
+<p>
+<p style="widht: 100%;">
     <a href="https://github.com/ssbarbee/react-metamask-avatar"><img align="left" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=react-metamask-avatar&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
     <a href="https://github.com/ssbarbee/app-store-ratings"><img align="right" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=app-store-ratings&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
 </p>
-<p align="center">&#8192;</p>
-<p style="widht: 100%;" align="center">
+<p>&#8192;</p>
+<p style="widht: 100%;">
     <a href="https://github.com/ssbarbee/iap-apple"><img align="right" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin?username=ssbarbee&repo=iap-apple&theme=react&border_color=7cebf5&border_radius=10&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true" alt="custom-icon-badges"></a>
     <a href="https://github.com/ssbarbee/pixijs-adventure"><img align="left" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=pixijs-adventure&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
 </p>
 </p>
 
-<p align="center">&#8192;</p>
-<p align="center">&#8192;</p>
+<p>&#8192;</p>
+<p>&#8192;</p>
 
 <p align="left">
     <a href="https://github.com/ssbarbee?tab=repositories"><img alt="All Repositories" title="All Repositories" src="https://custom-icon-badges.herokuapp.com/badge/-All%20Repos-2962FF?style=for-the-badge&logoColor=white&logo=repo"/></a>
@@ -116,7 +116,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <!-- last activity section -->
 
 ## Activity Graph
-<p align="center">
+<p>
   <img src="./profile-3d-contrib/profile-night-green.svg" width="100%"/>
 </p>
 
@@ -124,7 +124,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Sunday, December 3 at 7:38 PM GMT+1</b>
+Last refresh: <b>Sunday, December 3 at 7:40 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

@@ -8,7 +8,8 @@
 <hr>
 
 <!-- Description about me -->
-<h2 align="center"> 🤔 About me 👨‍💻 </h2>
+## 🤔 About me 👨‍💻
+
 Hey there! 👋 I'm <b>Filip Bozhinovski</b>, but you may know me as <b>ssbarbee</b>.
 Originating from the sunny realm of <b>Macedonia 🇲🇰🇲🇰</b>, I am enthusiastic about crafting innovative frontend solutions 🖥️.
 
@@ -67,7 +68,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <br><br><br>
 
 
-<h1 align="center"> Languages/Frameworks I'm great at: </h1>
+# Languages/Frameworks I'm great at:
 <p align="center">
     <code><a href="https://reactjs.org/"><img alt="ReactJS" title="ReactJS" src="./assets/react.png" height="42"></a></code>
     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img alt="JavaScript" title="JavaScript" src="./assets/js.png" height="42"></a></code>
@@ -81,7 +82,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 </p>
 <br>
 
-<h1 align="center"> Languages/Frameworks I'm good at: </h1>
+# Languages/Frameworks I'm good at:
 <p align="center">
     <code><a href="https://nextjs.org/"><img alt="NextJS" title="NextJS" src="./assets/nextjs.png" height="42"></a></code>
     <code><a href="https://pixijs.com/guides"><img alt="PixiJS" title="PixiJS" src="./assets/pixijs.png" height="42"></a></code>
@@ -89,7 +90,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 </p>
 <br>
 
-<h1 align="center"> Environments I work with: </h1>
+# Environments I work with:
 <p align="center">
     <code><a href="https://github.com/"><img alt="GitHub" title="GitHub" src="./assets/github.png" height="42"></a></code>
     <code><a href="https://www.npmjs.com"><img alt="NPM" title="NPM" src="./assets/npm.png" height="42"></a></code>
@@ -144,7 +145,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Sunday, December 3 at 7:30 PM GMT+1</b>
+Last refresh: <b>Sunday, December 3 at 7:32 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

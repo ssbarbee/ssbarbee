@@ -47,7 +47,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
     </tr>
 </table>
 
-# Languages/Frameworks I'm great at:
+### Languages/Frameworks I'm great at:
 <p>
     <code><a href="https://reactjs.org/"><img alt="ReactJS" title="ReactJS" src="./assets/react.png" height="42"></a></code>
     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img alt="JavaScript" title="JavaScript" src="./assets/js.png" height="42"></a></code>
@@ -61,7 +61,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 </p>
 <br>
 
-# Languages/Frameworks I'm good at:
+### Languages/Frameworks I'm good at:
 <p>
     <code><a href="https://nextjs.org/"><img alt="NextJS" title="NextJS" src="./assets/nextjs.png" height="42"></a></code>
     <code><a href="https://pixijs.com/guides"><img alt="PixiJS" title="PixiJS" src="./assets/pixijs.png" height="42"></a></code>
@@ -69,7 +69,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 </p>
 <br>
 
-# Environments I work with:
+### Environments I work with:
 <p>
     <code><a href="https://github.com/"><img alt="GitHub" title="GitHub" src="./assets/github.png" height="42"></a></code>
     <code><a href="https://www.npmjs.com"><img alt="NPM" title="NPM" src="./assets/npm.png" height="42"></a></code>
@@ -124,7 +124,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Sunday, December 3 at 7:40 PM GMT+1</b>
+Last refresh: <b>Sunday, December 3 at 7:41 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

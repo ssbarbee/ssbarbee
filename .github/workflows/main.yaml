@@ -1,11 +1,9 @@
-name: Autobuild README
+name: Update README.md
 
 on:
   push:
     branches:
       - main
-  schedule:
-    - cron: "0 */12 * * *"
 
 jobs:
   build:

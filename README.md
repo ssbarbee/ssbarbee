@@ -39,11 +39,11 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
         <th>Humidity</th>
     </tr>
     <tr>
-        <td><b>broken clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;04d.png></td>
-        <td><b>4°C</b></td>
+        <td><b>clear sky</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;01n.png></td>
+        <td><b>-3°C</b></td>
         <td><b>06:45 AM</b></td>
         <td><b>04:03 PM</b></td>
-        <td><b>60%</b></td>
+        <td><b>93%</b></td>
     </tr>
 </table>
 
@@ -51,6 +51,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <p>
     <code><a href="https://reactjs.org/"><img alt="ReactJS" title="ReactJS" src="./assets/react.png" height="42"></a></code>
     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img alt="JavaScript" title="JavaScript" src="./assets/js.png" height="42"></a></code>
+    <code><a href="https://nodejs.org/en"><img alt="NodeJS" title="NodeJS" src="./assets/nodejS.png" height="42"></a></code>
     <code><a href="https://docs.nestjs.com/"><img alt="NestJS" title="NestJS" src="assets/nestjs.png" height="42"></a></code>
     <code><a href="https://en.wikipedia.org/wiki/HTML"><img alt="HTML 5" title="HTML 5" src="./assets/html.png" height="42"></a></code>
     <code><a href="https://www.w3.org/Style/CSS/Overview.en.html"><img alt="CSS 3" title="CSS 3" src="./assets/css.png" height="42"></a></code>
@@ -65,6 +66,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
     <code><a href="https://nextjs.org/"><img alt="NextJS" title="NextJS" src="./assets/nextjs.png" height="42"></a></code>
     <code><a href="https://pixijs.com/guides"><img alt="PixiJS" title="PixiJS" src="./assets/pixijs.png" height="42"></a></code>
     <code><a href="https://dotnet.microsoft.com/en-us/"><img alt="C#" title="Dotnet" src="./assets/csharp.png" height="42"></a></code>
+    <code><a href="https://www.jenkins.io/"><img alt="Jenkins" title="Jenkins" src="./assets/jenkins.jpeg" height="42"></a></code>
 </p>
 
 ### Environments I work with:
@@ -118,7 +120,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Monday, December 4 at 10:30 AM GMT+1</b>
+Last refresh: <b>Monday, December 4 at 10:20 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

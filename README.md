@@ -26,6 +26,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 - 💬 Ask me about anything tech related, I am happy to help (if you have questions with linux you can ask me🐧);
 - 📫 Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/filip-bozhinovski-306464122/)
 - 🏃 When I am free, I like jogging and doing half-marathons
+- ♞ I also enjoy playing chess! You can find me over at [chess.com](chess.com)
 
 <!-- Skopje's weather table -->
 ## 🇲🇰 Skopje's Weather, if you want to visit! ⛅
@@ -39,11 +40,11 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
         <th>Humidity</th>
     </tr>
     <tr>
-        <td><b>overcast clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;04d.png></td>
-        <td><b>1°C</b></td>
-        <td><b>06:46 AM</b></td>
+        <td><b>overcast clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;04n.png></td>
+        <td><b>6°C</b></td>
+        <td><b>06:47 AM</b></td>
         <td><b>04:03 PM</b></td>
-        <td><b>86%</b></td>
+        <td><b>100%</b></td>
     </tr>
 </table>
 
@@ -120,7 +121,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Tuesday, December 5 at 10:34 AM GMT+1</b>
+Last refresh: <b>Wednesday, December 6 at 8:29 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

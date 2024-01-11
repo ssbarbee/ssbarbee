@@ -21,7 +21,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 - 🔭 I’m currently working for Voltz Labs
 - 🤝 I’m looking to collaborate on Open Source Projects
-- 🌱 I’m currently learning NextJS, NestJS & PixiJS;
+- 🌱 I’m currently learning NextJS, NestJS, PixiJS & Monkey C;
 - 👨🏻‍💻 Most of my projects are available on [Github](https://github.com/ssbarbee?tab=repositories)
 - 💬 Ask me about anything tech related, I am happy to help (if you have questions with linux you can ask me🐧);
 - 📫 Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/filip-bozhinovski-306464122/)
@@ -29,7 +29,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 - ♞ I also enjoy playing chess! You can find me over at [chess.com](chess.com)
 
 <!-- Skopje's weather table -->
-## 🇲🇰 Skopje's Weather, if you want to visit! ⛅
+## 🇲🇰 Skopje's Weather, if you want to visit! ⛅ Watch out on the pollution levels, it tends to get crazy!
 
 <table>
     <tr>
@@ -38,13 +38,17 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
         <th>Sunrise</th>
         <th>Sunset</th>
         <th>Humidity</th>
+        <th>Air quality (PM10)</th>
+        <th>Air quality (PM25)</th>
     </tr>
     <tr>
-        <td><b>overcast clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;04n.png></td>
-        <td><b>0°C</b></td>
+        <td><b>overcast clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;04d.png></td>
+        <td><b>3°C</b></td>
         <td><b>07:01 AM</b></td>
         <td><b>04:21 PM</b></td>
-        <td><b>74%</b></td>
+        <td><b>65%</b></td>
+        <td><b>42 μg&#x2F;m3</b></td>
+        <td><b>24 μg&#x2F;m3</b></td>
     </tr>
 </table>
 
@@ -102,6 +106,10 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
     <a href="https://github.com/ssbarbee/iap-apple"><img align="right" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin?username=ssbarbee&repo=iap-apple&theme=react&border_color=7cebf5&border_radius=10&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true" alt="custom-icon-badges"></a>
     <a href="https://github.com/ssbarbee/pixijs-adventure"><img align="left" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=pixijs-adventure&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
 </p>
+<p>&#8192;</p>
+<p style="widht: 100%;">
+    <a href="https://github.com/ssbarbee/pulse-eco-garmin-widget"><img align="right" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin?username=ssbarbee&repo=pulse-eco-garmin-widget&theme=react&border_color=7cebf5&border_radius=10&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true" alt="custom-icon-badges"></a>
+</p>
 
 <p>&#8192;</p>
 <p>&#8192;</p>
@@ -121,7 +129,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Thursday, January 11 at 2:12 AM GMT+1</b>
+Last refresh: <b>Thursday, January 11 at 3:14 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

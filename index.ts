@@ -13,6 +13,8 @@ interface Data {
     humidity?: number;
     sun_rise?: string;
     sun_set?: string;
+    pm10?: string;
+    pm25?: string;
 }
 
 let DATA: Data = {
@@ -50,6 +52,22 @@ async function setWeatherInformation(): Promise<void> {
     });
 }
 
+async function setPollutionData(): Promise<void> {
+    try {
+        const response = await fetch(
+            `https://skopje.pulse.eco/rest/overall`
+        );
+        const data = (await response.json()).values;
+
+        DATA.pm10 = data.pm10 + " μg/m3";
+        DATA.pm25 = data.pm25 + " μg/m3";
+    } catch(_) {
+        DATA.pm10 = 'Not available';
+        DATA.pm25 = 'Not available';
+    }
+
+}
+
 function generateReadMe(): void {
     readFile(MUSTACHE_MAIN_DIR, (err, data) => {
         if (err) throw err;
@@ -60,6 +78,7 @@ function generateReadMe(): void {
 
 async function action(): Promise<void> {
     await setWeatherInformation();
+    await setPollutionData();
     generateReadMe();
 }
 

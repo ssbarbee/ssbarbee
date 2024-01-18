@@ -19,14 +19,14 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 ## 🧐 More About Me:
 
-- 🔭 I’m currently working for Voltz Labs
+- 🔭 I’m currently working for Reya Labs
 - 🤝 I’m looking to collaborate on Open Source Projects
 - 🌱 I’m currently learning NextJS, NestJS, PixiJS & Monkey C;
 - 👨🏻‍💻 Most of my projects are available on [Github](https://github.com/ssbarbee?tab=repositories)
 - 💬 Ask me about anything tech related, I am happy to help (if you have questions with linux you can ask me🐧);
 - 📫 Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/filip-bozhinovski-306464122/)
 - 🏃 When I am free, I like jogging and doing half-marathons
-- ♞ I also enjoy playing chess! You can find me over at [chess.com](chess.com)
+- ♞ I also enjoy playing chess! You can find me over at [chess.com](https://www.chess.com/member/ssbarbe_e)
 
 <!-- Skopje's weather table -->
 ## 🇲🇰 Skopje's Weather, if you want to visit! ⛅ Watch out on the pollution levels, it tends to get crazy!
@@ -42,13 +42,13 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
         <th>Air quality (PM25)</th>
     </tr>
     <tr>
-        <td><b>broken clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;04n.png></td>
-        <td><b>4°C</b></td>
+        <td><b>broken clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;04d.png></td>
+        <td><b>9°C</b></td>
         <td><b>06:58 AM</b></td>
         <td><b>04:29 PM</b></td>
-        <td><b>70%</b></td>
-        <td><b>68 μg&#x2F;m3</b></td>
-        <td><b>39 μg&#x2F;m3</b></td>
+        <td><b>81%</b></td>
+        <td><b>38 μg&#x2F;m3</b></td>
+        <td><b>22 μg&#x2F;m3</b></td>
     </tr>
 </table>
 
@@ -129,7 +129,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Thursday, January 18 at 2:12 AM GMT+1</b>
+Last refresh: <b>Thursday, January 18 at 10:47 AM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

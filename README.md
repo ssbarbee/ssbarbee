@@ -42,13 +42,13 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
         <th>Air quality (PM25)</th>
     </tr>
     <tr>
-        <td><b>scattered clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;03n.png></td>
-        <td><b>3°C</b></td>
-        <td><b>06:59 AM</b></td>
-        <td><b>04:28 PM</b></td>
-        <td><b>81%</b></td>
-        <td><b>111 μg&#x2F;m3</b></td>
-        <td><b>63 μg&#x2F;m3</b></td>
+        <td><b>broken clouds</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;04n.png></td>
+        <td><b>4°C</b></td>
+        <td><b>06:58 AM</b></td>
+        <td><b>04:29 PM</b></td>
+        <td><b>70%</b></td>
+        <td><b>68 μg&#x2F;m3</b></td>
+        <td><b>39 μg&#x2F;m3</b></td>
     </tr>
 </table>
 
@@ -129,7 +129,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Wednesday, January 17 at 7:20 PM GMT+1</b>
+Last refresh: <b>Thursday, January 18 at 2:12 AM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

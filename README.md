@@ -43,12 +43,12 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
     </tr>
     <tr>
         <td><b>clear sky</b><img width="15" src=https:&#x2F;&#x2F;openweathermap.org&#x2F;img&#x2F;w&#x2F;01n.png></td>
-        <td><b>7°C</b></td>
-        <td><b>06:42 AM</b></td>
-        <td><b>04:54 PM</b></td>
-        <td><b>65%</b></td>
-        <td><b>63 μg&#x2F;m3</b></td>
-        <td><b>35 μg&#x2F;m3</b></td>
+        <td><b>-1°C</b></td>
+        <td><b>06:41 AM</b></td>
+        <td><b>04:55 PM</b></td>
+        <td><b>86%</b></td>
+        <td><b>70 μg&#x2F;m3</b></td>
+        <td><b>40 μg&#x2F;m3</b></td>
     </tr>
 </table>
 
@@ -129,7 +129,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Tuesday, February 6 at 7:16 PM GMT+1</b>
+Last refresh: <b>Wednesday, February 7 at 2:05 AM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

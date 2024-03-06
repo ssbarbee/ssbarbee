@@ -6,8 +6,8 @@ const MUSTACHE_MAIN_DIR = './main.mustache';
 
 interface Data {
     refreshTime: string;
-    city_temperature?: number;
-    feels_like_temp?: number;
+    city_temperature?: string;
+    feels_like_temp?: string;
     city_weather?: string;
     weather_icon?: string;
     humidity?: number;
@@ -17,7 +17,7 @@ interface Data {
     pm25?: string;
 }
 
-let DATA: Data = {
+const DATA: Data = {
     refreshTime: new Date().toLocaleDateString('en-US', {
         weekday: 'long',
         month: 'long',
@@ -25,8 +25,8 @@ let DATA: Data = {
         hour: 'numeric',
         minute: 'numeric',
         timeZoneName: 'short',
-        timeZone: 'Europe/Skopje',
-    }),
+        timeZone: 'Europe/Skopje'
+    })
 };
 
 async function setWeatherInformation(): Promise<void> {
@@ -35,21 +35,34 @@ async function setWeatherInformation(): Promise<void> {
     );
     const weatherData = await response.json();
 
-    DATA.city_temperature = Math.round(weatherData.main.temp);
-    DATA.feels_like_temp = Math.round(weatherData.main.feels_like);
-    DATA.city_weather = weatherData.weather[0].description;
-    DATA.weather_icon = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
-    DATA.humidity = weatherData.main.humidity;
-    DATA.sun_rise = new Date(weatherData.sys.sunrise * 1000).toLocaleString('en-US', {
+    const weatherMain = weatherData.main;
+    const weatherElement = weatherData.weather[0];
+    const weatherSys = weatherData.sys;
+
+    const temp = weatherMain?.temp;
+    const feelsLike = weatherMain?.feels_like;
+    const description = weatherElement?.description;
+    const humidity = weatherMain?.humidity;
+    const sunrise = weatherSys?.sunrise;
+    const sunset = weatherSys?.sunset;
+
+    const defaultValue = '---';
+
+    DATA.city_temperature = !temp ? defaultValue : Math.round(temp).toString();
+    DATA.feels_like_temp = !feelsLike ? defaultValue : Math.round(feelsLike).toString();
+    DATA.city_weather = description || defaultValue;
+    DATA.weather_icon = `https://openweathermap.org/img/w/${weatherElement.icon}.png`;
+    DATA.humidity = humidity || defaultValue;
+    DATA.sun_rise = sunrise ? new Date(sunrise * 1000).toLocaleString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
         timeZone: 'Europe/Skopje',
-    });
-    DATA.sun_set = new Date(weatherData.sys.sunset * 1000).toLocaleString('en-US', {
+    }) : defaultValue;
+    DATA.sun_set = sunset ? new Date(sunset * 1000).toLocaleString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
         timeZone: 'Europe/Skopje',
-    });
+    }) : defaultValue;
 }
 
 async function setPollutionData(): Promise<void> {

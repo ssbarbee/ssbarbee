@@ -20,6 +20,7 @@
   },
   "scripts": {
     "update": "ts-node src/index.ts",
+    "test-weather": "TEST_WEATHER=yes ts-node src/services/weather.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier:fix": "prettier --log-level silent --write './src/**/*.{ts,tsx}' './.storybook/**/*.{ts,tsx}'"
   },

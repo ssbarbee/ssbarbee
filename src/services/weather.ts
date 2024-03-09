@@ -47,7 +47,15 @@ function mapWeatherCodeToDescription(code: number): string {
 }
 
 export const getWeather = async () => {
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=42&longitude=21.42&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m&daily=sunrise,sunset&timezone=Europe%2FSkopje`;
+  const baseApiUrl = 'https://api.open-meteo.com/v1/forecast';
+  const latitude = '42';
+  const longitude = '21.42';
+  const hourlyParams =
+    'temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,surface_pressure,wind_speed_10m,wind_direction_10m';
+  const dailyParams = 'sunrise,sunset';
+  const timezone = 'Europe/Skopje';
+
+  const url = `${baseApiUrl}?latitude=${latitude}&longitude=${longitude}&current=${hourlyParams}&daily=${dailyParams}&timezone=${timezone}`;
   const response = await fetch(url);
   const data = await response.json();
   const { current, daily } = data;
@@ -76,3 +84,10 @@ export const getWeather = async () => {
 
   return weatherData;
 };
+if (process.env.TEST_WEATHER) {
+  (async () => {
+    if (process.env.TEST_WEATHER) {
+      console.log(await getWeather());
+    }
+  })();
+}

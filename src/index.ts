@@ -7,7 +7,7 @@ const MUSTACHE_MAIN_DIR = './main.mustache';
 
 interface Data {
   refreshTime: string;
-  city_temperature?: string;
+  temperature?: string;
   feelsLike?: string;
   weatherDescription?: string;
   humidity?: string;
@@ -41,7 +41,7 @@ async function setWeatherInformation(): Promise<void> {
   } = await getWeather();
 
   const defaultValue = '---';
-  DATA.city_temperature = !temp ? defaultValue : Math.round(temp).toString();
+  DATA.temperature = !temp ? defaultValue : Math.round(temp).toString();
   DATA.feelsLike = !feelsLike ? defaultValue : Math.round(feelsLike).toString();
   DATA.weatherDescription = description || defaultValue;
   DATA.humidity = humidity.toString() || defaultValue;

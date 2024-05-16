@@ -19,12 +19,13 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 ## 🧐 More About Me:
 
-- 🔭 I’m currently working for Reya Labs
+- 🔭 I’m currently working for Reya Labs [https://reya.xyz/](https://reya.xyz/)
 - 🤝 I’m looking to collaborate on Open Source Projects
 - 🌱 I’m currently learning NextJS, NestJS, PixiJS & Monkey C;
 - 👨🏻‍💻 Most of my projects are available on [Github](https://github.com/ssbarbee?tab=repositories)
-- 💬 Ask me about anything tech related, I am happy to help (if you have questions with linux you can ask me🐧);
+- 💬 Ask me about anything tech related, I am happy to help with Frontend stuff 🐧;
 - 📫 Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/filip-bozhinovski-306464122/)
+- 👨‍💻 I am also on [StackOverflow!](https://stackoverflow.com/users/1861016/ssbarbee)
 - 🏃 When I am free, I like jogging and doing half-marathons
 - ♞ I also enjoy playing chess! You can find me over at [chess.com](https://www.chess.com/member/ssbarbe_e)
 

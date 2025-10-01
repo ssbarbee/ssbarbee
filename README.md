@@ -19,9 +19,8 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 ## 🧐 More About Me:
 
-- 🔭 I’m currently working for Reya Labs [https://reya.xyz/](https://reya.xyz/)
 - 🤝 I’m looking to collaborate on Open Source Projects
-- 🌱 I’m currently learning NextJS, NestJS, PixiJS & Monkey C;
+- 🌱 I’m currently learning Tanstack Router, Zod, Zustand;
 - 👨🏻‍💻 Most of my projects are available on [Github](https://github.com/ssbarbee?tab=repositories)
 - 💬 Ask me about anything tech related, I am happy to help with Frontend stuff 🐧;
 - 📫 Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/filip-bozhinovski-306464122/)
@@ -44,18 +43,19 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
     </tr>
     <tr>
         <td><b>Rain: Slight, moderate and heavy intensity</b></td>
-        <td><b>14°C</b></td>
+        <td><b>12°C</b></td>
         <td><b>06:31</b></td>
         <td><b>18:16</b></td>
-        <td><b>66%</b></td>
-        <td><b>6 μg&#x2F;m3</b></td>
-        <td><b>4 μg&#x2F;m3</b></td>
+        <td><b>71%</b></td>
+        <td><b>5 μg&#x2F;m3</b></td>
+        <td><b>3 μg&#x2F;m3</b></td>
     </tr>
 </table>
 
 ### Languages/Frameworks I'm great at:
 <p>
     <code><a href="https://reactjs.org/"><img alt="ReactJS" title="ReactJS" src="./assets/react.png" height="42"></a></code>
+    <code><a href="https://nextjs.org/"><img alt="NextJS" title="NextJS" src="./assets/nextjs.png" height="42"></a></code>
     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img alt="JavaScript" title="JavaScript" src="./assets/js.png" height="42"></a></code>
     <code><a href="https://nodejs.org/en"><img alt="NodeJS" title="NodeJS" src="./assets/nodejs.jpeg" height="42"></a></code>
     <code><a href="https://docs.nestjs.com/"><img alt="NestJS" title="NestJS" src="assets/nestjs.png" height="42"></a></code>
@@ -69,7 +69,6 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 ### Languages/Frameworks I'm good at:
 <p>
-    <code><a href="https://nextjs.org/"><img alt="NextJS" title="NextJS" src="./assets/nextjs.png" height="42"></a></code>
     <code><a href="https://pixijs.com/guides"><img alt="PixiJS" title="PixiJS" src="./assets/pixijs.png" height="42"></a></code>
     <code><a href="https://dotnet.microsoft.com/en-us/"><img alt="C#" title="Dotnet" src="./assets/csharp.png" height="42"></a></code>
     <code><a href="https://www.jenkins.io/"><img alt="Jenkins" title="Jenkins" src="./assets/jenkins.jpeg" height="42"></a></code>
@@ -130,7 +129,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Wednesday, October 1 at 8:31 PM GMT+2</b>
+Last refresh: <b>Wednesday, October 1 at 10:23 PM GMT+2</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

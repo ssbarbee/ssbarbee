@@ -42,13 +42,13 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
         <th>Air quality (PM25)</th>
     </tr>
     <tr>
-        <td><b>Clear sky</b></td>
+        <td><b>Mainly clear, partly cloudy, and overcast</b></td>
         <td><b>1°C</b></td>
         <td><b>07:00</b></td>
-        <td><b>16:24</b></td>
-        <td><b>44%</b></td>
-        <td><b>27 μg&#x2F;m3</b></td>
-        <td><b>20 μg&#x2F;m3</b></td>
+        <td><b>16:25</b></td>
+        <td><b>50%</b></td>
+        <td><b>35 μg&#x2F;m3</b></td>
+        <td><b>25 μg&#x2F;m3</b></td>
     </tr>
 </table>
 
@@ -98,11 +98,11 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <!-- Github stats section -->
 ## 📊 Github stats
 
-<!-- Based on: https://github.com/anuraghazra/github-readme-stats -->
+<!-- Based on: https://github.com/stats-organization/github-readme-stats-action -->
 <p>
     <br/>
-    <a href="https://github.com/anuraghazra/github-readme-stats"><img alt="ssbarbee's Github Stats" src="https://github-readme-stats.vercel.app/api/?username=ssbarbee&show_icons=true&count_private=true&theme=react&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true&border_color=7cebf5&border_radius=10" height="192px"/></a>
-    <a href="https://github.com/anuraghazra/github-readme-stats"><img alt="ssbarbee's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ssbarbee&langs_count=8&layout=compact&theme=react&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true&border_color=7cebf5&border_radius=10" height="192px"/></a>
+    <img alt="ssbarbee's Github Stats" src="./profile/stats.svg" height="192px"/>
+    <img alt="ssbarbee's Top Languages" src="./profile/top-langs.svg" height="192px"/>
     <br/>
     <b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
 </p>
@@ -110,19 +110,19 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 <!-- Projects section -->
 ## 📘 My top open source projects
 
-<!-- Based on: Repo info cards - https://github.com/anuraghazra/github-readme-stats -->
+<!-- Based on: Repo info cards - https://github.com/stats-organization/github-readme-stats-action -->
 <p style="widht: 100%;">
-    <a href="https://github.com/ssbarbee/react-metamask-avatar"><img align="left" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=react-metamask-avatar&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
-    <a href="https://github.com/ssbarbee/app-store-ratings"><img align="right" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=app-store-ratings&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
+    <a href="https://github.com/ssbarbee/react-metamask-avatar"><img align="left" width="45%" height="150px" src="./profile/pin-react-metamask-avatar.svg" alt="react-metamask-avatar"></a>
+    <a href="https://github.com/ssbarbee/app-store-ratings"><img align="right" width="45%" height="150px" src="./profile/pin-app-store-ratings.svg" alt="app-store-ratings"></a>
 </p>
 <p>&#8192;</p>
 <p style="widht: 100%;">
-    <a href="https://github.com/ssbarbee/iap-apple"><img align="right" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin?username=ssbarbee&repo=iap-apple&theme=react&border_color=7cebf5&border_radius=10&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true" alt="custom-icon-badges"></a>
-    <a href="https://github.com/ssbarbee/pixijs-adventure"><img align="left" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin/?username=ssbarbee&repo=pixijs-adventure&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&theme=react&border_color=7cebf5&border_radius=10&show_icons=true" alt="readme-typing-svg"></a>
+    <a href="https://github.com/ssbarbee/iap-apple"><img align="right" width="45%" height="150px" src="./profile/pin-iap-apple.svg" alt="iap-apple"></a>
+    <a href="https://github.com/ssbarbee/pixijs-adventure"><img align="left" width="45%" height="150px" src="./profile/pin-pixijs-adventure.svg" alt="pixijs-adventure"></a>
 </p>
 <p>&#8192;</p>
 <p style="widht: 100%;">
-    <a href="https://github.com/ssbarbee/pulse-eco-garmin-widget"><img align="right" width="45%" height="150px" src="https://github-readme-stats.vercel.app/api/pin?username=ssbarbee&repo=pulse-eco-garmin-widget&theme=react&border_color=7cebf5&border_radius=10&bg_color=1F222E&title_color=7cebf5&icon_color=2d7de4&show_icons=true" alt="custom-icon-badges"></a>
+    <a href="https://github.com/ssbarbee/pulse-eco-garmin-widget"><img align="right" width="45%" height="150px" src="./profile/pin-pulse-eco-garmin-widget.svg" alt="pulse-eco-garmin-widget"></a>
 </p>
 
 <p>&#8192;</p>
@@ -143,7 +143,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Monday, January 12 at 4:16 PM GMT+1</b>
+Last refresh: <b>Tuesday, January 13 at 1:07 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

@@ -83,5 +83,7 @@ jobs:
         run: |-
           git config --global user.name "ssbarbee"
           git config --global user.email "ssbarbee@gmail.com"
-          git commit -a -m "chore: content update" || exit 0
+          git add profile/
+          git add README.md
+          git commit -m "chore: content update" || exit 0
           git push

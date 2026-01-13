@@ -48,7 +48,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
         <td><b>16:25</b></td>
         <td><b>51%</b></td>
         <td><b>38 μg&#x2F;m3</b></td>
-        <td><b>28 μg&#x2F;m3</b></td>
+        <td><b>29 μg&#x2F;m3</b></td>
     </tr>
 </table>
 
@@ -118,29 +118,32 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 </p>
 
 <!-- Projects section -->
-## 📘 My top open source projects
+## 📘 My top open source projects <a href="https://github.com/ssbarbee?tab=repositories"><img alt="All Repositories" title="All Repositories" src="https://custom-icon-badges.herokuapp.com/badge/-All%20Repos-2962FF?style=for-the-badge&logoColor=white&logo=repo"/></a>
 
-<!-- Based on: Repo info cards - https://github.com/stats-organization/github-readme-stats-action -->
-<p style="widht: 100%;">
-    <a href="https://github.com/ssbarbee/react-metamask-avatar"><img align="left" width="45%" height="150px" src="./profile/pin-react-metamask-avatar.svg" alt="react-metamask-avatar"></a>
-    <a href="https://github.com/ssbarbee/app-store-ratings"><img align="right" width="45%" height="150px" src="./profile/pin-app-store-ratings.svg" alt="app-store-ratings"></a>
-</p>
-<p>&#8192;</p>
-<p style="widht: 100%;">
-    <a href="https://github.com/ssbarbee/iap-apple"><img align="right" width="45%" height="150px" src="./profile/pin-iap-apple.svg" alt="iap-apple"></a>
-    <a href="https://github.com/ssbarbee/pixijs-adventure"><img align="left" width="45%" height="150px" src="./profile/pin-pixijs-adventure.svg" alt="pixijs-adventure"></a>
-</p>
-<p>&#8192;</p>
-<p style="widht: 100%;">
-    <a href="https://github.com/ssbarbee/pulse-eco-garmin-widget"><img align="right" width="45%" height="150px" src="./profile/pin-pulse-eco-garmin-widget.svg" alt="pulse-eco-garmin-widget"></a>
-</p>
-
-<p>&#8192;</p>
-<p>&#8192;</p>
-
-<p align="left">
-    <a href="https://github.com/ssbarbee?tab=repositories"><img alt="All Repositories" title="All Repositories" src="https://custom-icon-badges.herokuapp.com/badge/-All%20Repos-2962FF?style=for-the-badge&logoColor=white&logo=repo"/></a>
-</p>
+<table>
+  <tr>
+    <td width="50%">
+      <a href="https://github.com/ssbarbee/react-metamask-avatar"><img src="./profile/pin-react-metamask-avatar.svg" alt="react-metamask-avatar" width="100%"></a>
+    </td>
+    <td width="50%">
+      <a href="https://github.com/ssbarbee/app-store-ratings"><img src="./profile/pin-app-store-ratings.svg" alt="app-store-ratings" width="100%"></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <a href="https://github.com/ssbarbee/pixijs-adventure"><img src="./profile/pin-pixijs-adventure.svg" alt="pixijs-adventure" width="100%"></a>
+    </td>
+    <td width="50%">
+      <a href="https://github.com/ssbarbee/iap-apple"><img src="./profile/pin-iap-apple.svg" alt="iap-apple" width="100%"></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <a href="https://github.com/ssbarbee/pulse-eco-garmin-widget"><img src="./profile/pin-pulse-eco-garmin-widget.svg" alt="pulse-eco-garmin-widget" width="100%"></a>
+    </td>
+    <td width="50%"></td>
+  </tr>
+</table>
 
 <!-- last activity section -->
 
@@ -153,7 +156,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Tuesday, January 13 at 1:42 PM GMT+1</b>
+Last refresh: <b>Tuesday, January 13 at 1:43 PM GMT+1</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

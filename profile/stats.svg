@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">ssbarbee's GitHub Stats, Rank: A-</title>
-        <desc id="descId">Total Stars Earned: 23, Total Commits  (last year) : 1155, Total PRs: 297, Total Issues: 8, Contributed to (last year): 1</desc>
+        <desc id="descId">Total Stars Earned: 23, Total Commits  (last year) : 1157, Total PRs: 297, Total Issues: 8, Contributed to (last year): 1</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 90.03296632082107;
+        stroke-dashoffset: 90.02354651579323;
       }
     }
   

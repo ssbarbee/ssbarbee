@@ -1,6 +1,7 @@
 import type { Theme } from '../config';
 
-const FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif";
+export const FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif";
+export const MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
 
 const style = (theme: Theme) => `
   .header { font: 600 18px ${FONT}; fill: ${theme.title}; }
@@ -109,15 +110,25 @@ interface FrameOptions {
   description: string;
   theme: Theme;
   body: string[];
+  // Extra card-specific CSS, such as animations.
+  css?: string;
 }
 
 // A themed card background; the title is only announced to screen readers.
-export function renderFrame({ width, height, title, description, theme, body }: FrameOptions) {
+export function renderFrame({
+  width,
+  height,
+  title,
+  description,
+  theme,
+  body,
+  css = '',
+}: FrameOptions) {
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" role="img" aria-labelledby="title desc">`,
     `<title id="title">${escapeXml(title)}</title>`,
     `<desc id="desc">${escapeXml(description)}</desc>`,
-    `<style>${style(theme)}</style>`,
+    `<style>${style(theme)}${css}</style>`,
     `<rect x="0.5" y="0.5" rx="6" width="${width - 1}" height="${height - 1}" fill="${theme.background}" stroke="${theme.border}"/>`,
     ...body,
     '</svg>',

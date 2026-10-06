@@ -10,8 +10,27 @@ function formatReading(value: number | null, unit: string): string {
   return value === null ? NOT_AVAILABLE : `${Math.round(value)} ${unit}`;
 }
 
-function formatRounded(value: number, unit: string): string {
+export function formatRounded(value: number, unit: string): string {
   return Number.isFinite(value) ? `${Math.round(value)}${unit}` : NOT_AVAILABLE;
+}
+
+// Rough widths of the 48px temperature glyphs, used to place the weather icon after the reading.
+const TEMPERATURE_GLYPHS: Record<string, number> = {
+  '-': 17,
+  '°': 19,
+  C: 34,
+  n: 28,
+  '/': 16,
+  a: 27,
+};
+const ICON = { size: 64, gap: 10, maxX: 231 - 64 };
+
+function iconX(temperature: string): number {
+  const width = Array.from(temperature).reduce(
+    (sum, glyph) => sum + (TEMPERATURE_GLYPHS[glyph] ?? 28),
+    0,
+  );
+  return Math.min(ICON.maxX, Math.round(25 + width + ICON.gap));
 }
 
 export function renderSkopjeCard(conditions: SkopjeConditions, theme: Theme): string {
@@ -37,7 +56,7 @@ export function renderSkopjeCard(conditions: SkopjeConditions, theme: Theme): st
     body: [
       `<text class="label muted" x="442" y="35" text-anchor="end">Updated ${escapeXml(conditions.updatedAt)}</text>`,
       `<text class="temperature" x="25" y="108">${temperature}</text>`,
-      weatherIcon(conditions.weatherCode, conditions.isDay, theme, 150, 58),
+      weatherIcon(conditions.weatherCode, conditions.isDay, theme, iconX(temperature), 58),
       `<text class="description" x="27" y="134">${escapeXml(conditions.condition)}</text>`,
       `<text class="label muted" x="27" y="153">Feels like ${formatRounded(conditions.feelsLike, '°C')}</text>`,
       `<rect x="25" y="164" rx="11" width="${pillWidth}" height="22" fill="${qualityColor}" fill-opacity="0.2"/>`,

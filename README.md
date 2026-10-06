@@ -1,7 +1,7 @@
 <!-- Cards in profile/light and profile/dark are rendered daily by src/cards; <picture> picks the one matching the viewer's GitHub theme. -->
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/banner.svg">
-  <img alt="Filip Bozhinovski, frontend engineer from Skopje, North Macedonia" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/banner.svg" width="100%">
+  <img alt="Filip Bozhinovski, product engineer from Skopje, North Macedonia" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/banner.svg" width="100%">
 </picture>
 
 <p>
@@ -104,7 +104,7 @@
 
 <hr>
 
-<sub>Refreshed daily by GitHub Actions · Last refresh: Tuesday, October 6 at 9:53 PM GMT+2</sub>
+<sub>Refreshed daily by GitHub Actions · Last refresh: Tuesday, October 6 at 10:29 PM GMT+2</sub>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

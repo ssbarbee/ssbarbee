@@ -7,7 +7,8 @@
   .rank { font: 800 24px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #1f2328; }
   .description { font: 400 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #1f2328; }
   .label { font: 400 12px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #1f2328; }
-  .small { font: 400 10px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #59636e; }
+  .body { font: 400 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #1f2328; }
+  .small { font: 400 11px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #59636e; }
   .name { font: 700 40px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #1f2328; }
   .role { font: 400 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #0b7285; }
   .meta { font: 400 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #59636e; }

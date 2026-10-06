@@ -1,49 +1,37 @@
-function mapWeatherCodeToDescription(code: number): string {
-  switch (code) {
-    case 0:
-      return 'Clear sky';
-    case 1:
-    case 2:
-    case 3:
-      return 'Mainly clear, partly cloudy, and overcast';
-    case 45:
-    case 48:
-      return 'Fog and depositing rime fog';
-    case 51:
-    case 53:
-    case 55:
-      return 'Drizzle: Light, moderate, and dense intensity';
-    case 56:
-    case 57:
-      return 'Freezing Drizzle: Light and dense intensity';
-    case 61:
-    case 63:
-    case 65:
-      return 'Rain: Slight, moderate and heavy intensity';
-    case 66:
-    case 67:
-      return 'Freezing Rain: Light and heavy intensity';
-    case 71:
-    case 73:
-    case 75:
-      return 'Snow fall: Slight, moderate, and heavy intensity';
-    case 77:
-      return 'Snow grains';
-    case 80:
-    case 81:
-    case 82:
-      return 'Rain showers: Slight, moderate, and violent';
-    case 85:
-    case 86:
-      return 'Snow showers slight and heavy';
-    case 95:
-      return 'Thunderstorm: Slight or moderate';
-    case 96:
-    case 99:
-      return 'Thunderstorm with slight and heavy hail';
-    default:
-      return 'Unknown weather condition';
-  }
+// Short labels for WMO weather interpretation codes, as returned by open-meteo.
+const WEATHER_LABELS: Record<number, string> = {
+  0: 'Clear sky',
+  1: 'Mainly clear',
+  2: 'Partly cloudy',
+  3: 'Overcast',
+  45: 'Fog',
+  48: 'Fog',
+  51: 'Drizzle',
+  53: 'Drizzle',
+  55: 'Drizzle',
+  56: 'Freezing drizzle',
+  57: 'Freezing drizzle',
+  61: 'Light rain',
+  63: 'Rain',
+  65: 'Heavy rain',
+  66: 'Freezing rain',
+  67: 'Freezing rain',
+  71: 'Light snow',
+  73: 'Snow',
+  75: 'Heavy snow',
+  77: 'Snow grains',
+  80: 'Rain showers',
+  81: 'Rain showers',
+  82: 'Rain showers',
+  85: 'Snow showers',
+  86: 'Snow showers',
+  95: 'Thunderstorm',
+  96: 'Thunderstorm with hail',
+  99: 'Thunderstorm with hail',
+};
+
+export function describeWeatherCode(code: number): string {
+  return WEATHER_LABELS[code] ?? 'Unknown';
 }
 
 export const getWeather = async () => {
@@ -56,12 +44,16 @@ export const getWeather = async () => {
   const timezone = 'Europe/Skopje';
 
   const url = `${baseApiUrl}?latitude=${latitude}&longitude=${longitude}&current=${hourlyParams}&daily=${dailyParams}&timezone=${timezone}`;
-  const response = await fetch(url);
+  const response = await fetch(url, { signal: AbortSignal.timeout(30000) });
+  if (!response.ok) {
+    throw new Error(`open-meteo responded with ${response.status} ${response.statusText}`);
+  }
   const data = await response.json();
   const { current, daily } = data;
 
   const weatherData = {
     current: {
+      time: current.time as string,
       temperature2m: current.temperature_2m,
       relativeHumidity2m: current.relative_humidity_2m,
       apparentTemperature: current.apparent_temperature,
@@ -74,7 +66,7 @@ export const getWeather = async () => {
       surfacePressure: current.surface_pressure,
       windSpeed10m: current.wind_speed_10m,
       windDirection10m: current.wind_direction_10m,
-      description: mapWeatherCodeToDescription(current.weather_code),
+      description: describeWeatherCode(current.weather_code),
     },
     daily: {
       sunrise: daily.sunrise[0].split('T')[1],

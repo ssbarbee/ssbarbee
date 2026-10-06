@@ -29,6 +29,8 @@ const conditions: SkopjeConditions = {
   temperature: 21.4,
   feelsLike: 19.6,
   condition: 'Partly cloudy',
+  weatherCode: 2,
+  isDay: true,
   humidity: 25,
   sunrise: '06:36',
   sunset: '18:07',

@@ -5,6 +5,8 @@ export interface SkopjeConditions {
   temperature: number;
   feelsLike: number;
   condition: string;
+  weatherCode: number;
+  isDay: boolean;
   humidity: number;
   sunrise: string;
   sunset: string;
@@ -65,6 +67,8 @@ export async function fetchSkopjeConditions(): Promise<SkopjeConditions> {
     temperature: weather.current.temperature2m,
     feelsLike: weather.current.apparentTemperature,
     condition: weather.current.description,
+    weatherCode: weather.current.weatherCode,
+    isDay: weather.current.isDay,
     humidity: weather.current.relativeHumidity2m,
     sunrise: weather.daily.sunrise,
     sunset: weather.daily.sunset,

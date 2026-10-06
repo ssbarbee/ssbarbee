@@ -1,6 +1,8 @@
 import type { Theme } from '../config';
 import { airQuality, type SkopjeConditions } from '../skopje';
 import { CHAR_WIDTH, GRID_CARD, escapeXml, renderCard, textLength } from './common';
+import { REDUCED_MOTION } from './motion';
+import { WEATHER_CSS, weatherIcon } from './weather-icons';
 
 const NOT_AVAILABLE = 'n/a';
 
@@ -30,10 +32,12 @@ export function renderSkopjeCard(conditions: SkopjeConditions, theme: Theme): st
     theme,
     ...GRID_CARD,
     title: 'Skopje right now',
+    css: WEATHER_CSS + REDUCED_MOTION,
     description: `${temperature}, ${conditions.condition}. ${qualityLabel}.`,
     body: [
       `<text class="label muted" x="442" y="35" text-anchor="end">Updated ${escapeXml(conditions.updatedAt)}</text>`,
       `<text class="temperature" x="25" y="108">${temperature}</text>`,
+      weatherIcon(conditions.weatherCode, conditions.isDay, theme, 150, 58),
       `<text class="description" x="27" y="134">${escapeXml(conditions.condition)}</text>`,
       `<text class="label muted" x="27" y="153">Feels like ${formatRounded(conditions.feelsLike, '°C')}</text>`,
       `<rect x="25" y="164" rx="11" width="${pillWidth}" height="22" fill="${qualityColor}" fill-opacity="0.2"/>`,

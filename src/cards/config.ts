@@ -3,7 +3,7 @@ export const USERNAME = 'ssbarbee';
 // Text of the banner at the top of the README.
 export const PROFILE = {
   name: 'Filip Bozhinovski',
-  role: 'Frontend engineer · TypeScript & React',
+  role: 'Product Engineer · Frontend-first · TypeScript & React',
   location: 'Skopje, North Macedonia · @ssbarbee',
 };
 

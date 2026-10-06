@@ -43,12 +43,12 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
     </tr>
     <tr>
         <td><b>Mainly clear, partly cloudy, and overcast</b></td>
-        <td><b>22°C</b></td>
+        <td><b>21°C</b></td>
         <td><b>06:36</b></td>
         <td><b>18:07</b></td>
         <td><b>25%</b></td>
-        <td><b>12 μg&#x2F;m3</b></td>
-        <td><b>6 μg&#x2F;m3</b></td>
+        <td><b>13 μg&#x2F;m3</b></td>
+        <td><b>7 μg&#x2F;m3</b></td>
     </tr>
 </table>
 
@@ -118,7 +118,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 </p>
 
 <!-- Projects section -->
-## 📘 My top open source projects <a href="https://github.com/ssbarbee?tab=repositories"><img alt="All Repositories" title="All Repositories" src="https://custom-icon-badges.herokuapp.com/badge/-All%20Repos-2962FF?style=for-the-badge&logoColor=white&logo=repo"/></a>
+## 📘 My top open source projects <a href="https://github.com/ssbarbee?tab=repositories"><img alt="All Repositories" title="All Repositories" src="https://custom-icon-badges.demolab.com/badge/-All%20Repos-2962FF?style=for-the-badge&logoColor=white&logo=repo"/></a>
 
 <table>
   <tr>
@@ -156,7 +156,7 @@ If you're seeking someone with a positive attitude, a thirst for knowledge, and 
 
 <!-- last refresh of readme section -->
 
-Last refresh: <b>Tuesday, October 6 at 6:24 PM GMT+2</b>
+Last refresh: <b>Tuesday, October 6 at 6:31 PM GMT+2</b>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

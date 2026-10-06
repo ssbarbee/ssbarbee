@@ -17,9 +17,11 @@ function generateReadMe(): void {
   });
   // The About card is an image, so its points also go into the alt text for screen readers.
   const about = PROFILE.about.join('; ');
+  // Changes on every refresh so the card URLs change and browsers skip their cached copies.
+  const cacheKey = new Date().toISOString().slice(0, 16).replace(/\D/g, '');
   writeFileSync(
     'README.md',
-    render(readFileSync(MUSTACHE_MAIN_DIR, 'utf8'), { refreshTime, about }),
+    render(readFileSync(MUSTACHE_MAIN_DIR, 'utf8'), { refreshTime, about, cacheKey }),
   );
 }
 

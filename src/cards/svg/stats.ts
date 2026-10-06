@@ -1,7 +1,7 @@
 import type { Theme } from '../config';
 import type { UserStats } from '../github';
 import { calculateRank } from '../rank';
-import { ICONS, escapeXml, formatNumber, icon, renderCard } from './common';
+import { GRID_CARD, ICONS, escapeXml, formatNumber, icon, renderCard } from './common';
 
 const RANK = { x: 380.5, y: 110.5, radius: 40 };
 
@@ -19,8 +19,7 @@ export function renderStatsCard(stats: UserStats, theme: Theme): string {
 
   return renderCard({
     theme,
-    width: 467,
-    height: 195,
+    ...GRID_CARD,
     title: `${stats.name || stats.login}'s GitHub Stats`,
     description: [
       ...rows.map(({ label, value }) => `${label} ${value}`),

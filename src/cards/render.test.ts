@@ -1,11 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { THEMES } from './config';
-import type { ContributionDay, Repo, UserStats } from './github';
+import type { ContributionDay, UserStats } from './github';
 import type { SkopjeConditions } from './skopje';
+import { renderAboutCard } from './svg/about';
 import { renderBanner } from './svg/banner';
 import { escapeXml, formatNumber, wrapText } from './svg/common';
-import { renderPinCard } from './svg/pin';
 import { renderSkopjeCard } from './svg/skopje';
 import { renderStatsCard } from './svg/stats';
 import { renderTopLanguagesCard } from './svg/top-langs';
@@ -22,14 +22,6 @@ const stats: UserStats = {
   reviews: 0,
   contributedTo: 18,
   followers: 7,
-};
-
-const repo: Repo = {
-  name: 'iap-apple',
-  description: '📦 Integration of [Apple](https://apple.com) receipts & more',
-  stars: 7,
-  forks: 2,
-  language: { name: 'TypeScript', color: '#3178c6' },
 };
 
 const conditions: SkopjeConditions = {
@@ -108,7 +100,7 @@ test('renders top languages as percentages of the shown languages', () => {
     8,
   );
 
-  assert.match(svg, /^<svg [^>]*width="300" height="115"/);
+  assert.match(svg, /^<svg [^>]*width="467" height="195"/, 'every grid card has the same size');
   assert.ok(svg.includes('>TypeScript 75.00%</text>'));
   assert.ok(svg.includes('>Makefile 25.00%</text>'));
   assert.ok(
@@ -127,33 +119,6 @@ test('limits the languages card to the requested count', () => {
 
   assert.ok(svg.includes('>C '));
   assert.ok(!svg.includes('>D '));
-});
-
-test('renders a pin card with name, description, language, stars and forks', () => {
-  const svg = renderPinCard(repo, dark);
-
-  assert.match(svg, /^<svg [^>]*width="400" height="150"/);
-  assert.ok(svg.includes('>iap-apple</text>'));
-  assert.ok(svg.includes('📦 Integration of Apple receipts &amp; more'));
-  assert.ok(!svg.includes('](https'), 'markdown links are reduced to their text');
-  assert.ok(svg.includes('>TypeScript</text>'));
-  assert.ok(svg.includes('>7</text>'));
-  assert.ok(svg.includes('>2</text>'));
-});
-
-test('renders a pin card without description or language', () => {
-  const svg = renderPinCard({ ...repo, description: null, language: null }, dark);
-
-  assert.ok(svg.includes('No description provided'));
-  assert.ok(!svg.includes('<circle'));
-});
-
-test('limits long pin descriptions to three lines', () => {
-  const svg = renderPinCard({ ...repo, description: 'word '.repeat(100) }, dark);
-  const lines = svg.match(/<tspan /g) ?? [];
-
-  assert.equal(lines.length, 3);
-  assert.ok(svg.includes('…</tspan>'));
 });
 
 test('renders the banner with name, role, location and one cell per day', () => {
@@ -225,4 +190,42 @@ test('keeps the air quality pill clear of the readings for the longest level', (
   assert.ok(svg.includes('>Air quality: Extremely poor</text>'));
   assert.equal(readingBaselines.length, 5);
   assert.ok(Math.max(...readingBaselines) < pillTop, 'the pill sits below the last reading');
+});
+
+test('renders the About card with one line per point', () => {
+  const svg = renderAboutCard(['Exploring AI tooling', 'Half-marathons & chess'], light);
+
+  assert.match(svg, /^<svg [^>]*width="467" height="195"/, 'every grid card has the same size');
+  assert.ok(svg.includes('>About</text>'));
+  assert.ok(svg.includes('>Exploring AI tooling</text>'));
+  assert.ok(svg.includes('>Half-marathons &amp; chess</text>'));
+  assert.equal((svg.match(/<circle /g) ?? []).length, 2);
+});
+
+test('shortens About points that would run past the card edge', () => {
+  const svg = renderAboutCard(['word '.repeat(30)], dark);
+
+  assert.ok(svg.includes('…</text>'));
+});
+
+test('skips blank About points', () => {
+  const svg = renderAboutCard(['Exploring AI tooling', '  ', ''], dark);
+
+  assert.equal((svg.match(/<circle /g) ?? []).length, 1);
+});
+
+test('refuses more About points than the card can fit', () => {
+  assert.throws(() => renderAboutCard(['a', 'b', 'c', 'd', 'e'], dark), /at most 4/);
+});
+
+test('shows at most eight languages on the fixed-size card', () => {
+  const languages = Array.from({ length: 12 }, (_, i) => ({
+    name: `Lang${i}`,
+    color: '#000000',
+    size: 100 - i,
+  }));
+  const svg = renderTopLanguagesCard(languages, dark, 12);
+
+  assert.ok(svg.includes('>Lang7 '));
+  assert.ok(!svg.includes('>Lang8 '));
 });

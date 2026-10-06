@@ -1,6 +1,6 @@
 import type { Theme } from '../config';
 import { airQuality, type SkopjeConditions } from '../skopje';
-import { CHAR_WIDTH, escapeXml, renderCard, textLength } from './common';
+import { CHAR_WIDTH, GRID_CARD, escapeXml, renderCard, textLength } from './common';
 
 const NOT_AVAILABLE = 'n/a';
 
@@ -28,8 +28,7 @@ export function renderSkopjeCard(conditions: SkopjeConditions, theme: Theme): st
 
   return renderCard({
     theme,
-    width: 467,
-    height: 195,
+    ...GRID_CARD,
     title: 'Skopje right now',
     description: `${temperature}, ${conditions.condition}. ${qualityLabel}.`,
     body: [

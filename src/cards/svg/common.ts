@@ -8,7 +8,8 @@ const style = (theme: Theme) => `
   .rank { font: 800 24px ${FONT}; fill: ${theme.text}; }
   .description { font: 400 13px ${FONT}; fill: ${theme.text}; }
   .label { font: 400 12px ${FONT}; fill: ${theme.text}; }
-  .small { font: 400 10px ${FONT}; fill: ${theme.muted}; }
+  .body { font: 400 14px ${FONT}; fill: ${theme.text}; }
+  .small { font: 400 11px ${FONT}; fill: ${theme.muted}; }
   .name { font: 700 40px ${FONT}; fill: ${theme.text}; }
   .role { font: 400 18px ${FONT}; fill: ${theme.title}; }
   .meta { font: 400 14px ${FONT}; fill: ${theme.muted}; }
@@ -28,7 +29,6 @@ export const ICONS = {
   issue:
     'M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z',
   repo: 'M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z',
-  fork: 'M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z',
 };
 
 export function escapeXml(text: string): string {
@@ -47,6 +47,9 @@ export function formatNumber(value: number): string {
   const thousands = Math.round(value / 100) / 10;
   return thousands < 1000 ? `${thousands}k` : `${Math.round(value / 100000) / 10}M`;
 }
+
+// Size of every card in the README grid; two sit side by side at the same height.
+export const GRID_CARD = { width: 467, height: 195 };
 
 // Rough width of a 12px character, used to space text the SVG cannot measure.
 export const CHAR_WIDTH = 7;

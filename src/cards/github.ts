@@ -18,14 +18,6 @@ export interface Language {
   size: number;
 }
 
-export interface Repo {
-  name: string;
-  description: string | null;
-  stars: number;
-  forks: number;
-  language: { name: string; color: string | null } | null;
-}
-
 export type ContributionLevel =
   | 'NONE'
   | 'FIRST_QUARTILE'
@@ -106,18 +98,6 @@ const CONTRIBUTIONS_QUERY = `
           weeks { contributionDays { date contributionLevel } }
         }
       }
-    }
-  }
-`;
-
-const REPO_QUERY = `
-  query repo($owner: String!, $name: String!) {
-    repository(owner: $owner, name: $name) {
-      name
-      description
-      stargazerCount
-      forkCount
-      primaryLanguage { name color }
     }
   }
 `;
@@ -221,29 +201,6 @@ export function sumLanguages(repos: RepoLanguages[]): Language[] {
 
 export async function fetchTopLanguages(token: string, login: string): Promise<Language[]> {
   return sumLanguages(await fetchAllRepos<RepoLanguages>(token, TOP_LANGUAGES_QUERY, login));
-}
-
-export async function fetchRepo(token: string, owner: string, name: string): Promise<Repo> {
-  const { repository } = await graphql<{
-    repository: {
-      name: string;
-      description: string | null;
-      stargazerCount: number;
-      forkCount: number;
-      primaryLanguage: { name: string; color: string | null } | null;
-    } | null;
-  }>(token, REPO_QUERY, { owner, name });
-  if (!repository) {
-    throw new Error(`Repository ${owner}/${name} not found`);
-  }
-
-  return {
-    name: repository.name,
-    description: repository.description,
-    stars: repository.stargazerCount,
-    forks: repository.forkCount,
-    language: repository.primaryLanguage,
-  };
 }
 
 // The most recent weeks of the contribution calendar, oldest first.

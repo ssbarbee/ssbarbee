@@ -1,19 +1,17 @@
 export const USERNAME = 'ssbarbee';
 
-// Text of the banner at the top of the README.
+// Text of the banner and the About card at the top of the README.
 export const PROFILE = {
   name: 'Filip Bozhinovski',
   role: 'Product Engineer · Frontend-first · TypeScript & React',
   location: 'Skopje, North Macedonia · @ssbarbee',
+  about: [
+    'Exploring AI/ML tooling and integrations',
+    'Open to collaborating on open source',
+    'Ask me anything frontend: React, TypeScript, Next.js',
+    'Off the keyboard: half-marathons and chess',
+  ],
 };
-
-// Repositories rendered as project cards (profile/<theme>/pin-<name>.svg), in README order.
-export const PINNED_REPOS = [
-  'iap-apple',
-  'react-metamask-avatar',
-  'app-store-ratings',
-  'pulse-eco-garmin-widget',
-];
 
 export const LANGS_COUNT = 8;
 

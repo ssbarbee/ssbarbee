@@ -4,16 +4,15 @@ import {
   CONTRIBUTION_WEEKS,
   LANGS_COUNT,
   OUTPUT_DIR,
-  PINNED_REPOS,
   PROFILE,
   THEMES,
   USERNAME,
   type Theme,
 } from './config';
-import { fetchContributionWeeks, fetchRepo, fetchTopLanguages, fetchUserStats } from './github';
+import { fetchContributionWeeks, fetchTopLanguages, fetchUserStats } from './github';
 import { fetchSkopjeConditions } from './skopje';
+import { renderAboutCard } from './svg/about';
 import { renderBanner } from './svg/banner';
-import { renderPinCard } from './svg/pin';
 import { renderSkopjeCard } from './svg/skopje';
 import { renderStatsCard } from './svg/stats';
 import { renderTopLanguagesCard } from './svg/top-langs';
@@ -86,6 +85,7 @@ async function generateCards(): Promise<void> {
       () => fetchContributionWeeks(token, USERNAME, CONTRIBUTION_WEEKS),
       (weeks, theme) => renderBanner(PROFILE, weeks, theme),
     ),
+    card('about.svg', async () => PROFILE.about, renderAboutCard),
     // Weather comes from third-party APIs, so an outage should not fail the daily run.
     { ...card('skopje.svg', fetchSkopjeConditions, renderSkopjeCard), optional: true },
     card('stats.svg', () => fetchUserStats(token, USERNAME), renderStatsCard),
@@ -93,9 +93,6 @@ async function generateCards(): Promise<void> {
       'top-langs.svg',
       () => fetchTopLanguages(token, USERNAME),
       (languages, theme) => renderTopLanguagesCard(languages, theme, LANGS_COUNT),
-    ),
-    ...PINNED_REPOS.map((repo) =>
-      card(`pin-${repo}.svg`, () => fetchRepo(token, USERNAME, repo), renderPinCard),
     ),
   ];
 

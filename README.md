@@ -75,7 +75,7 @@
 
 <hr>
 
-<sub>Refreshed daily by GitHub Actions · Weather by <a href="https://open-meteo.com/">Open-Meteo</a> · Air quality by <a href="https://skopje.pulse.eco/">pulse.eco</a> · Last refresh: Tuesday, October 6 at 10:50 PM GMT+2</sub>
+<sub>Refreshed daily by GitHub Actions · Weather by <a href="https://open-meteo.com/">Open-Meteo</a> · Air quality by <a href="https://skopje.pulse.eco/">pulse.eco</a> · Last refresh: Tuesday, October 6 at 10:53 PM GMT+2</sub>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

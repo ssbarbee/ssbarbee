@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="467" height="195" viewBox="0 0 467 195" fill="none" role="img" aria-labelledby="title desc">
 <title id="title">Most Used Languages</title>
-<desc id="desc">TypeScript 79.92%, Monkey C 10.75%, JavaScript 4.69%, CSS 2.08%, Mustache 1.60%, Shell 0.41%, HTML 0.30%, Makefile 0.26%</desc>
+<desc id="desc">TypeScript 79.92%, Monkey C 10.74%, JavaScript 4.69%, CSS 2.08%, Mustache 1.60%, Shell 0.41%, HTML 0.30%, Makefile 0.26%</desc>
 <style>
   .header { font: 600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #0b7285; }
   .stat { font: 600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #1f2328; }
@@ -20,9 +20,9 @@
 <rect x="0.5" y="0.5" rx="6" width="466" height="194" fill="#f6f8fa" stroke="#d1d9e0"/>
 <text class="header" x="25" y="35">Most Used Languages</text>
 <clipPath id="bar"><rect x="25" y="55" width="417" height="8" rx="5"/></clipPath>
-<g clip-path="url(#bar)"><rect x="25" y="55" width="333.25272688256484" height="8" fill="#3178c6"/><rect x="358.25272688256484" y="55" width="44.816128899704594" height="8" fill="#8D6747"/><rect x="403.06885578226945" y="55" width="19.552199997260562" height="8" fill="#f1e05a"/><rect x="422.62105577953" y="55" width="8.689443574419125" height="8" fill="#663399"/><rect x="431.3104993539491" y="55" width="6.655116129356278" height="8" fill="#724b3b"/><rect x="437.9656154833054" y="55" width="1.691623710751839" height="8" fill="#89e051"/><rect x="439.65723919405724" y="55" width="1.2384932176072831" height="8" fill="#e34c26"/><rect x="440.89573241166454" y="55" width="1.1042675883354718" height="8" fill="#427819"/></g>
+<g clip-path="url(#bar)"><rect x="25" y="55" width="333.2823498805343" height="8" fill="#3178c6"/><rect x="358.2823498805343" y="55" width="44.800276585402585" height="8" fill="#8D6747"/><rect x="403.08262646593687" y="55" width="19.545284013500652" height="8" fill="#f1e05a"/><rect x="422.6279104794375" y="55" width="8.686369953514484" height="8" fill="#663399"/><rect x="431.314280432952" y="55" width="6.65276208863056" height="8" fill="#724b3b"/><rect x="437.9670425215825" y="55" width="1.6910253513798463" height="8" fill="#89e051"/><rect x="439.65806787296236" y="55" width="1.2380551390800112" height="8" fill="#e34c26"/><rect x="440.8961230120424" y="55" width="1.1038769879575812" height="8" fill="#427819"/></g>
 <circle cx="30" cy="86" r="5" fill="#3178c6"/><text class="label" x="40" y="90">TypeScript 79.92%</text>
-<circle cx="30" cy="111" r="5" fill="#8D6747"/><text class="label" x="40" y="115">Monkey C 10.75%</text>
+<circle cx="30" cy="111" r="5" fill="#8D6747"/><text class="label" x="40" y="115">Monkey C 10.74%</text>
 <circle cx="30" cy="136" r="5" fill="#f1e05a"/><text class="label" x="40" y="140">JavaScript 4.69%</text>
 <circle cx="30" cy="161" r="5" fill="#663399"/><text class="label" x="40" y="165">CSS 2.08%</text>
 <circle cx="250" cy="86" r="5" fill="#724b3b"/><text class="label" x="260" y="90">Mustache 1.60%</text>

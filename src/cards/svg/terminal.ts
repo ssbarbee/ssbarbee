@@ -1,6 +1,6 @@
 import type { Theme } from '../config';
 import { MONO, escapeXml, renderFrame, textLength } from './common';
-import { FADE_IN, REDUCED_MOTION, delay } from './motion';
+import { FADE_IN, REDUCED_MOTION, TYPING, delay } from './motion';
 
 export interface TerminalInfo {
   user: string;
@@ -36,8 +36,6 @@ const GLYPHS: Record<string, string[]> = {
 const MOTION_CSS = `
   .pixel { transform-box: fill-box; transform-origin: center; animation: pixel-in 0.4s ease-out both; }
   @keyframes pixel-in { from { opacity: 0; transform: scale(0.2); } }
-  .typing { transform-box: fill-box; transform-origin: right center; transform: scaleX(0); animation-name: typing; animation-fill-mode: both; }
-  @keyframes typing { from { transform: scaleX(1); } to { transform: scaleX(0); } }
   .cursor { animation: blink 1s steps(1) 6; }
   @keyframes blink { 50% { opacity: 0; } }
 `;
@@ -77,13 +75,17 @@ export function renderTerminalCard(
 ): string {
   const command = 'neofetch';
   const promptX = 24;
-  const commandX = promptX + 11.5 * CHAR;
+  const prompt = `${info.host} ~ ❯`;
+  const commandX = promptX + (textLength(prompt) + 1) * CHAR;
   const typingMs = command.length * 90;
   const outputStart = animated ? 500 + typingMs + 200 : 0;
   const textX = 260;
   const headerY = 98;
   const firstRowY = headerY + 30;
-  const height = firstRowY + info.rows.length * LINE + 50;
+  const monogramTop = headerY - 10;
+  const monogramBottom = monogramTop + 7 * (CELL.size + CELL.gap);
+  // Tall enough for every row and for the 7-pixel-high monogram, with room for the bottom prompt.
+  const height = Math.max(firstRowY + info.rows.length * LINE + 50, monogramBottom + 50);
   const identity = `${info.user}@${info.host}`;
   const line = (i: number) => (animated ? ` class="fade-in" ${delay(outputStart + i * 90)}` : '');
 
@@ -98,7 +100,7 @@ export function renderTerminalCard(
       .mono-key { font: 700 13px ${MONO}; fill: ${theme.title}; }
       .mono-dim { font: 400 13px ${MONO}; fill: ${theme.muted}; }
       .mono-title { font: 400 12px ${MONO}; fill: ${theme.muted}; }
-      ${animated ? MOTION_CSS + FADE_IN + REDUCED_MOTION : ''}
+      ${animated ? MOTION_CSS + TYPING + FADE_IN + REDUCED_MOTION : ''}
     `,
     body: [
       `<line x1="0" y1="32" x2="${WIDTH}" y2="32" stroke="${theme.border}"/>`,
@@ -106,14 +108,14 @@ export function renderTerminalCard(
         (color, i) => `<circle cx="${20 + i * 18}" cy="16" r="5.5" fill="${color}"/>`,
       ),
       `<text class="mono-title" x="${WIDTH / 2}" y="20" text-anchor="middle">${escapeXml(info.user)} — zsh — 80×24</text>`,
-      `<text class="mono-key" x="${promptX}" y="62">${escapeXml(`${info.host} ~ ❯`)}</text>`,
+      `<text class="mono-key" x="${promptX}" y="62">${escapeXml(prompt)}</text>`,
       `<text class="mono" x="${commandX}" y="62">${command}</text>`,
       ...(animated
         ? [
             `<rect class="typing" x="${commandX - 1}" y="48" width="${Math.ceil(command.length * CHAR) + 4}" height="20" fill="${theme.background}" style="animation-duration: ${typingMs}ms; animation-delay: 500ms; animation-timing-function: steps(${command.length})"/>`,
           ]
         : []),
-      ...monogramCells(info.monogram, theme, 36, headerY - 10, animated),
+      ...monogramCells(info.monogram, theme, 36, monogramTop, animated),
       `<g${line(0)}><text class="mono-key" x="${textX}" y="${headerY}">${escapeXml(identity)}</text>`,
       `<text class="mono-dim" x="${textX}" y="${headerY + 16}">${'─'.repeat(textLength(identity))}</text></g>`,
       ...info.rows.map(([key, value], i) => {
@@ -130,7 +132,7 @@ export function renderTerminalCard(
         (color, i) =>
           `<rect x="${textX + i * 26}" y="${firstRowY + info.rows.length * LINE}" width="22" height="12" rx="2" fill="${color}"/>`,
       ).join('')}</g>`,
-      `<text class="mono-key" x="${promptX}" y="${height - 14}">${escapeXml(`${info.host} ~ ❯`)}</text>`,
+      `<text class="mono-key" x="${promptX}" y="${height - 14}">${escapeXml(prompt)}</text>`,
       `<rect${animated ? ' class="cursor"' : ''} x="${commandX}" y="${height - 26}" width="8" height="15" fill="${theme.text}" opacity="0.8"/>`,
     ],
   });

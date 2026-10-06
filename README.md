@@ -1,162 +1,110 @@
-<!-- Social icons section -->
-# Social Profiles:
+<!-- Cards in profile/light and profile/dark are rendered daily by src/cards; <picture> picks the one matching the viewer's GitHub theme. -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/banner.svg">
+  <img alt="Filip Bozhinovski, frontend engineer from Skopje, North Macedonia" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/banner.svg" width="100%">
+</picture>
 
-[![Stack Overflow](https://img.shields.io/badge/stack%20overflow-21262d?&style=for-the-badge&logo=stack%20overflow&logoColor=white)](https://stackoverflow.com/users/1861016/ssbarbee)
-[![LinkedIn](https://img.shields.io/badge/linkedin-21262d?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/filip-bozhinovski-306464122/)
-[![Send Mail](https://img.shields.io/badge/SEND%20MAIL-21262d?&style=for-the-badge&logo=MAIL.RU&logoColor=white)](mailto:ssbarbee@gmail.com)
+<p>
+  <a href="https://www.linkedin.com/in/filip-bozhinovski-306464122/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-24292f?style=flat-square"></a>
+  <a href="https://stackoverflow.com/users/1861016/ssbarbee"><img alt="Stack Overflow" src="https://img.shields.io/badge/Stack%20Overflow-24292f?style=flat-square"></a>
+  <a href="mailto:ssbarbee@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-24292f?style=flat-square"></a>
+  <a href="https://www.chess.com/member/ssbarbe_e"><img alt="chess.com" src="https://img.shields.io/badge/chess.com-24292f?style=flat-square"></a>
+</p>
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>About</h3>
+      <ul>
+        <li>Exploring AI/ML tooling and integrations</li>
+        <li>Open to collaborating on open source</li>
+        <li>Ask me anything frontend: React, TypeScript, Next.js</li>
+        <li>Off the keyboard: half-marathons and <a href="https://www.chess.com/member/ssbarbe_e">chess</a></li>
+      </ul>
+    </td>
+    <td width="50%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/skopje.svg">
+        <img alt="Current weather and air quality in Skopje" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/skopje.svg" width="100%">
+      </picture>
+    </td>
+  </tr>
+</table>
+
+### Tech stack
+
+<p>
+  <a href="https://react.dev/"><img src="./assets/react.png" width="32" height="32" alt="React" title="React"></a>
+  <a href="https://nextjs.org/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/assets/nextjs.png"><img src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/assets/nextjs-light.png" width="32" height="32" alt="Next.js" title="Next.js"></picture></a>
+  <a href="https://www.typescriptlang.org/"><img src="./assets/typescript.png" width="32" height="32" alt="TypeScript" title="TypeScript"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="./assets/js.png" width="32" height="32" alt="JavaScript" title="JavaScript"></a>
+  <a href="https://tailwindcss.com/"><img src="./assets/tailwind.svg" width="32" height="32" alt="Tailwind CSS" title="Tailwind CSS"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="./assets/html.png" width="32" height="32" alt="HTML5" title="HTML5"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="./assets/css.png" width="32" height="32" alt="CSS3" title="CSS3"></a>
+  <a href="https://getbootstrap.com"><img src="./assets/Bootstrap_logo.png" width="32" height="32" alt="Bootstrap" title="Bootstrap"></a>
+  <a href="https://tanstack.com/router"><img src="./assets/tanstack-router.png" width="32" height="32" alt="TanStack" title="TanStack"></a>
+  <a href="https://zustand-demo.pmnd.rs/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/assets/zustand-dark.png"><img src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/assets/zustand.svg" width="32" height="32" alt="Zustand" title="Zustand"></picture></a>
+  <a href="https://zod.dev/"><img src="./assets/zod.webp" width="32" height="32" alt="Zod" title="Zod"></a>
+  <a href="https://react-hook-form.com/"><img src="./assets/react-hook-form.svg" width="32" height="32" alt="React Hook Form" title="React Hook Form"></a>
+  <a href="https://nodejs.org/en"><img src="./assets/nodejs.jpeg" width="32" height="32" alt="Node.js" title="Node.js"></a>
+  <a href="https://docs.nestjs.com/"><img src="./assets/nestjs.png" width="32" height="32" alt="NestJS" title="NestJS"></a>
+  <a href="https://github.com/features/actions"><img src="./assets/actions.png" width="32" height="32" alt="GitHub Actions" title="GitHub Actions"></a>
+  <a href="https://www.gnu.org/software/bash"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/assets/bash.png"><img src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/assets/bash-light.png" width="32" height="32" alt="Bash" title="Bash"></picture></a>
+  <a href="https://daringfireball.net/projects/markdown"><img src="./assets/markdown.png" width="32" height="32" alt="Markdown" title="Markdown"></a>
+  <a href="https://pixijs.com/guides"><img src="./assets/pixijs.png" width="32" height="32" alt="PixiJS" title="PixiJS"></a>
+  <a href="https://dotnet.microsoft.com/en-us/"><img src="./assets/csharp.png" width="32" height="32" alt="C# / .NET" title="C# / .NET"></a>
+  <a href="https://www.jenkins.io/"><img src="./assets/jenkins.jpeg" width="32" height="32" alt="Jenkins" title="Jenkins"></a>
+  <a href="https://github.com/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/assets/github.png"><img src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/assets/github-light.png" width="32" height="32" alt="GitHub" title="GitHub"></picture></a>
+  <a href="https://www.npmjs.com"><img src="./assets/npm.png" width="32" height="32" alt="npm" title="npm"></a>
+  <a href="https://www.jetbrains.com/webstorm/"><img src="./assets/webstorm.png" width="32" height="32" alt="WebStorm" title="WebStorm"></a>
+</p>
+
+### GitHub stats
+
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/stats.svg">
+    <img alt="ssbarbee's GitHub stats" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/stats.svg" height="180">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/top-langs.svg">
+    <img alt="ssbarbee's most used languages" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/top-langs.svg" height="180">
+  </picture>
+  <br>
+  <sub>Languages only cover my public code, not experience or skill level.</sub>
+</p>
+
+### Featured projects
+
+<table>
+  <tr>
+    <td width="50%">
+      <a href="https://github.com/ssbarbee/iap-apple"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/pin-iap-apple.svg"><img alt="iap-apple" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/pin-iap-apple.svg" width="100%"></picture></a>
+    </td>
+    <td width="50%">
+      <a href="https://github.com/ssbarbee/react-metamask-avatar"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/pin-react-metamask-avatar.svg"><img alt="react-metamask-avatar" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/pin-react-metamask-avatar.svg" width="100%"></picture></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <a href="https://github.com/ssbarbee/app-store-ratings"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/pin-app-store-ratings.svg"><img alt="app-store-ratings" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/pin-app-store-ratings.svg" width="100%"></picture></a>
+    </td>
+    <td width="50%">
+      <a href="https://github.com/ssbarbee/pulse-eco-garmin-widget"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/pin-pulse-eco-garmin-widget.svg"><img alt="pulse-eco-garmin-widget" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/pin-pulse-eco-garmin-widget.svg" width="100%"></picture></a>
+    </td>
+  </tr>
+</table>
+
+### Contribution activity
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile-3d-contrib/profile-night-green.svg">
+  <img alt="ssbarbee's contributions as a 3D graph" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile-3d-contrib/profile-green.svg" width="100%">
+</picture>
 
 <hr>
 
-<!-- Description about me -->
-## 🤔 About me 👨‍💻
-
-Hey there! 👋 I'm <b>Filip Bozhinovski</b>, but you may know me as <b>ssbarbee</b>.
-Originating from the sunny realm of <b>Macedonia 🇲🇰🇲🇰</b>, I am enthusiastic about crafting innovative frontend solutions 🖥️.
-
-However, I'm more than just a programming automaton 🤖. I'm an authentic individual driven by a passion to learn and create extraordinary projects with love ❤️, and in the process, I enjoy engaging with wonderful people on this journey 🚀.
-
-If you're seeking someone with a positive attitude, a thirst for knowledge, and a dedication to continuous learning 📚, look no further. Feel free to reach out for collaboration on exciting new projects 📨; I'm always open to working together!
-
-## 🧐 More About Me:
-
-- 🤝 I'm looking to collaborate on Open Source Projects
-- 🌱 I'm currently exploring AI/ML tooling and integrations
-- 👨🏻‍💻 Most of my projects are available on [Github](https://github.com/ssbarbee?tab=repositories)
-- 💬 Ask me about anything tech related, I am happy to help with Frontend stuff 🐧
-- 📫 Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/filip-bozhinovski-306464122/)
-- 👨‍💻 I am also on [StackOverflow!](https://stackoverflow.com/users/1861016/ssbarbee)
-- 🏃 When I am free, I like jogging and doing half-marathons
-- ♞ I also enjoy playing chess! You can find me over at [chess.com](https://www.chess.com/member/ssbarbe_e)
-
-<!-- Skopje's weather table -->
-## 🇲🇰 Skopje's Weather, if you want to visit! ⛅ Watch out on the pollution levels, it tends to get crazy!
-
-<table>
-    <tr>
-        <th>Weather</th>
-        <th>Temperature</th>
-        <th>Sunrise</th>
-        <th>Sunset</th>
-        <th>Humidity</th>
-        <th>Air quality (PM10)</th>
-        <th>Air quality (PM25)</th>
-    </tr>
-    <tr>
-        <td><b>Mainly clear, partly cloudy, and overcast</b></td>
-        <td><b>21°C</b></td>
-        <td><b>06:36</b></td>
-        <td><b>18:07</b></td>
-        <td><b>25%</b></td>
-        <td><b>13 μg&#x2F;m3</b></td>
-        <td><b>7 μg&#x2F;m3</b></td>
-    </tr>
-</table>
-
-### Frontend & UI:
-<table>
-  <tr>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://reactjs.org/"><img src="./assets/react.png" width="42" height="42" alt="React" /></a><br>React</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://nextjs.org/"><img src="./assets/nextjs.png" width="42" height="42" alt="Next.js" /></a><br>Next.js</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://www.typescriptlang.org/"><img src="./assets/typescript.png" width="42" height="42" alt="TypeScript" /></a><br>TypeScript</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="./assets/js.png" width="42" height="42" alt="JavaScript" /></a><br>JavaScript</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://tailwindcss.com/"><img src="./assets/tailwind.svg" width="42" height="42" alt="Tailwind" /></a><br>Tailwind</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://en.wikipedia.org/wiki/HTML"><img src="./assets/html.png" width="42" height="42" alt="HTML5" /></a><br>HTML5</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://www.w3.org/Style/CSS/Overview.en.html"><img src="./assets/css.png" width="42" height="42" alt="CSS3" /></a><br>CSS3</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://getbootstrap.com"><img src="./assets/Bootstrap_logo.png" width="42" height="42" alt="Bootstrap" /></a><br>Bootstrap</td>
-  </tr>
-</table>
-
-### State Management & Data:
-<table>
-  <tr>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://tanstack.com/router"><img src="./assets/tanstack-router.png" width="42" height="42" alt="TanStack" /></a><br>TanStack</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://zustand-demo.pmnd.rs/"><img src="./assets/zustand.svg" width="42" height="42" alt="Zustand" /></a><br>Zustand</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://zod.dev/"><img src="./assets/zod.webp" width="42" height="42" alt="Zod" /></a><br>Zod</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://react-hook-form.com/"><img src="./assets/react-hook-form.svg" width="42" height="42" alt="React Hook Form" /></a><br>Hook Form</td>
-  </tr>
-</table>
-
-### Backend & DevOps:
-<table>
-  <tr>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://nodejs.org/en"><img src="./assets/nodejs.jpeg" width="42" height="42" alt="Node.js" /></a><br>Node.js</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://docs.nestjs.com/"><img src="./assets/nestjs.png" width="42" height="42" alt="NestJS" /></a><br>NestJS</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://github.com/features/actions"><img src="./assets/actions.png" width="42" height="42" alt="GH Actions" /></a><br>GH Actions</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://www.gnu.org/software/bash"><img src="./assets/bash.png" width="42" height="42" alt="Bash" /></a><br>Bash</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://daringfireball.net/projects/markdown"><img src="./assets/markdown.png" width="42" height="42" alt="Markdown" /></a><br>Markdown</td>
-  </tr>
-</table>
-
-### Also experienced with:
-<table>
-  <tr>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://pixijs.com/guides"><img src="./assets/pixijs.png" width="42" height="42" alt="PixiJS" /></a><br>PixiJS</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://dotnet.microsoft.com/en-us/"><img src="./assets/csharp.png" width="42" height="42" alt="C#" /></a><br>C# / .NET</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://www.jenkins.io/"><img src="./assets/jenkins.jpeg" width="42" height="42" alt="Jenkins" /></a><br>Jenkins</td>
-  </tr>
-</table>
-
-### Environments I work with:
-<table>
-  <tr>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://github.com/"><img src="./assets/github.png" width="42" height="42" alt="GitHub" /></a><br>GitHub</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://www.npmjs.com"><img src="./assets/npm.png" width="42" height="42" alt="NPM" /></a><br>NPM</td>
-    <td align="center" width="130" style="white-space: nowrap;"><a href="https://www.jetbrains.com/webstorm/"><img src="./assets/webstorm.png" width="42" height="42" alt="WebStorm" /></a><br>WebStorm</td>
-  </tr>
-</table>
-
-<!-- Github stats section -->
-## 📊 Github stats
-
-<!-- Based on: https://github.com/stats-organization/github-readme-stats-action -->
-<p>
-    <br/>
-    <img alt="ssbarbee's Github Stats" src="./profile/stats.svg" height="192px"/>
-    <img alt="ssbarbee's Top Languages" src="./profile/top-langs.svg" height="192px"/>
-    <br/>
-    <b>Note:</b> Top languages is only a metric of the languages my public code consists of and doesn't reflect experience or skill level.
-</p>
-
-<!-- Projects section -->
-## 📘 My top open source projects <a href="https://github.com/ssbarbee?tab=repositories"><img alt="All Repositories" title="All Repositories" src="https://custom-icon-badges.demolab.com/badge/-All%20Repos-2962FF?style=for-the-badge&logoColor=white&logo=repo"/></a>
-
-<table>
-  <tr>
-    <td width="50%">
-      <a href="https://github.com/ssbarbee/react-metamask-avatar"><img src="./profile/pin-react-metamask-avatar.svg" alt="react-metamask-avatar" width="100%"></a>
-    </td>
-    <td width="50%">
-      <a href="https://github.com/ssbarbee/app-store-ratings"><img src="./profile/pin-app-store-ratings.svg" alt="app-store-ratings" width="100%"></a>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <a href="https://github.com/ssbarbee/pixijs-adventure"><img src="./profile/pin-pixijs-adventure.svg" alt="pixijs-adventure" width="100%"></a>
-    </td>
-    <td width="50%">
-      <a href="https://github.com/ssbarbee/iap-apple"><img src="./profile/pin-iap-apple.svg" alt="iap-apple" width="100%"></a>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <a href="https://github.com/ssbarbee/pulse-eco-garmin-widget"><img src="./profile/pin-pulse-eco-garmin-widget.svg" alt="pulse-eco-garmin-widget" width="100%"></a>
-    </td>
-    <td width="50%"></td>
-  </tr>
-</table>
-
-<!-- last activity section -->
-
-## Activity Graph
-<p>
-  <img src="./profile-3d-contrib/profile-night-green.svg" width="100%"/>
-</p>
-
-<br>
-
-<!-- last refresh of readme section -->
-
-Last refresh: <b>Tuesday, October 6 at 6:31 PM GMT+2</b>
+<sub>Refreshed daily by GitHub Actions · Last refresh: Tuesday, October 6 at 8:18 PM GMT+2</sub>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

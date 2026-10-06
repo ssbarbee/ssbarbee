@@ -41,6 +41,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
+          # Light and dark variants matching GitHub's page backgrounds and the cards' palette
+          SETTING_JSON: .github/profile-3d.json
 
       - name: Update README file
         run: yarn update

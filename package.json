@@ -4,15 +4,13 @@
   "description": "Readme file from github profile page",
   "main": "src/index.ts",
   "dependencies": {
-    "mustache": "4.2.0",
-    "node-fetch": "2.7.0"
+    "mustache": "4.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
     "@types/mustache": "4.2.5",
     "@types/node": "20.10.2",
-    "@types/node-fetch": "2.6.9",
     "husky": "9.1.6",
     "is-ci": "3.0.1",
     "prettier": "3.2.5",

@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 const GRAPHQL_URL = 'https://api.github.com/graphql';
 
 export interface UserStats {
@@ -109,7 +107,7 @@ async function graphql<T>(token: string, query: string, variables: object): Prom
       'User-Agent': 'ssbarbee-profile-cards',
     },
     body: JSON.stringify({ query, variables }),
-    timeout: 30000,
+    signal: AbortSignal.timeout(30000),
   });
   if (!response.ok) {
     throw new Error(`GitHub API responded with ${response.status} ${response.statusText}`);

@@ -1,5 +1,4 @@
 import { render } from 'mustache';
-import fetch from 'node-fetch';
 import { readFile, writeFileSync } from 'fs';
 import { getWeather } from './services/weather';
 

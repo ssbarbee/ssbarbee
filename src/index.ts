@@ -1,5 +1,6 @@
 import { render } from 'mustache';
 import { readFileSync, writeFileSync } from 'fs';
+import { PROFILE } from './cards/config';
 
 const MUSTACHE_MAIN_DIR = './main.mustache';
 
@@ -14,7 +15,12 @@ function generateReadMe(): void {
     timeZoneName: 'short',
     timeZone: 'Europe/Skopje',
   });
-  writeFileSync('README.md', render(readFileSync(MUSTACHE_MAIN_DIR, 'utf8'), { refreshTime }));
+  // The About card is an image, so its points also go into the alt text for screen readers.
+  const about = PROFILE.about.join('; ');
+  writeFileSync(
+    'README.md',
+    render(readFileSync(MUSTACHE_MAIN_DIR, 'utf8'), { refreshTime, about }),
+  );
 }
 
 generateReadMe();

@@ -19,7 +19,7 @@
 </style>
 <rect x="0.5" y="0.5" rx="6" width="466" height="194" fill="#f6f8fa" stroke="#d1d9e0"/>
 <text class="header" x="25" y="35">Skopje right now</text>
-<text class="label muted" x="442" y="35" text-anchor="end">Updated 6 Oct, 23:30</text>
+<text class="label muted" x="442" y="35" text-anchor="end">Updated 6 Oct, 23:45</text>
 <text class="temperature" x="25" y="108">13°C</text>
 <text class="description" x="27" y="134">Overcast</text>
 <text class="label muted" x="27" y="153">Feels like 11°C</text>
@@ -29,7 +29,7 @@
 <text class="small" x="442" y="179" text-anchor="end">Data: Open-Meteo · pulse.eco</text>
 <text class="label muted" x="235" y="64">Sunrise</text><text class="stat" x="320" y="64">06:36</text>
 <text class="label muted" x="235" y="88">Sunset</text><text class="stat" x="320" y="88">18:07</text>
-<text class="label muted" x="235" y="112">Humidity</text><text class="stat" x="320" y="112">35%</text>
+<text class="label muted" x="235" y="112">Humidity</text><text class="stat" x="320" y="112">36%</text>
 <text class="label muted" x="235" y="136">PM10</text><text class="stat" x="320" y="136">19 µg/m³</text>
 <text class="label muted" x="235" y="160">PM2.5</text><text class="stat" x="320" y="160">11 µg/m³</text>
 </svg>

@@ -6,9 +6,11 @@ import { GRID_CARD, ICONS, escapeXml, formatNumber, icon, renderCard } from './c
 const RANK = { x: 380.5, y: 110.5, radius: 40 };
 
 export function renderStatsCard(stats: UserStats, theme: Theme): string {
+  // The rank only uses public numbers, so the card's footnote holds for everything but contributions.
   const rank = calculateRank(stats);
   const rows = [
     { icon: ICONS.star, label: 'Total Stars Earned:', value: stats.stars },
+    { icon: ICONS.graph, label: 'All contributions (last year):', value: stats.contributions },
     { icon: ICONS.commits, label: 'Total Commits (last year):', value: stats.commits },
     { icon: ICONS.pullRequest, label: 'Total PRs:', value: stats.prs },
     { icon: ICONS.issue, label: 'Total Issues:', value: stats.issues },
@@ -27,11 +29,11 @@ export function renderStatsCard(stats: UserStats, theme: Theme): string {
     ].join(', '),
     body: [
       ...rows.map(({ icon: path, label, value }, i) => {
-        const y = 55 + i * 25;
+        const y = 50 + i * 22;
         return [
           icon(path, 25, y),
           `<text class="stat" x="50" y="${y + 12.5}">${escapeXml(label)}</text>`,
-          `<text class="stat" x="244" y="${y + 12.5}">${formatNumber(value)}</text>`,
+          `<text class="stat" x="262" y="${y + 12.5}">${formatNumber(value)}</text>`,
         ].join('');
       }),
       `<circle ${ring} opacity="0.2"/>`,

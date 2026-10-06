@@ -22,6 +22,7 @@ const stats: UserStats = {
   reviews: 0,
   contributedTo: 18,
   followers: 7,
+  contributions: 10384,
 };
 
 const conditions: SkopjeConditions = {
@@ -79,7 +80,8 @@ test('renders the stats card with every metric and the rank', () => {
 
   assert.match(svg, /^<svg [^>]*width="467" height="195"/);
   assert.ok(svg.includes('ssbarbee&#39;s GitHub Stats'));
-  for (const value of ['23', '988', '297', '8', '18', 'B+']) {
+  assert.ok(svg.includes('>All contributions (last year):</text>'));
+  for (const value of ['23', '10.4k', '988', '297', '8', '18', 'B+']) {
     assert.ok(svg.includes(`>${value}</text>`), `missing ${value}`);
   }
 });
@@ -228,4 +230,18 @@ test('shows at most eight languages on the fixed-size card', () => {
 
   assert.ok(svg.includes('>Lang7 '));
   assert.ok(!svg.includes('>Lang8 '));
+});
+
+test('keeps the rank on public numbers only', () => {
+  const empty = {
+    ...stats,
+    stars: 0,
+    commits: 0,
+    prs: 0,
+    issues: 0,
+    followers: 0,
+    contributedTo: 0,
+  };
+
+  assert.ok(renderStatsCard({ ...empty, contributions: 50000 }, dark).includes('>C</text>'));
 });

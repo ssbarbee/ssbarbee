@@ -10,6 +10,9 @@ export interface UserStats {
   reviews: number;
   contributedTo: number;
   followers: number;
+  // All contributions in the last year as shown on the GitHub profile. Private ones are included
+  // only as an anonymous count; GitHub never reveals their repositories or organisations.
+  contributions: number;
 }
 
 export interface Language {
@@ -51,6 +54,7 @@ const USER_STATS_QUERY = `
       contributionsCollection {
         totalCommitContributions
         totalPullRequestReviewContributions
+        contributionCalendar { totalContributions }
       }
       # Own repositories count too: on a personal profile they are most of the contributions.
       repositoriesContributedTo(
@@ -169,6 +173,7 @@ export async function fetchUserStats(token: string, login: string): Promise<User
       contributionsCollection: {
         totalCommitContributions: number;
         totalPullRequestReviewContributions: number;
+        contributionCalendar: { totalContributions: number };
       };
       repositoriesContributedTo: TotalCount;
       pullRequests: TotalCount;
@@ -189,6 +194,7 @@ export async function fetchUserStats(token: string, login: string): Promise<User
     reviews: user.contributionsCollection.totalPullRequestReviewContributions,
     contributedTo: user.repositoriesContributedTo.totalCount,
     followers: user.followers.totalCount,
+    contributions: user.contributionsCollection.contributionCalendar.totalContributions,
   };
 }
 

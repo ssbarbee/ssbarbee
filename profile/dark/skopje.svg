@@ -17,7 +17,7 @@
 </style>
 <rect x="0.5" y="0.5" rx="6" width="466" height="194" fill="#151b23" stroke="#3d444d"/>
 <text class="header" x="25" y="35">Skopje right now</text>
-<text class="label muted" x="442" y="35" text-anchor="end">Updated 6 Oct, 20:15</text>
+<text class="label muted" x="442" y="35" text-anchor="end">Updated 6 Oct, 21:45</text>
 <text class="temperature" x="25" y="108">14°C</text>
 <text class="description" x="27" y="134">Partly cloudy</text>
 <text class="label muted" x="27" y="153">Feels like 11°C</text>
@@ -26,7 +26,7 @@
 <text class="label strong" x="48" y="179">Air quality: Fair</text>
 <text class="label muted" x="235" y="64">Sunrise</text><text class="stat" x="320" y="64">06:36</text>
 <text class="label muted" x="235" y="88">Sunset</text><text class="stat" x="320" y="88">18:07</text>
-<text class="label muted" x="235" y="112">Humidity</text><text class="stat" x="320" y="112">40%</text>
-<text class="label muted" x="235" y="136">PM10</text><text class="stat" x="320" y="136">17 µg/m³</text>
+<text class="label muted" x="235" y="112">Humidity</text><text class="stat" x="320" y="112">34%</text>
+<text class="label muted" x="235" y="136">PM10</text><text class="stat" x="320" y="136">18 µg/m³</text>
 <text class="label muted" x="235" y="160">PM2.5</text><text class="stat" x="320" y="160">10 µg/m³</text>
 </svg>

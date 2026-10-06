@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="190" viewBox="0 0 300 190" fill="none" role="img" aria-labelledby="title desc">
 <title id="title">Most Used Languages</title>
-<desc id="desc">TypeScript 79.63%, Monkey C 10.67%, JavaScript 4.65%, CSS 2.07%, Mustache 2.02%, Shell 0.40%, HTML 0.29%, Makefile 0.26%</desc>
+<desc id="desc">TypeScript 79.62%, Monkey C 10.66%, JavaScript 4.65%, CSS 2.07%, Mustache 2.05%, Shell 0.40%, HTML 0.29%, Makefile 0.26%</desc>
 <style>
   .header { font: 600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #7cebf5; }
   .stat { font: 600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #e6edf3; }
   .rank { font: 800 24px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #e6edf3; }
   .description { font: 400 13px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #e6edf3; }
   .label { font: 400 12px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #e6edf3; }
+  .small { font: 400 10px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #9198a1; }
   .name { font: 700 40px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #e6edf3; }
   .role { font: 400 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #7cebf5; }
   .meta { font: 400 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #9198a1; }
@@ -18,12 +19,12 @@
 <rect x="0.5" y="0.5" rx="6" width="299" height="189" fill="#151b23" stroke="#3d444d"/>
 <text class="header" x="25" y="35">Most Used Languages</text>
 <clipPath id="bar"><rect x="25" y="55" width="250" height="8" rx="5"/></clipPath>
-<g clip-path="url(#bar)"><rect x="25" y="55" width="199.07251131042324" height="8" fill="#3178c6"/><rect x="224.07251131042324" y="55" width="26.66360071317401" height="8" fill="#8D6747"/><rect x="250.73611202359726" y="55" width="11.632688199326244" height="8" fill="#f1e05a"/><rect x="262.3688002229235" y="55" width="5.169831923825404" height="8" fill="#663399"/><rect x="267.5386321467489" y="55" width="5.061088745760715" height="8" fill="#724b3b"/><rect x="272.5997208925096" y="55" width="1.0064407678174565" height="8" fill="#89e051"/><rect x="273.6061616603271" y="55" width="0.7368483055320826" height="8" fill="#e34c26"/><rect x="274.34300996585915" y="55" width="0.656990034140827" height="8" fill="#427819"/></g>
-<circle cx="30" cy="86" r="5" fill="#3178c6"/><text class="label" x="40" y="90">TypeScript 79.63%</text>
-<circle cx="30" cy="111" r="5" fill="#8D6747"/><text class="label" x="40" y="115">Monkey C 10.67%</text>
+<g clip-path="url(#bar)"><rect x="25" y="55" width="199.03964777653277" height="8" fill="#3178c6"/><rect x="224.03964777653277" y="55" width="26.64199291478501" height="8" fill="#8D6747"/><rect x="250.6816406913178" y="55" width="11.623261236177607" height="8" fill="#f1e05a"/><rect x="262.3049019274954" y="55" width="5.1656423664165345" height="8" fill="#663399"/><rect x="267.4705442939119" y="55" width="5.131121750251831" height="8" fill="#724b3b"/><rect x="272.6016660441637" y="55" width="1.0056251626996253" height="8" fill="#89e051"/><rect x="273.60729120686335" y="55" width="0.7362511742668613" height="8" fill="#e34c26"/><rect x="274.34354238113025" y="55" width="0.6564576188697611" height="8" fill="#427819"/></g>
+<circle cx="30" cy="86" r="5" fill="#3178c6"/><text class="label" x="40" y="90">TypeScript 79.62%</text>
+<circle cx="30" cy="111" r="5" fill="#8D6747"/><text class="label" x="40" y="115">Monkey C 10.66%</text>
 <circle cx="30" cy="136" r="5" fill="#f1e05a"/><text class="label" x="40" y="140">JavaScript 4.65%</text>
 <circle cx="30" cy="161" r="5" fill="#663399"/><text class="label" x="40" y="165">CSS 2.07%</text>
-<circle cx="180" cy="86" r="5" fill="#724b3b"/><text class="label" x="190" y="90">Mustache 2.02%</text>
+<circle cx="180" cy="86" r="5" fill="#724b3b"/><text class="label" x="190" y="90">Mustache 2.05%</text>
 <circle cx="180" cy="111" r="5" fill="#89e051"/><text class="label" x="190" y="115">Shell 0.40%</text>
 <circle cx="180" cy="136" r="5" fill="#e34c26"/><text class="label" x="190" y="140">HTML 0.29%</text>
 <circle cx="180" cy="161" r="5" fill="#427819"/><text class="label" x="190" y="165">Makefile 0.26%</text>

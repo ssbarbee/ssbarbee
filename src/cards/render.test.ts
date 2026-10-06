@@ -37,6 +37,7 @@ const conditions: SkopjeConditions = {
   pm10: 13,
   pm25: 7,
   updatedAt: '6 Oct, 18:30',
+  localTime: '18:30',
 };
 
 test('escapes XML special characters', () => {

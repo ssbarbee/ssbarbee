@@ -1,8 +1,10 @@
 import type { Theme } from '../config';
 import type { ContributionDay, ContributionLevel } from '../github';
 import type { SkopjeConditions } from '../skopje';
+import type { Profile } from './banner';
 import { FONT, escapeXml, renderFrame } from './common';
 import { REDUCED_MOTION } from './motion';
+import { formatRounded } from './skopje';
 import { weatherKind, type WeatherKind } from './weather-icons';
 
 // A banner showing Skopje's sky right now: colours follow the time of day and the weather, the sun
@@ -50,22 +52,17 @@ function minutes(clock: string): number {
   return hours * 60 + mins;
 }
 
-export function skyPhase(clock: string, sunrise: string, sunset: string): Phase {
+// Night follows the weather data's own daylight flag, so the banner and the weather card agree.
+export function skyPhase(clock: string, sunrise: string, sunset: string, isDay: boolean): Phase {
+  if (!isDay) return 'night';
   const now = minutes(clock);
   const [rise, set] = [minutes(sunrise), minutes(sunset)];
-  if (now < rise - 30 || now > set + 30) return 'night';
   if (Math.abs(now - rise) <= 60 || Math.abs(now - set) <= 60) return 'golden';
   return 'day';
 }
 
 function cloudShape(x: number, y: number, scale: number, fill: string, opacity: number): string {
   return `<g transform="translate(${x.toFixed(0)} ${y.toFixed(0)}) scale(${scale.toFixed(2)})" fill="${fill}" fill-opacity="${opacity}"><ellipse cx="0" cy="0" rx="34" ry="12"/><ellipse cx="-16" cy="-6" rx="16" ry="12"/><ellipse cx="10" cy="-12" rx="20" ry="16"/></g>`;
-}
-
-interface Profile {
-  name: string;
-  role: string;
-  location: string;
 }
 
 export function renderSkylineBanner(
@@ -75,13 +72,17 @@ export function renderSkylineBanner(
   theme: Theme,
   { animated = false }: { animated?: boolean } = {},
 ): string {
-  const clock = conditions.updatedAt.split(', ').pop() ?? '12:00';
-  const phase = skyPhase(clock, conditions.sunrise, conditions.sunset);
+  const clock = conditions.localTime;
+  const phase = skyPhase(clock, conditions.sunrise, conditions.sunset, conditions.isDay);
   const kind = weatherKind(conditions.weatherCode);
   const overcast = OVERCAST.includes(kind);
   const sky = overcast ? SKIES[phase].grey : SKIES[phase].clear;
   const land = LAND[phase];
-  const rand = random(minutes(clock) + conditions.weatherCode * 7 + 1);
+  // Layout and motion draw from separate sequences, so animating never changes the scene.
+  const seed = minutes(clock) + conditions.weatherCode * 7 + 1;
+  const rand = random(seed);
+  const motionRand = random(seed + 7919);
+  const temperature = formatRounded(conditions.temperature, '°C');
   const css: string[] = [];
   const parts: string[] = [];
 
@@ -103,7 +104,7 @@ export function renderSkylineBanner(
     for (let i = 0; i < (overcast ? 0 : 46); i++) {
       const [x, y] = [rand() * WIDTH, rand() * 140];
       const twinkle = animated
-        ? ` class="twinkle" style="animation-delay: ${(rand() * 4).toFixed(1)}s"`
+        ? ` class="twinkle" style="animation-delay: ${(motionRand() * 4).toFixed(1)}s"`
         : '';
       parts.push(
         `<circle${twinkle} cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(0.6 + rand()).toFixed(1)}" fill="#fff" opacity="${(0.4 + rand() * 0.6).toFixed(2)}"/>`,
@@ -152,7 +153,7 @@ export function renderSkylineBanner(
     const x = (i + rand() * 0.6) * (WIDTH / cloudCount);
     const y = 14 + rand() * 56;
     const motion = animated
-      ? ` class="cloud" style="animation-duration: ${(14 + rand() * 8).toFixed(1)}s; animation-delay: -${(rand() * 10).toFixed(1)}s"`
+      ? ` class="cloud" style="animation-duration: ${(14 + motionRand() * 8).toFixed(1)}s; animation-delay: -${(motionRand() * 10).toFixed(1)}s"`
       : '';
     parts.push(`<g${motion}>${cloudShape(x, y, 0.6 + rand() * 0.6, cloudFill, cloudOpacity)}</g>`);
   }
@@ -174,7 +175,7 @@ export function renderSkylineBanner(
   for (let i = 0; i < fallCount; i++) {
     const [x, y] = [rand() * (WIDTH + 60), rand() * HEIGHT];
     const motion = animated
-      ? ` class="${kind === 'snow' ? 'snow' : 'rain'}" style="animation-delay: -${(rand() * 3).toFixed(2)}s"`
+      ? ` class="${kind === 'snow' ? 'snow' : 'rain'}" style="animation-delay: -${(motionRand() * 3).toFixed(2)}s"`
       : '';
     parts.push(
       kind === 'snow'
@@ -210,30 +211,39 @@ export function renderSkylineBanner(
     `<rect x="782" y="84" width="16" height="3" fill="${crossColor}"/>`,
   );
 
-  // The city: each window is one day of contributions, oldest on the left.
-  const days = weeks.flat().slice(-200);
-  let dayIndex = 0;
-  let x = 0;
-  while (x < 760) {
-    const width = 30 + Math.round(rand() * 30);
-    const height = 34 + Math.round(rand() * 44);
-    const top = HEIGHT - height;
+  // The city: each window is one day of contributions, the newest in the rightmost window.
+  const buildings: { x: number; width: number; height: number }[] = [];
+  // Buildings stop at x=760, leaving the bottom-right corner to Vodno and the caption.
+  const CITY_END = 760;
+  for (let x = 0; x < CITY_END - 24; ) {
+    const width = Math.min(30 + Math.round(rand() * 30), CITY_END - x);
+    const building = { x, width, height: 34 + Math.round(rand() * 44) };
+    buildings.push(building);
+    x += building.width + 3;
+  }
+  const windows: { x: number; y: number }[] = [];
+  for (const { x, width, height } of buildings) {
     parts.push(
-      `<rect x="${x}" y="${top}" width="${width}" height="${height}" fill="${land.city}"/>`,
+      `<rect x="${x}" y="${HEIGHT - height}" width="${width}" height="${height}" fill="${land.city}"/>`,
     );
-    for (let wy = top + 8; wy + 6 <= HEIGHT - 6; wy += 10) {
+    for (let wy = HEIGHT - height + 8; wy + 6 <= HEIGHT - 6; wy += 10) {
       for (let wx = x + 5; wx + 5 <= x + width - 4; wx += 9) {
-        const day = days[dayIndex++];
-        const opacity = day ? WINDOW_OPACITY[day.level] : 0.05;
-        const flicker =
-          animated && phase === 'night' && day && day.level === 'FOURTH_QUARTILE' && rand() < 0.25;
-        parts.push(
-          `<rect${flicker ? ` class="flicker" style="animation-delay: -${(rand() * 8).toFixed(1)}s"` : ''} x="${wx}" y="${wy}" width="5" height="6" fill="${land.window}" opacity="${phase === 'day' ? (opacity * 0.6).toFixed(2) : opacity}"/>`,
-        );
+        windows.push({ x: wx, y: wy });
       }
     }
-    x += width + 3;
   }
+  const days = weeks.flat();
+  // When there are more windows than days, the leftmost windows have no data and stay dark.
+  const firstDay = days.length - windows.length;
+  windows.forEach(({ x, y }, i) => {
+    const day = days[firstDay + i];
+    const opacity = day ? WINDOW_OPACITY[day.level] : 0.05;
+    const flicker =
+      animated && phase === 'night' && day?.level === 'FOURTH_QUARTILE' && motionRand() < 0.25;
+    parts.push(
+      `<rect${flicker ? ` class="flicker" style="animation-delay: -${(motionRand() * 8).toFixed(1)}s"` : ''} x="${x}" y="${y}" width="5" height="6" fill="${land.window}" opacity="${phase === 'day' ? (opacity * 0.6).toFixed(2) : opacity}"/>`,
+    );
+  });
   css.push(
     `.flicker { animation: flicker 8s steps(1) 4; } @keyframes flicker { 0%, 70% { opacity: 1; } 71%, 80% { opacity: 0.2; } }`,
   );
@@ -252,7 +262,7 @@ export function renderSkylineBanner(
     `<text class="sky-name" x="40" y="74">${escapeXml(profile.name)}</text>`,
     `<text class="sky-role" x="42" y="106">${escapeXml(profile.role)}</text>`,
     `<text class="sky-meta" x="42" y="132">${escapeXml(profile.location)}</text>`,
-    `<text class="sky-meta" x="${WIDTH - 24}" y="${HEIGHT - 14}" text-anchor="end">Skopje now · ${Math.round(conditions.temperature)}°C · ${escapeXml(conditions.condition)}</text>`,
+    `<text class="sky-meta" x="${WIDTH - 24}" y="${HEIGHT - 14}" text-anchor="end">Skopje now · ${temperature} · ${escapeXml(conditions.condition)}</text>`,
     `</g>`,
     `</g>`,
   );
@@ -262,7 +272,7 @@ export function renderSkylineBanner(
     width: WIDTH,
     height: HEIGHT,
     title: profile.name,
-    description: `${profile.role}. ${profile.location}. Skopje right now: ${Math.round(conditions.temperature)}°C, ${conditions.condition}. Lit windows show contributions over the last months.`,
+    description: `${profile.role}. ${profile.location}. Skopje right now: ${temperature}, ${conditions.condition}. Lit windows show contributions over the last months.`,
     css: `
       .sky-name { font: 700 38px ${FONT}; fill: #ffffff; }
       .sky-role { font: 500 18px ${FONT}; fill: #eaf4ff; }

@@ -13,6 +13,8 @@ export interface SkopjeConditions {
   pm10: number | null;
   pm25: number | null;
   updatedAt: string;
+  // Local time of the reading as HH:MM, for anything that draws the time of day.
+  localTime: string;
 }
 
 export interface AirQuality {
@@ -75,5 +77,6 @@ export async function fetchSkopjeConditions(): Promise<SkopjeConditions> {
     pm10: pollution.pm10,
     pm25: pollution.pm25,
     updatedAt: formatUpdatedAt(weather.current.time),
+    localTime: weather.current.time.split('T')[1],
   };
 }

@@ -52,7 +52,12 @@ const USER_STATS_QUERY = `
         totalCommitContributions
         totalPullRequestReviewContributions
       }
-      repositoriesContributedTo(first: 1, contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) {
+      # Own repositories count too: on a personal profile they are most of the contributions.
+      repositoriesContributedTo(
+        first: 1
+        contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]
+        includeUserRepositories: true
+      ) {
         totalCount
       }
       pullRequests(first: 1) { totalCount }

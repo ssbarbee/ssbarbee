@@ -2,10 +2,15 @@ import type { Theme } from '../config';
 import type { UserStats } from '../github';
 import { calculateRank } from '../rank';
 import { GRID_CARD, ICONS, escapeXml, formatNumber, icon, renderCard } from './common';
+import { FADE_IN, REDUCED_MOTION, delay } from './motion';
 
 const RANK = { x: 380.5, y: 110.5, radius: 40 };
 
-export function renderStatsCard(stats: UserStats, theme: Theme): string {
+export function renderStatsCard(
+  stats: UserStats,
+  theme: Theme,
+  { animated = false }: { animated?: boolean } = {},
+): string {
   // The rank only uses public numbers, so the card's footnote holds for everything but contributions.
   const rank = calculateRank(stats);
   const rows = [
@@ -18,10 +23,17 @@ export function renderStatsCard(stats: UserStats, theme: Theme): string {
   ];
   const circumference = 2 * Math.PI * RANK.radius;
   const ring = `cx="${RANK.x}" cy="${RANK.y}" r="${RANK.radius}" fill="none" stroke="${theme.title}" stroke-width="6"`;
+  // Rows fade in one by one while the rank ring draws itself from empty to its value.
+  const motionCss = `
+    .ring-draw { animation: ring-draw 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both; }
+    @keyframes ring-draw { from { stroke-dashoffset: ${circumference}; } }
+  `;
+  const fade = (ms: number) => (animated ? ` class="fade-in" ${delay(ms)}` : '');
 
   return renderCard({
     theme,
     ...GRID_CARD,
+    css: animated ? FADE_IN + motionCss + REDUCED_MOTION : '',
     title: `${stats.name || stats.login}'s GitHub Stats`,
     description: [
       ...rows.map(({ label, value }) => `${label} ${value}`),
@@ -31,14 +43,16 @@ export function renderStatsCard(stats: UserStats, theme: Theme): string {
       ...rows.map(({ icon: path, label, value }, i) => {
         const y = 50 + i * 22;
         return [
+          `<g${fade(i * 110)}>`,
           icon(path, 25, y),
           `<text class="stat" x="50" y="${y + 12.5}">${escapeXml(label)}</text>`,
           `<text class="stat" x="262" y="${y + 12.5}">${formatNumber(value)}</text>`,
+          '</g>',
         ].join('');
       }),
       `<circle ${ring} opacity="0.2"/>`,
-      `<circle ${ring} opacity="0.8" stroke-linecap="round" stroke-dasharray="${circumference}" stroke-dashoffset="${(circumference * rank.percentile) / 100}" transform="rotate(-90 ${RANK.x} ${RANK.y})"/>`,
-      `<text class="rank" x="${RANK.x}" y="${RANK.y}" text-anchor="middle" dominant-baseline="central">${rank.level}</text>`,
+      `<circle ${ring}${animated ? ' class="ring-draw"' : ''} opacity="0.8" stroke-linecap="round" stroke-dasharray="${circumference}" stroke-dashoffset="${(circumference * rank.percentile) / 100}" transform="rotate(-90 ${RANK.x} ${RANK.y})"/>`,
+      `<g${fade(900)}><text class="rank" x="${RANK.x}" y="${RANK.y}" text-anchor="middle" dominant-baseline="central">${rank.level}</text></g>`,
     ],
   });
 }

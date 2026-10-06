@@ -194,6 +194,7 @@ test('renders the Skopje card with rounded readings and the air quality level', 
   assert.ok(svg.includes('>7 µg/m³</text>'));
   assert.ok(svg.includes('>Air quality: Fair</text>'));
   assert.ok(svg.includes('>Updated 6 Oct, 18:30</text>'));
+  assert.ok(svg.includes('>Data: Open-Meteo · pulse.eco</text>'));
 });
 
 test('shows a temperature of exactly 0°C', () => {

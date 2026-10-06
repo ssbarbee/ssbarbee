@@ -8,6 +8,7 @@ const style = (theme: Theme) => `
   .rank { font: 800 24px ${FONT}; fill: ${theme.text}; }
   .description { font: 400 13px ${FONT}; fill: ${theme.text}; }
   .label { font: 400 12px ${FONT}; fill: ${theme.text}; }
+  .small { font: 400 10px ${FONT}; fill: ${theme.muted}; }
   .name { font: 700 40px ${FONT}; fill: ${theme.text}; }
   .role { font: 400 18px ${FONT}; fill: ${theme.title}; }
   .meta { font: 400 14px ${FONT}; fill: ${theme.muted}; }

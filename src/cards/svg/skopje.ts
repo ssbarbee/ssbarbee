@@ -40,6 +40,7 @@ export function renderSkopjeCard(conditions: SkopjeConditions, theme: Theme): st
       `<rect x="25" y="164" rx="11" width="${pillWidth}" height="22" fill="${qualityColor}" fill-opacity="0.2"/>`,
       `<circle cx="38" cy="175" r="4" fill="${qualityColor}"/>`,
       `<text class="label strong" x="48" y="179">${qualityLabel}</text>`,
+      `<text class="small" x="442" y="179" text-anchor="end">Data: Open-Meteo · pulse.eco</text>`,
       ...rows.map(([label, value], i) => {
         // Readings end above the air quality pill, which can grow under this column.
         const y = 64 + i * 24;

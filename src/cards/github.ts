@@ -26,6 +26,18 @@ export interface Repo {
   language: { name: string; color: string | null } | null;
 }
 
+export type ContributionLevel =
+  | 'NONE'
+  | 'FIRST_QUARTILE'
+  | 'SECOND_QUARTILE'
+  | 'THIRD_QUARTILE'
+  | 'FOURTH_QUARTILE';
+
+export interface ContributionDay {
+  date: string;
+  level: ContributionLevel;
+}
+
 interface RepoLanguages {
   languages: { edges: { size: number; node: { name: string; color: string | null } }[] } | null;
 }
@@ -81,6 +93,18 @@ const TOP_LANGUAGES_QUERY = `
           }
         }
         pageInfo { hasNextPage endCursor }
+      }
+    }
+  }
+`;
+
+const CONTRIBUTIONS_QUERY = `
+  query contributions($login: String!) {
+    user(login: $login) {
+      contributionsCollection {
+        contributionCalendar {
+          weeks { contributionDays { date contributionLevel } }
+        }
       }
     }
   }
@@ -220,4 +244,28 @@ export async function fetchRepo(token: string, owner: string, name: string): Pro
     forks: repository.forkCount,
     language: repository.primaryLanguage,
   };
+}
+
+// The most recent weeks of the contribution calendar, oldest first.
+export async function fetchContributionWeeks(
+  token: string,
+  login: string,
+  count: number,
+): Promise<ContributionDay[][]> {
+  const data = await graphql<{
+    user: {
+      contributionsCollection: {
+        contributionCalendar: {
+          weeks: { contributionDays: { date: string; contributionLevel: ContributionLevel }[] }[];
+        };
+      };
+    } | null;
+  }>(token, CONTRIBUTIONS_QUERY, { login });
+  const { weeks } = requireUser(data.user, login).contributionsCollection.contributionCalendar;
+
+  return weeks
+    .slice(-count)
+    .map(({ contributionDays }) =>
+      contributionDays.map(({ date, contributionLevel }) => ({ date, level: contributionLevel })),
+    );
 }

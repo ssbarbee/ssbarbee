@@ -1,11 +1,11 @@
-import { THEME } from '../config';
+import type { Theme } from '../config';
 import type { UserStats } from '../github';
 import { calculateRank } from '../rank';
 import { ICONS, escapeXml, formatNumber, icon, renderCard } from './common';
 
 const RANK = { x: 380.5, y: 110.5, radius: 40 };
 
-export function renderStatsCard(stats: UserStats): string {
+export function renderStatsCard(stats: UserStats, theme: Theme): string {
   const rank = calculateRank(stats);
   const rows = [
     { icon: ICONS.star, label: 'Total Stars Earned:', value: stats.stars },
@@ -15,9 +15,10 @@ export function renderStatsCard(stats: UserStats): string {
     { icon: ICONS.repo, label: 'Contributed to (last year):', value: stats.contributedTo },
   ];
   const circumference = 2 * Math.PI * RANK.radius;
-  const ring = `cx="${RANK.x}" cy="${RANK.y}" r="${RANK.radius}" fill="none" stroke="${THEME.title}" stroke-width="6"`;
+  const ring = `cx="${RANK.x}" cy="${RANK.y}" r="${RANK.radius}" fill="none" stroke="${theme.title}" stroke-width="6"`;
 
   return renderCard({
+    theme,
     width: 467,
     height: 195,
     title: `${stats.name || stats.login}'s GitHub Stats`,

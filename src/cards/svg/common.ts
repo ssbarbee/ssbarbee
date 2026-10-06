@@ -1,14 +1,20 @@
-import { THEME } from '../config';
+import type { Theme } from '../config';
 
 const FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif";
 
-const STYLE = `
-  .header { font: 600 18px ${FONT}; fill: ${THEME.title}; }
-  .stat { font: 600 14px ${FONT}; fill: ${THEME.text}; }
-  .rank { font: 800 24px ${FONT}; fill: ${THEME.text}; }
-  .description { font: 400 13px ${FONT}; fill: ${THEME.text}; }
-  .label { font: 400 12px ${FONT}; fill: ${THEME.text}; }
-  .icon { fill: ${THEME.icon}; }
+const style = (theme: Theme) => `
+  .header { font: 600 18px ${FONT}; fill: ${theme.title}; }
+  .stat { font: 600 14px ${FONT}; fill: ${theme.text}; }
+  .rank { font: 800 24px ${FONT}; fill: ${theme.text}; }
+  .description { font: 400 13px ${FONT}; fill: ${theme.text}; }
+  .label { font: 400 12px ${FONT}; fill: ${theme.text}; }
+  .name { font: 700 40px ${FONT}; fill: ${theme.text}; }
+  .role { font: 400 18px ${FONT}; fill: ${theme.title}; }
+  .meta { font: 400 14px ${FONT}; fill: ${theme.muted}; }
+  .temperature { font: 600 48px ${FONT}; fill: ${theme.text}; }
+  .muted { fill: ${theme.muted}; }
+  .strong { font-weight: 600; }
+  .icon { fill: ${theme.icon}; }
 `;
 
 // 16px Octicons (MIT licensed, https://github.com/primer/octicons).
@@ -40,6 +46,9 @@ export function formatNumber(value: number): string {
   const thousands = Math.round(value / 100) / 10;
   return thousands < 1000 ? `${thousands}k` : `${Math.round(value / 100000) / 10}M`;
 }
+
+// Rough width of a 12px character, used to space text the SVG cannot measure.
+export const CHAR_WIDTH = 7;
 
 export function textLength(text: string): number {
   return Array.from(text).length;
@@ -87,26 +96,40 @@ export function icon(path: string, x: number, y: number): string {
   return `<path class="icon" fill-rule="evenodd" transform="translate(${x}, ${y})" d="${path}"/>`;
 }
 
-interface CardOptions {
+interface FrameOptions {
   width: number;
   height: number;
   title: string;
   description: string;
-  titleIcon?: string;
+  theme: Theme;
   body: string[];
 }
 
-export function renderCard({ width, height, title, description, titleIcon, body }: CardOptions) {
+// A themed card background; the title is only announced to screen readers.
+export function renderFrame({ width, height, title, description, theme, body }: FrameOptions) {
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" role="img" aria-labelledby="title desc">`,
     `<title id="title">${escapeXml(title)}</title>`,
     `<desc id="desc">${escapeXml(description)}</desc>`,
-    `<style>${STYLE}</style>`,
-    `<rect x="0.5" y="0.5" rx="10" width="${width - 1}" height="${height - 1}" fill="${THEME.background}" stroke="${THEME.border}"/>`,
-    ...(titleIcon ? [icon(titleIcon, 25, 22)] : []),
-    `<text class="header" x="${titleIcon ? 50 : 25}" y="35">${escapeXml(title)}</text>`,
+    `<style>${style(theme)}</style>`,
+    `<rect x="0.5" y="0.5" rx="6" width="${width - 1}" height="${height - 1}" fill="${theme.background}" stroke="${theme.border}"/>`,
     ...body,
     '</svg>',
     '',
   ].join('\n');
+}
+
+interface CardOptions extends FrameOptions {
+  titleIcon?: string;
+}
+
+export function renderCard({ titleIcon, body, ...frame }: CardOptions) {
+  return renderFrame({
+    ...frame,
+    body: [
+      ...(titleIcon ? [icon(titleIcon, 25, 22)] : []),
+      `<text class="header" x="${titleIcon ? 50 : 25}" y="35">${escapeXml(frame.title)}</text>`,
+      ...body,
+    ],
+  });
 }

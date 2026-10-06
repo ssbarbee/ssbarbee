@@ -1,10 +1,10 @@
-import { THEME } from '../config';
+import type { Theme } from '../config';
 import type { Language } from '../github';
 import { escapeXml, renderCard } from './common';
 
 const BAR = { x: 25, y: 55, width: 250, height: 8 };
 
-export function renderTopLanguagesCard(languages: Language[], count: number): string {
+export function renderTopLanguagesCard(languages: Language[], theme: Theme, count: number): string {
   const shown = languages.slice(0, count);
   const total = shown.reduce((sum, { size }) => sum + size, 0);
   if (!total) {
@@ -15,7 +15,7 @@ export function renderTopLanguagesCard(languages: Language[], count: number): st
   const rowsPerColumn = Math.ceil(shown.length / 2);
   const items = shown.map(({ name, color, size }) => ({
     name,
-    color: color ?? THEME.muted,
+    color: color ?? theme.muted,
     share: size / total,
   }));
 
@@ -28,6 +28,7 @@ export function renderTopLanguagesCard(languages: Language[], count: number): st
   });
 
   return renderCard({
+    theme,
     width: 300,
     height: 90 + rowsPerColumn * 25,
     title: 'Most Used Languages',

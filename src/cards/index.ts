@@ -1,30 +1,74 @@
-import { writeFileSync } from 'fs';
+import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { LANGS_COUNT, OUTPUT_DIR, PINNED_REPOS, USERNAME } from './config';
-import { fetchRepo, fetchTopLanguages, fetchUserStats } from './github';
+import {
+  CONTRIBUTION_WEEKS,
+  LANGS_COUNT,
+  OUTPUT_DIR,
+  PINNED_REPOS,
+  PROFILE,
+  THEMES,
+  USERNAME,
+  type Theme,
+} from './config';
+import { fetchContributionWeeks, fetchRepo, fetchTopLanguages, fetchUserStats } from './github';
+import { fetchSkopjeConditions } from './skopje';
+import { renderBanner } from './svg/banner';
 import { renderPinCard } from './svg/pin';
+import { renderSkopjeCard } from './svg/skopje';
 import { renderStatsCard } from './svg/stats';
 import { renderTopLanguagesCard } from './svg/top-langs';
 
+type Draw = (theme: Theme) => string;
+
 interface CardJob {
   file: string;
-  render: () => Promise<string>;
+  // A failed optional card keeps its previous files with a warning instead of failing the run.
+  optional?: boolean;
+  // Fetches the card's data once and returns a renderer for any theme.
+  render: () => Promise<Draw>;
 }
 
-// A card that fails to render keeps its previous file, so the README never shows an error card.
+function card<T>(
+  file: string,
+  fetchData: () => Promise<T>,
+  draw: (data: T, theme: Theme) => string,
+): CardJob {
+  return {
+    file,
+    render: async () => {
+      const data = await fetchData();
+      return (theme) => draw(data, theme);
+    },
+  };
+}
+
+// A card that fails to render keeps its previous files, so the README never shows an error card.
 export async function runCardJobs(
   jobs: CardJob[],
-  write: (file: string, svg: string) => void,
+  themes: Record<string, Theme>,
+  write: (path: string, svg: string) => void,
 ): Promise<string[]> {
   const failures: string[] = [];
-  for (const { file, render } of jobs) {
+  for (const { file, optional, render } of jobs) {
     try {
-      write(file, await render());
+      const draw = await render();
+      // Every theme renders before anything is written, so a rendering error leaves both untouched.
+      const outputs = Object.keys(themes).map((name) => ({
+        path: `${name}/${file}`,
+        svg: draw(themes[name]),
+      }));
+      for (const { path, svg } of outputs) {
+        write(path, svg);
+      }
       console.log(`Generated ${file}`);
     } catch (error) {
-      failures.push(file);
       const message = error instanceof Error ? error.message : String(error);
-      console.error(`::error::Failed to generate ${file}: ${message}`);
+      if (optional) {
+        console.warn(`::warning::Kept the previous ${file}: ${message}`);
+      } else {
+        failures.push(file);
+        console.error(`::error::Failed to generate ${file}: ${message}`);
+      }
     }
   }
   return failures;
@@ -37,23 +81,29 @@ async function generateCards(): Promise<void> {
   }
 
   const jobs: CardJob[] = [
-    {
-      file: 'stats.svg',
-      render: async () => renderStatsCard(await fetchUserStats(token, USERNAME)),
-    },
-    {
-      file: 'top-langs.svg',
-      render: async () =>
-        renderTopLanguagesCard(await fetchTopLanguages(token, USERNAME), LANGS_COUNT),
-    },
-    ...PINNED_REPOS.map((repo) => ({
-      file: `pin-${repo}.svg`,
-      render: async () => renderPinCard(await fetchRepo(token, USERNAME, repo)),
-    })),
+    card(
+      'banner.svg',
+      () => fetchContributionWeeks(token, USERNAME, CONTRIBUTION_WEEKS),
+      (weeks, theme) => renderBanner(PROFILE, weeks, theme),
+    ),
+    // Weather comes from third-party APIs, so an outage should not fail the daily run.
+    { ...card('skopje.svg', fetchSkopjeConditions, renderSkopjeCard), optional: true },
+    card('stats.svg', () => fetchUserStats(token, USERNAME), renderStatsCard),
+    card(
+      'top-langs.svg',
+      () => fetchTopLanguages(token, USERNAME),
+      (languages, theme) => renderTopLanguagesCard(languages, theme, LANGS_COUNT),
+    ),
+    ...PINNED_REPOS.map((repo) =>
+      card(`pin-${repo}.svg`, () => fetchRepo(token, USERNAME, repo), renderPinCard),
+    ),
   ];
 
-  const failures = await runCardJobs(jobs, (file, svg) =>
-    writeFileSync(join(OUTPUT_DIR, file), svg),
+  for (const name of Object.keys(THEMES)) {
+    mkdirSync(join(OUTPUT_DIR, name), { recursive: true });
+  }
+  const failures = await runCardJobs(jobs, THEMES, (path, svg) =>
+    writeFileSync(join(OUTPUT_DIR, path), svg),
   );
   if (failures.length) {
     process.exitCode = 1;

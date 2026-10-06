@@ -24,3 +24,18 @@ export const GROW_X = `
 export function delay(ms: number): string {
   return `style="animation-delay: ${Math.round(ms)}ms"`;
 }
+
+// A background-coloured cover that shrinks in steps reveals text like typing. Its own style is fully
+// shrunk, so the text is readable without animation; set duration, delay and steps() inline.
+export const TYPING = `
+  .typing { transform-box: fill-box; transform-origin: right center; transform: scaleX(0); animation-name: typing; animation-fill-mode: both; }
+  @keyframes typing { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+`;
+
+// A progress ring draws itself from empty to its value.
+export function ringDraw(circumference: number): string {
+  return `
+  .ring-draw { animation: ring-draw 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both; }
+  @keyframes ring-draw { from { stroke-dashoffset: ${circumference}; } }
+`;
+}

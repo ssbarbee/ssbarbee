@@ -2,7 +2,7 @@ import type { Theme } from '../config';
 import type { UserStats } from '../github';
 import { calculateRank } from '../rank';
 import { GRID_CARD, ICONS, escapeXml, formatNumber, icon, renderCard } from './common';
-import { FADE_IN, REDUCED_MOTION, delay } from './motion';
+import { FADE_IN, REDUCED_MOTION, delay, ringDraw } from './motion';
 
 const RANK = { x: 380.5, y: 110.5, radius: 40 };
 
@@ -23,17 +23,13 @@ export function renderStatsCard(
   ];
   const circumference = 2 * Math.PI * RANK.radius;
   const ring = `cx="${RANK.x}" cy="${RANK.y}" r="${RANK.radius}" fill="none" stroke="${theme.title}" stroke-width="6"`;
-  // Rows fade in one by one while the rank ring draws itself from empty to its value.
-  const motionCss = `
-    .ring-draw { animation: ring-draw 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both; }
-    @keyframes ring-draw { from { stroke-dashoffset: ${circumference}; } }
-  `;
   const fade = (ms: number) => (animated ? ` class="fade-in" ${delay(ms)}` : '');
 
   return renderCard({
     theme,
     ...GRID_CARD,
-    css: animated ? FADE_IN + motionCss + REDUCED_MOTION : '',
+    // Rows fade in one by one while the rank ring draws itself.
+    css: animated ? FADE_IN + ringDraw(circumference) + REDUCED_MOTION : '',
     title: `${stats.name || stats.login}'s GitHub Stats`,
     description: [
       ...rows.map(({ label, value }) => `${label} ${value}`),

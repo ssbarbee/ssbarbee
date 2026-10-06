@@ -1,7 +1,7 @@
 import type { Theme } from '../config';
 import type { ContributionDay, ContributionLevel } from '../github';
 import { escapeXml, renderFrame, textLength } from './common';
-import { FADE_IN, REDUCED_MOTION } from './motion';
+import { FADE_IN, REDUCED_MOTION, TYPING } from './motion';
 
 const WIDTH = 1000;
 const HEIGHT = 200;
@@ -17,7 +17,7 @@ const OPACITY: Record<ContributionLevel, number> = {
   FOURTH_QUARTILE: 1,
 };
 
-interface Profile {
+export interface Profile {
   name: string;
   role: string;
   location: string;
@@ -27,14 +27,11 @@ interface Profile {
 const ROLE_CHAR_WIDTH = 8.6;
 
 // Cells ripple in diagonally, then a gentle wave passes through them three times and stops.
-// The role line is revealed by a background-coloured cover shrinking in steps, like typing;
-// the cover's own style is fully shrunk, so the text is always readable without animation.
+// The role line types itself out with the shared typing cover.
 const MOTION_CSS = `
   .day { transform-box: fill-box; transform-origin: center; animation: day-in 0.5s ease-out both, day-wave 7s ease-in-out 2s 3; }
   @keyframes day-in { from { opacity: 0; transform: scale(0.3); } }
   @keyframes day-wave { 0%, 10%, 100% { transform: scale(1); } 5% { transform: scale(1.2); } }
-  .typing { transform-box: fill-box; transform-origin: right center; transform: scaleX(0); animation-name: typing; animation-fill-mode: both; }
-  @keyframes typing { from { transform: scaleX(1); } to { transform: scaleX(0); } }
 `;
 
 interface BannerOptions {
@@ -72,7 +69,7 @@ export function renderBanner(
     theme,
     width: WIDTH,
     height: HEIGHT,
-    css: animated ? MOTION_CSS + FADE_IN + REDUCED_MOTION : '',
+    css: animated ? MOTION_CSS + TYPING + FADE_IN + REDUCED_MOTION : '',
     title: profile.name,
     description: `${profile.role}. ${profile.location}`,
     body: [

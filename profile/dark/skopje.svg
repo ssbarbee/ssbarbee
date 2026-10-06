@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="467" height="195" viewBox="0 0 467 195" fill="none" role="img" aria-labelledby="title desc">
 <title id="title">Skopje right now</title>
-<desc id="desc">11°C, Partly cloudy. Air quality: Fair.</desc>
+<desc id="desc">10°C, Overcast. Air quality: Fair.</desc>
 <style>
   .header { font: 600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #7cebf5; }
   .stat { font: 600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #e6edf3; }
@@ -19,10 +19,10 @@
 </style>
 <rect x="0.5" y="0.5" rx="6" width="466" height="194" fill="#151b23" stroke="#3d444d"/>
 <text class="header" x="25" y="35">Skopje right now</text>
-<text class="label muted" x="442" y="35" text-anchor="end">Updated 6 Oct, 22:45</text>
-<text class="temperature" x="25" y="108">11°C</text>
-<text class="description" x="27" y="134">Partly cloudy</text>
-<text class="label muted" x="27" y="153">Feels like 8°C</text>
+<text class="label muted" x="442" y="35" text-anchor="end">Updated 6 Oct, 23:30</text>
+<text class="temperature" x="25" y="108">10°C</text>
+<text class="description" x="27" y="134">Overcast</text>
+<text class="label muted" x="27" y="153">Feels like 7°C</text>
 <rect x="25" y="164" rx="11" width="153" height="22" fill="#50ccaa" fill-opacity="0.2"/>
 <circle cx="38" cy="175" r="4" fill="#50ccaa"/>
 <text class="label strong" x="48" y="179">Air quality: Fair</text>
@@ -30,6 +30,6 @@
 <text class="label muted" x="235" y="64">Sunrise</text><text class="stat" x="320" y="64">06:36</text>
 <text class="label muted" x="235" y="88">Sunset</text><text class="stat" x="320" y="88">18:07</text>
 <text class="label muted" x="235" y="112">Humidity</text><text class="stat" x="320" y="112">44%</text>
-<text class="label muted" x="235" y="136">PM10</text><text class="stat" x="320" y="136">18 µg/m³</text>
+<text class="label muted" x="235" y="136">PM10</text><text class="stat" x="320" y="136">19 µg/m³</text>
 <text class="label muted" x="235" y="160">PM2.5</text><text class="stat" x="320" y="160">11 µg/m³</text>
 </svg>

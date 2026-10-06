@@ -63,7 +63,7 @@
     <img alt="ssbarbee's most used languages" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/top-langs.svg" width="410">
   </picture>
   <br>
-  <sub>Languages only cover my public code, not experience or skill level.</sub>
+  <sub>Contributions include private work as an anonymous count. Everything else, languages included, covers public repositories only.</sub>
 </p>
 
 ### Contributions in 3D
@@ -75,7 +75,7 @@
 
 <hr>
 
-<sub>Refreshed daily by GitHub Actions · Weather by <a href="https://open-meteo.com/">Open-Meteo</a> · Air quality by <a href="https://skopje.pulse.eco/">pulse.eco</a> · Last refresh: Tuesday, October 6 at 10:53 PM GMT+2</sub>
+<sub>Refreshed daily by GitHub Actions · Weather by <a href="https://open-meteo.com/">Open-Meteo</a> · Air quality by <a href="https://skopje.pulse.eco/">pulse.eco</a> · Last refresh: Tuesday, October 6 at 11:42 PM GMT+2</sub>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

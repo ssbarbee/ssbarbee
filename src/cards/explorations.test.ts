@@ -7,6 +7,7 @@ import { renderAboutCard } from './svg/about';
 import { renderBanner } from './svg/banner';
 import { ICONS } from './svg/common';
 import { renderSkylineBanner, skyPhase } from './svg/skyline';
+import { renderSkopjeCard } from './svg/skopje';
 import { renderStatsCard } from './svg/stats';
 import { renderTerminalCard } from './svg/terminal';
 import { renderKpiTile, renderRankTile, renderWeeklyTile } from './svg/tiles';
@@ -34,6 +35,7 @@ const conditions: SkopjeConditions = {
   pm10: 18,
   pm25: 10,
   updatedAt: '7 Oct, 12:30',
+  localTime: '12:30',
 };
 
 const stats = {
@@ -65,11 +67,67 @@ test('draws a sun by day and a moon at night', () => {
   assert.ok(weatherIcon(0, false, dark, 0, 0).includes('wx-twinkle'));
 });
 
-test('picks the sky phase from the time, sunrise and sunset', () => {
-  assert.equal(skyPhase('12:30', '06:36', '18:07'), 'day');
-  assert.equal(skyPhase('17:30', '06:36', '18:07'), 'golden');
-  assert.equal(skyPhase('06:50', '06:36', '18:07'), 'golden');
-  assert.equal(skyPhase('22:00', '06:36', '18:07'), 'night');
+test('picks the sky phase from the time, sunrise, sunset and daylight', () => {
+  assert.equal(skyPhase('12:30', '06:36', '18:07', true), 'day');
+  assert.equal(skyPhase('17:30', '06:36', '18:07', true), 'golden');
+  assert.equal(skyPhase('06:50', '06:36', '18:07', true), 'golden');
+  assert.equal(skyPhase('22:00', '06:36', '18:07', false), 'night');
+  assert.equal(
+    skyPhase('18:20', '06:36', '18:07', false),
+    'night',
+    'follows the weather card after sunset',
+  );
+});
+
+test('draws the same scene whether or not it is animated', () => {
+  const strip = (svg: string) =>
+    svg
+      .replace(/<style>[\s\S]*?<\/style>/, '')
+      .replace(/ class="[^"]*"/g, '')
+      .replace(/ style="[^"]*"/g, '');
+  for (const scene of [
+    conditions,
+    { ...conditions, weatherCode: 63 },
+    { ...conditions, isDay: false, localTime: '22:00' },
+  ]) {
+    assert.equal(
+      strip(renderSkylineBanner(PROFILE, weeks, scene, dark, { animated: true })),
+      strip(renderSkylineBanner(PROFILE, weeks, scene, dark)),
+    );
+  }
+});
+
+test('lights the newest contribution days in the rightmost windows', () => {
+  const recent: ContributionDay[][] = [[{ date: '2026-10-05', level: 'FOURTH_QUARTILE' }]];
+  const svg = renderSkylineBanner(
+    PROFILE,
+    recent,
+    { ...conditions, isDay: false, localTime: '22:00' },
+    dark,
+  );
+  const windows = Array.from(
+    svg.matchAll(/<rect x="(\d+)" y="\d+" width="5" height="6" fill="#ffd166" opacity="([\d.]+)"/g),
+  );
+
+  assert.ok(windows.length > 10);
+  assert.equal(windows[windows.length - 1][2], '1', 'the newest day is the last window');
+  assert.equal(windows[0][2], '0.05', 'older windows without data stay dark');
+});
+
+test('shows n/a in the sky caption when the temperature is missing', () => {
+  assert.ok(
+    renderSkylineBanner(PROFILE, weeks, { ...conditions, temperature: NaN }, dark).includes(
+      'Skopje now · n/a',
+    ),
+  );
+});
+
+test('keeps the weather icon clear of a wide temperature', () => {
+  const svg = renderSkopjeCard({ ...conditions, temperature: -12 }, dark);
+  const iconX = Number(/<g transform="translate\((\d+) 58\)" aria-hidden/.exec(svg)?.[1]);
+
+  assert.ok(iconX >= 25 + 126, `icon at ${iconX}`);
+  assert.ok(iconX + 64 <= 231, 'and clear of the readings column');
 });
 
 test('renders the Skopje sky with the profile, the cross and one window per day', () => {
@@ -86,7 +144,7 @@ test('lights the Millennium Cross at night', () => {
   const night = renderSkylineBanner(
     PROFILE,
     weeks,
-    { ...conditions, updatedAt: '7 Oct, 22:00' },
+    { ...conditions, isDay: false, localTime: '22:00' },
     dark,
   );
 
@@ -135,11 +193,38 @@ test('renders the rank tile from public numbers', () => {
   assert.ok(renderRankTile(stats, dark).includes('>B+</text>'));
 });
 
+test('draws a quiet chart without a busiest label when nothing happened', () => {
+  const svg = renderWeeklyTile([0, 0, 0], dark);
+
+  assert.equal((svg.match(/<rect [^>]*rx="1.5"/g) ?? []).length, 3);
+  assert.ok(!svg.includes('x="-'), 'nothing is drawn outside the card');
+});
+
+test('refuses an empty contribution history', () => {
+  assert.throws(() => renderWeeklyTile([], dark), /No contribution weeks/);
+});
+
 test('draws one bar per week and labels the busiest', () => {
   const svg = renderWeeklyTile([5, 40, 12], dark);
 
   assert.equal((svg.match(/<rect [^>]*rx="1.5"/g) ?? []).length, 3);
   assert.ok(svg.includes('>40</text>'));
+});
+
+test('keeps the terminal tall enough for the monogram and fits the prompt to the host', () => {
+  const svg = renderTerminalCard(
+    { user: 'u', host: 'h', monogram: 'FB', rows: [['Role', 'Engineer']] },
+    dark,
+  );
+  const height = Number(/^<svg [^>]*height="(\d+)"/.exec(svg)?.[1]);
+  const pixelBottoms = Array.from(
+    svg.matchAll(/<rect x="\d+" y="(\d+)" width="15"/g),
+    (m) => Number(m[1]) + 15,
+  );
+  const command = Number(/<text class="mono" x="([\d.]+)" y="62">neofetch/.exec(svg)?.[1]);
+
+  assert.ok(Math.max(...pixelBottoms) + 40 <= height, 'the monogram ends above the bottom prompt');
+  assert.ok(command < 24 + 8 * 7.8, 'a short host keeps the command close to the prompt');
 });
 
 test('draws the terminal monogram as pixels', () => {

@@ -8,6 +8,11 @@ on:
     - cron: "0 15 * * *"
   workflow_dispatch:
 
+# Runs queue instead of overlapping, so two runs never race to push regenerated cards.
+concurrency:
+  group: update-readme
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest

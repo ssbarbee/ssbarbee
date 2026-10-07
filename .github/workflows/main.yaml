@@ -37,29 +37,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Contributions only change over the day, so code pushes skip the graph
-      - name: Generate 3D contribution graph
-        id: graph
-        if: github.event_name != 'push'
-        continue-on-error: true
-        uses: yoshi389111/github-profile-3d-contrib@7d95e7d4cdc028dd1e1cbd957d65f35efb12ae39 # v0.9.3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-          # Light and dark variants matching GitHub's page backgrounds and the cards' palette
-          SETTING_JSON: .github/profile-3d.json
-
       - name: Update README file
         run: yarn update
       - name: Commit and push new README.md
         run: |-
           git config --global user.name "ssbarbee"
           git config --global user.email "ssbarbee@gmail.com"
-          git add profile/ profile-3d-contrib/ README.md
+          git add profile/ README.md
           git commit -m "chore: content update" || exit 0
           git pull --rebase && git push
       - name: Fail when profile images were not generated
-        if: steps.cards.outcome == 'failure' || steps.graph.outcome == 'failure'
+        if: steps.cards.outcome == 'failure'
         run: |
           echo "::error::Some profile images failed to generate; their previous versions were kept."
           exit 1

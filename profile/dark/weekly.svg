@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="467" height="195" viewBox="0 0 467 195" fill="none" role="img" aria-labelledby="title desc">
 <title id="title">Contributions per week</title>
-<desc id="desc">10.3k contributions over 53 weeks, busiest week 763</desc>
+<desc id="desc">10.4k contributions over 53 weeks, busiest week 763</desc>
 <style>
   .header { font: 600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #7cebf5; }
   .stat { font: 600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #e6edf3; }
@@ -23,7 +23,7 @@
 </style>
 <rect x="0.5" y="0.5" rx="6" width="466" height="194" fill="#151b23" stroke="#3d444d"/>
 <text class="header" x="25" y="35">Contributions per week</text>
-<text class="label muted" x="442" y="35" text-anchor="end">10.3k in 53 weeks</text>
+<text class="label muted" x="442" y="35" text-anchor="end">10.4k in 53 weeks</text>
 <line x1="25" y1="160" x2="442" y2="160" stroke="#3d444d"/>
 <rect class="bar" style="animation-delay: 100ms" x="26.0" y="149.8" width="5.9" height="10.2" rx="1.5" fill="#7cebf5" fill-opacity="0.55"/>
 <rect class="bar" style="animation-delay: 118ms" x="33.9" y="146.0" width="5.9" height="14.0" rx="1.5" fill="#7cebf5" fill-opacity="0.55"/>
@@ -77,7 +77,7 @@
 <rect class="bar" style="animation-delay: 982ms" x="411.5" y="154.6" width="5.9" height="5.4" rx="1.5" fill="#7cebf5" fill-opacity="0.55"/>
 <rect class="bar" style="animation-delay: 1000ms" x="419.4" y="102.9" width="5.9" height="57.1" rx="1.5" fill="#7cebf5" fill-opacity="0.55"/>
 <rect class="bar" style="animation-delay: 1018ms" x="427.3" y="60.0" width="5.9" height="100.0" rx="1.5" fill="#7cebf5" fill-opacity="1"/>
-<rect class="bar" style="animation-delay: 1036ms" x="435.1" y="128.9" width="5.9" height="31.1" rx="1.5" fill="#7cebf5" fill-opacity="0.55"/>
+<rect class="bar" style="animation-delay: 1036ms" x="435.1" y="124.4" width="5.9" height="35.6" rx="1.5" fill="#7cebf5" fill-opacity="0.55"/>
 <text class="small" x="430.2" y="54" text-anchor="middle">763</text>
 <text class="small" x="25" y="178">a year ago</text>
 <text class="small" x="442" y="178" text-anchor="end">this week</text>

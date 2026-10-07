@@ -2,11 +2,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { THEMES } from './config';
 import type { ContributionDay, UserStats } from './github';
-import type { SkopjeConditions } from './skopje';
 import { renderAboutCard } from './svg/about';
 import { renderBanner } from './svg/banner';
 import { escapeXml, formatNumber, wrapText } from './svg/common';
-import { renderSkopjeCard } from './svg/skopje';
 import { renderStatsCard } from './svg/stats';
 import { renderTopLanguagesCard } from './svg/top-langs';
 
@@ -23,21 +21,6 @@ const stats: UserStats = {
   contributedTo: 18,
   followers: 7,
   contributions: 10384,
-};
-
-const conditions: SkopjeConditions = {
-  temperature: 21.4,
-  feelsLike: 19.6,
-  condition: 'Partly cloudy',
-  weatherCode: 2,
-  isDay: true,
-  humidity: 25,
-  sunrise: '06:36',
-  sunset: '18:07',
-  pm10: 13,
-  pm25: 7,
-  updatedAt: '6 Oct, 18:30',
-  localTime: '18:30',
 };
 
 test('escapes XML special characters', () => {
@@ -150,51 +133,6 @@ test('renders the banner with name, role, location and one cell per day', () => 
   assert.ok(svg.includes('>Skopje</text>'));
   assert.equal((svg.match(/class="day"/g) ?? []).length, 3);
   assert.ok(svg.includes('fill-opacity="1"'), 'the busiest days are drawn at full strength');
-});
-
-test('renders the Skopje card with rounded readings and the air quality level', () => {
-  const svg = renderSkopjeCard(conditions, dark);
-
-  assert.match(svg, /^<svg [^>]*width="467" height="195"/);
-  assert.ok(svg.includes('>Skopje right now</text>'));
-  assert.ok(svg.includes('>21°C</text>'));
-  assert.ok(svg.includes('>Partly cloudy</text>'));
-  assert.ok(svg.includes('>Feels like 20°C</text>'));
-  assert.ok(svg.includes('>13 µg/m³</text>'));
-  assert.ok(svg.includes('>7 µg/m³</text>'));
-  assert.ok(svg.includes('>Air quality: Fair</text>'));
-  assert.ok(svg.includes('>Updated 6 Oct, 18:30</text>'));
-  assert.ok(svg.includes('>Data: Open-Meteo · pulse.eco</text>'));
-});
-
-test('shows a temperature of exactly 0°C', () => {
-  assert.ok(renderSkopjeCard({ ...conditions, temperature: 0 }, dark).includes('>0°C</text>'));
-});
-
-test('marks missing pollution readings as not available', () => {
-  const svg = renderSkopjeCard({ ...conditions, pm10: null, pm25: null }, dark);
-
-  assert.equal((svg.match(/>n\/a<\/text>/g) ?? []).length, 2);
-  assert.ok(svg.includes('>Air quality: n/a</text>'));
-});
-
-test('rounds decimal pollution readings', () => {
-  const svg = renderSkopjeCard({ ...conditions, pm10: 12.345678, pm25: 7.6 }, dark);
-
-  assert.ok(svg.includes('>12 µg/m³</text>'));
-  assert.ok(svg.includes('>8 µg/m³</text>'));
-});
-
-test('keeps the air quality pill clear of the readings for the longest level', () => {
-  const svg = renderSkopjeCard({ ...conditions, pm10: 300 }, dark);
-  const pillTop = Number(/<rect x="25" y="(\d+)" rx="11"/.exec(svg)?.[1]);
-  const readingBaselines = Array.from(svg.matchAll(/x="235" y="(\d+)"/g), (match) =>
-    Number(match[1]),
-  );
-
-  assert.ok(svg.includes('>Air quality: Extremely poor</text>'));
-  assert.equal(readingBaselines.length, 5);
-  assert.ok(Math.max(...readingBaselines) < pillTop, 'the pill sits below the last reading');
 });
 
 test('renders the About card with one line per point', () => {

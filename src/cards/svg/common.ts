@@ -1,7 +1,6 @@
 import type { Theme } from '../config';
 
 export const FONT = "'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif";
-export const MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
 
 const style = (theme: Theme) => `
   .header { font: 600 18px ${FONT}; fill: ${theme.title}; }
@@ -53,9 +52,6 @@ export function formatNumber(value: number): string {
 
 // Size of every card in the README grid; two sit side by side at the same height.
 export const GRID_CARD = { width: 467, height: 195 };
-
-// Rough width of a 12px character, used to space text the SVG cannot measure.
-export const CHAR_WIDTH = 7;
 
 export function textLength(text: string): number {
   return Array.from(text).length;

@@ -4,12 +4,37 @@ import { airQuality, type SkopjeConditions } from '../skopje';
 import type { Profile } from './banner';
 import { FONT, escapeXml, renderFrame } from './common';
 import { REDUCED_MOTION } from './motion';
-import { formatRounded } from './skopje';
-import { weatherKind, type WeatherKind } from './weather-icons';
 
 // A banner showing Skopje's sky right now: colours follow the time of day and the weather, the sun
 // sits where it really is between sunrise and sunset, Vodno carries the Millennium Cross (lit at
 // night), and the city's windows light up with the last months of GitHub contributions.
+
+export type WeatherKind =
+  | 'clear'
+  | 'partly-cloudy'
+  | 'cloudy'
+  | 'fog'
+  | 'drizzle'
+  | 'rain'
+  | 'snow'
+  | 'thunder';
+
+// Groups WMO weather interpretation codes (as returned by open-meteo) into drawable kinds.
+export function weatherKind(code: number): WeatherKind {
+  if (code <= 1) return 'clear';
+  if (code === 2) return 'partly-cloudy';
+  if (code === 3) return 'cloudy';
+  if (code === 45 || code === 48) return 'fog';
+  if (code >= 51 && code <= 57) return 'drizzle';
+  if ((code >= 61 && code <= 67) || (code >= 80 && code <= 82)) return 'rain';
+  if ((code >= 71 && code <= 77) || code === 85 || code === 86) return 'snow';
+  if (code >= 95) return 'thunder';
+  return 'cloudy';
+}
+
+function formatRounded(value: number, unit: string): string {
+  return Number.isFinite(value) ? `${Math.round(value)}${unit}` : 'n/a';
+}
 
 const WIDTH = 1000;
 const HEIGHT = 240;

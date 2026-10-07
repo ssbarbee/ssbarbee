@@ -13,7 +13,7 @@ import { renderAboutCard } from './svg/about';
 import { renderBanner } from './svg/banner';
 import { renderSkylineBanner } from './svg/skyline';
 import { renderStatsCard } from './svg/stats';
-import { renderWeeklyTile } from './svg/tiles';
+import { renderWeeklyTile } from './svg/weekly';
 import { renderTopLanguagesCard } from './svg/top-langs';
 
 type Draw = (theme: Theme) => string;

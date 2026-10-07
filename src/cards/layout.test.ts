@@ -5,13 +5,10 @@ import type { ContributionDay } from './github';
 import type { SkopjeConditions } from './skopje';
 import { renderAboutCard } from './svg/about';
 import { renderBanner } from './svg/banner';
-import { ICONS } from './svg/common';
-import { renderSkylineBanner, skyPhase } from './svg/skyline';
-import { renderSkopjeCard } from './svg/skopje';
+import { renderSkylineBanner, skyPhase, weatherKind } from './svg/skyline';
 import { renderStatsCard } from './svg/stats';
-import { renderTerminalCard } from './svg/terminal';
-import { renderKpiTile, renderRankTile, renderWeeklyTile } from './svg/tiles';
-import { weatherIcon, weatherKind } from './svg/weather-icons';
+import { renderWeeklyTile } from './svg/weekly';
+import { renderTopLanguagesCard } from './svg/top-langs';
 
 const { light, dark } = THEMES;
 
@@ -59,12 +56,6 @@ test('groups WMO weather codes into drawable kinds', () => {
   assert.equal(weatherKind(81), 'rain');
   assert.equal(weatherKind(86), 'snow');
   assert.equal(weatherKind(99), 'thunder');
-});
-
-test('draws a sun by day and a moon at night', () => {
-  assert.ok(weatherIcon(0, true, dark, 0, 0).includes('wx-spin'));
-  assert.ok(!weatherIcon(0, false, dark, 0, 0).includes('wx-spin'));
-  assert.ok(weatherIcon(0, false, dark, 0, 0).includes('wx-twinkle'));
 });
 
 test('picks the sky phase from the time, sunrise, sunset and daylight', () => {
@@ -124,12 +115,12 @@ test('shows n/a in the sky caption when the temperature is missing', () => {
   );
 });
 
-test('keeps the weather icon clear of a wide temperature', () => {
-  const svg = renderSkopjeCard({ ...conditions, temperature: -12 }, dark);
-  const iconX = Number(/<g transform="translate\((\d+) 58\)" aria-hidden/.exec(svg)?.[1]);
-
-  assert.ok(iconX >= 25 + 126, `icon at ${iconX}`);
-  assert.ok(iconX + 64 <= 231, 'and clear of the readings column');
+test('shows a temperature of exactly 0°C in the sky caption', () => {
+  assert.ok(
+    renderSkylineBanner(PROFILE, weeks, { ...conditions, temperature: 0 }, dark).includes(
+      '>0°C · Partly cloudy</text>',
+    ),
+  );
 });
 
 test('renders the Skopje sky with the profile, the cross and one window per day', () => {
@@ -165,11 +156,7 @@ test('keeps every animated card readable without motion', () => {
     renderAboutCard(PROFILE.about, light, animated),
     renderStatsCard(stats, light, animated),
     renderSkylineBanner(PROFILE, weeks, conditions, light, animated),
-    renderTerminalCard(
-      { user: 'u', host: 'h', monogram: 'FB', rows: [['Role', 'Engineer']] },
-      light,
-      animated,
-    ),
+    renderTopLanguagesCard([{ name: 'TypeScript', color: '#3178c6', size: 1 }], light, 8, animated),
     renderWeeklyTile([1, 2, 3], light, animated),
   ];
 
@@ -183,21 +170,6 @@ test('keeps every animated card readable without motion', () => {
 test('leaves cards static by default', () => {
   assert.ok(!renderBanner(PROFILE, weeks, light).includes('@keyframes'));
   assert.ok(!renderStatsCard(stats, light).includes('@keyframes'));
-});
-
-test('renders a number tile with a compact value', () => {
-  const svg = renderKpiTile(
-    { label: 'Contributions', value: 10335, caption: 'last year', icon: ICONS.graph },
-    light,
-  );
-
-  assert.match(svg, /^<svg [^>]*width="202" height="120"/);
-  assert.ok(svg.includes('>10.3k</text>'));
-  assert.ok(svg.includes('>Contributions</text>'));
-});
-
-test('renders the rank tile from public numbers', () => {
-  assert.ok(renderRankTile(stats, dark).includes('>B+</text>'));
 });
 
 test('draws a quiet chart without a busiest label when nothing happened', () => {
@@ -216,35 +188,4 @@ test('draws one bar per week and labels the busiest', () => {
 
   assert.equal((svg.match(/<rect [^>]*rx="1.5"/g) ?? []).length, 3);
   assert.ok(svg.includes('>40</text>'));
-});
-
-test('keeps the terminal tall enough for the monogram and fits the prompt to the host', () => {
-  const svg = renderTerminalCard(
-    { user: 'u', host: 'h', monogram: 'FB', rows: [['Role', 'Engineer']] },
-    dark,
-  );
-  const height = Number(/^<svg [^>]*height="(\d+)"/.exec(svg)?.[1]);
-  const pixelBottoms = Array.from(
-    svg.matchAll(/<rect x="\d+" y="(\d+)" width="15"/g),
-    (m) => Number(m[1]) + 15,
-  );
-  const command = Number(/<text class="mono" x="([\d.]+)" y="62">neofetch/.exec(svg)?.[1]);
-
-  assert.ok(Math.max(...pixelBottoms) + 40 <= height, 'the monogram ends above the bottom prompt');
-  assert.ok(command < 24 + 8 * 7.8, 'a short host keeps the command close to the prompt');
-});
-
-test('draws the terminal monogram as pixels', () => {
-  const svg = renderTerminalCard(
-    { user: 'u', host: 'h', monogram: 'FB', rows: [['Role', 'Engineer']] },
-    dark,
-  );
-
-  assert.equal(
-    (svg.match(/<rect [^>]*rx="2" fill="#7cebf5"/g) ?? []).length,
-    70,
-    'two 5x7 letters',
-  );
-  assert.ok(svg.includes('>Role</text>'));
-  assert.ok(svg.includes('>Engineer</text>'));
 });

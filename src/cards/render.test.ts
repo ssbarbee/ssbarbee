@@ -129,10 +129,10 @@ test('limits the languages card to the requested count', () => {
 test('renders the banner with name, role, location and one cell per day', () => {
   const weeks: ContributionDay[][] = [
     [
-      { date: '2026-09-27', level: 'NONE' },
-      { date: '2026-09-28', level: 'FOURTH_QUARTILE' },
+      { date: '2026-09-27', level: 'NONE', count: 0 },
+      { date: '2026-09-28', level: 'FOURTH_QUARTILE', count: 40 },
     ],
-    [{ date: '2026-10-04', level: 'FIRST_QUARTILE' }],
+    [{ date: '2026-10-04', level: 'FIRST_QUARTILE', count: 3 }],
   ];
   const svg = renderBanner(
     {

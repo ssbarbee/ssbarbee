@@ -17,10 +17,10 @@ const { light, dark } = THEMES;
 
 const weeks: ContributionDay[][] = [
   [
-    { date: '2026-09-27', level: 'NONE' },
-    { date: '2026-09-28', level: 'FOURTH_QUARTILE' },
+    { date: '2026-09-27', level: 'NONE', count: 0 },
+    { date: '2026-09-28', level: 'FOURTH_QUARTILE', count: 40 },
   ],
-  [{ date: '2026-10-04', level: 'SECOND_QUARTILE' }],
+  [{ date: '2026-10-04', level: 'SECOND_QUARTILE', count: 12 }],
 ];
 
 const conditions: SkopjeConditions = {
@@ -98,7 +98,9 @@ test('draws the same scene whether or not it is animated', () => {
 });
 
 test('lights the newest contribution days in the rightmost windows', () => {
-  const recent: ContributionDay[][] = [[{ date: '2026-10-05', level: 'FOURTH_QUARTILE' }]];
+  const recent: ContributionDay[][] = [
+    [{ date: '2026-10-05', level: 'FOURTH_QUARTILE', count: 40 }],
+  ];
   const svg = renderSkylineBanner(
     PROFILE,
     recent,
@@ -117,7 +119,7 @@ test('lights the newest contribution days in the rightmost windows', () => {
 test('shows n/a in the sky caption when the temperature is missing', () => {
   assert.ok(
     renderSkylineBanner(PROFILE, weeks, { ...conditions, temperature: NaN }, dark).includes(
-      'Skopje now · n/a',
+      '>n/a · Partly cloudy</text>',
     ),
   );
 });
@@ -135,7 +137,12 @@ test('renders the Skopje sky with the profile, the cross and one window per day'
 
   assert.match(svg, /^<svg [^>]*width="1000" height="240"/);
   assert.ok(svg.includes(`>${PROFILE.name}</text>`));
-  assert.ok(svg.includes('Skopje now · 14°C · Partly cloudy'));
+  assert.ok(
+    svg.includes('>Skopje · 7 Oct, 12:30</text>'),
+    'the caption says when the scene was drawn',
+  );
+  assert.ok(svg.includes('>14°C · Partly cloudy</text>'));
+  assert.ok(svg.includes('>Air quality: Fair</text>'));
   assert.equal((svg.match(/fill="#cfe8ff"/g) ?? []).length > 3, true, 'windows are drawn');
   assert.ok(!svg.includes('@keyframes'), 'static unless animated');
 });

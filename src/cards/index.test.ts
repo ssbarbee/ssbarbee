@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { THEMES } from './config';
-import { runCardJobs } from './index';
+import { drawBanner, runCardJobs } from './index';
 
 test('writes every theme of a card and keeps the previous files of a failed card', async () => {
   const written: string[] = [];
@@ -72,4 +72,26 @@ test('keeps the previous files of an optional card without failing the run', asy
 
   assert.deepEqual(written, []);
   assert.deepEqual(failures, []);
+});
+
+test('falls back to the classic banner when the weather is unavailable', () => {
+  const weeks = [[{ date: '2026-10-04', level: 'FIRST_QUARTILE' as const, count: 3 }]];
+  const conditions = {
+    temperature: 14,
+    feelsLike: 11,
+    condition: 'Partly cloudy',
+    weatherCode: 2,
+    isDay: true,
+    humidity: 35,
+    sunrise: '06:36',
+    sunset: '18:07',
+    pm10: 18,
+    pm25: 10,
+    updatedAt: '7 Oct, 12:30',
+    localTime: '12:30',
+  };
+
+  assert.ok(drawBanner({ weeks, conditions }, THEMES.dark).includes('url(#sky)'));
+  assert.ok(!drawBanner({ weeks, conditions: null }, THEMES.dark).includes('url(#sky)'));
+  assert.ok(drawBanner({ weeks, conditions: null }, THEMES.dark).includes('class="day"'));
 });

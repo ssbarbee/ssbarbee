@@ -1,6 +1,6 @@
 import type { Theme } from '../config';
 import type { ContributionDay, ContributionLevel } from '../github';
-import type { SkopjeConditions } from '../skopje';
+import { airQuality, type SkopjeConditions } from '../skopje';
 import type { Profile } from './banner';
 import { FONT, escapeXml, renderFrame } from './common';
 import { REDUCED_MOTION } from './motion';
@@ -83,6 +83,14 @@ export function renderSkylineBanner(
   const rand = random(seed);
   const motionRand = random(seed + 7919);
   const temperature = formatRounded(conditions.temperature, '°C');
+  const [date] = conditions.updatedAt.split(', ');
+  const air = airQuality(conditions.pm10, conditions.pm25);
+  // Short lines, right-aligned over Vodno, stay clear of the city even for long readings.
+  const caption = [
+    `Skopje · ${date}, ${clock}`,
+    `${temperature} · ${conditions.condition}`,
+    ...(air ? [`Air quality: ${air.level}`] : []),
+  ];
   const css: string[] = [];
   const parts: string[] = [];
 
@@ -262,7 +270,11 @@ export function renderSkylineBanner(
     `<text class="sky-name" x="40" y="74">${escapeXml(profile.name)}</text>`,
     `<text class="sky-role" x="42" y="106">${escapeXml(profile.role)}</text>`,
     `<text class="sky-meta" x="42" y="132">${escapeXml(profile.location)}</text>`,
-    `<text class="sky-meta" x="${WIDTH - 24}" y="${HEIGHT - 14}" text-anchor="end">Skopje now · ${temperature} · ${escapeXml(conditions.condition)}</text>`,
+    // The scene is redrawn once a day, so the caption says when, not "now".
+    ...caption.map(
+      (line, i) =>
+        `<text class="sky-meta" x="${WIDTH - 24}" y="${HEIGHT - 14 - (caption.length - 1 - i) * 18}" text-anchor="end">${escapeXml(line)}</text>`,
+    ),
     `</g>`,
     `</g>`,
   );
@@ -272,7 +284,7 @@ export function renderSkylineBanner(
     width: WIDTH,
     height: HEIGHT,
     title: profile.name,
-    description: `${profile.role}. ${profile.location}. Skopje right now: ${temperature}, ${conditions.condition}. Lit windows show contributions over the last months.`,
+    description: `${profile.role}. ${profile.location}. Skopje on ${date} at ${clock}: ${temperature}, ${conditions.condition}${air ? `, air quality ${air.level.toLowerCase()}` : ''}. Lit windows show contributions over the last months.`,
     css: `
       .sky-name { font: 700 38px ${FONT}; fill: #ffffff; }
       .sky-role { font: 500 18px ${FONT}; fill: #eaf4ff; }

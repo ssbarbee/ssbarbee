@@ -83,7 +83,7 @@ export function renderWeeklyTile(
     theme,
     ...GRID_CARD,
     title: 'Contributions per week',
-    description: `${total} contributions over ${weekly.length} weeks${busiest >= 0 ? `, busiest week ${max}` : ''}`,
+    description: `${formatNumber(total)} contributions over ${weekly.length} weeks${busiest >= 0 ? `, busiest week ${max}` : ''}`,
     css: animated
       ? `.bar { transform-box: fill-box; transform-origin: center bottom; animation: bar-up 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; } @keyframes bar-up { from { transform: scaleY(0); } }` +
         REDUCED_MOTION

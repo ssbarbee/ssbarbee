@@ -31,6 +31,8 @@ export type ContributionLevel =
 export interface ContributionDay {
   date: string;
   level: ContributionLevel;
+  // Contributions that day, private ones included as an anonymous number.
+  count: number;
 }
 
 interface RepoLanguages {
@@ -104,7 +106,7 @@ const CONTRIBUTIONS_QUERY = `
     user(login: $login) {
       contributionsCollection {
         contributionCalendar {
-          weeks { contributionDays { date contributionLevel } }
+          weeks { contributionDays { date contributionLevel contributionCount } }
         }
       }
     }
@@ -214,26 +216,39 @@ export async function fetchTopLanguages(token: string, login: string): Promise<L
   return sumLanguages(await fetchAllRepos<RepoLanguages>(token, TOP_LANGUAGES_QUERY, login));
 }
 
-// The most recent weeks of the contribution calendar, oldest first.
-export async function fetchContributionWeeks(
+// The last year of the contribution calendar, one array per week, oldest first.
+export async function fetchContributionCalendar(
   token: string,
   login: string,
-  count: number,
 ): Promise<ContributionDay[][]> {
   const data = await graphql<{
     user: {
       contributionsCollection: {
         contributionCalendar: {
-          weeks: { contributionDays: { date: string; contributionLevel: ContributionLevel }[] }[];
+          weeks: {
+            contributionDays: {
+              date: string;
+              contributionLevel: ContributionLevel;
+              contributionCount: number;
+            }[];
+          }[];
         };
       };
     } | null;
   }>(token, CONTRIBUTIONS_QUERY, { login });
   const { weeks } = requireUser(data.user, login).contributionsCollection.contributionCalendar;
 
-  return weeks
-    .slice(-count)
-    .map(({ contributionDays }) =>
-      contributionDays.map(({ date, contributionLevel }) => ({ date, level: contributionLevel })),
-    );
+  return weeks.map(({ contributionDays }) =>
+    contributionDays.map(({ date, contributionLevel, contributionCount }) => ({
+      date,
+      level: contributionLevel,
+      count: contributionCount,
+    })),
+  );
+}
+
+// GitHub's year usually starts mid-week; that partial first week would look like a quiet one.
+export function weeklyTotals(weeks: ContributionDay[][]): number[] {
+  const complete = weeks.length > 1 && weeks[0].length < 7 ? weeks.slice(1) : weeks;
+  return complete.map((week) => week.reduce((sum, { count }) => sum + count, 0));
 }

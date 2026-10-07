@@ -1,20 +1,19 @@
 import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
+import { LANGS_COUNT, OUTPUT_DIR, PROFILE, THEMES, USERNAME, type Theme } from './config';
 import {
-  CONTRIBUTION_WEEKS,
-  LANGS_COUNT,
-  OUTPUT_DIR,
-  PROFILE,
-  THEMES,
-  USERNAME,
-  type Theme,
-} from './config';
-import { fetchContributionWeeks, fetchTopLanguages, fetchUserStats } from './github';
-import { fetchSkopjeConditions } from './skopje';
+  fetchContributionCalendar,
+  fetchTopLanguages,
+  fetchUserStats,
+  weeklyTotals,
+  type ContributionDay,
+} from './github';
+import { fetchSkopjeConditions, type SkopjeConditions } from './skopje';
 import { renderAboutCard } from './svg/about';
 import { renderBanner } from './svg/banner';
-import { renderSkopjeCard } from './svg/skopje';
+import { renderSkylineBanner } from './svg/skyline';
 import { renderStatsCard } from './svg/stats';
+import { renderWeeklyTile } from './svg/tiles';
 import { renderTopLanguagesCard } from './svg/top-langs';
 
 type Draw = (theme: Theme) => string;
@@ -39,6 +38,18 @@ function card<T>(
       return (theme) => draw(data, theme);
     },
   };
+}
+
+const ANIMATED = { animated: true };
+
+// The Skopje sky needs the weather; without it the banner falls back to the classic one.
+export function drawBanner(
+  { weeks, conditions }: { weeks: ContributionDay[][]; conditions: SkopjeConditions | null },
+  theme: Theme,
+): string {
+  return conditions
+    ? renderSkylineBanner(PROFILE, weeks, conditions, theme, ANIMATED)
+    : renderBanner(PROFILE, weeks.slice(-26), theme, ANIMATED);
 }
 
 // A card that fails to render keeps its previous files, so the README never shows an error card.
@@ -79,20 +90,47 @@ async function generateCards(): Promise<void> {
     throw new Error('GITHUB_TOKEN is not set');
   }
 
+  // Every card animates once on load and stops; viewers who prefer reduced motion see it still.
+  const animated = ANIMATED;
+  // The sky banner and the weekly chart both read the contribution calendar, so it is fetched once.
+  let calendar: Promise<ContributionDay[][]> | undefined;
+  const contributionCalendar = () => (calendar ??= fetchContributionCalendar(token, USERNAME));
+
   const jobs: CardJob[] = [
+    // Weather comes from third-party APIs: an outage draws the classic banner instead of the sky.
     card(
       'banner.svg',
-      () => fetchContributionWeeks(token, USERNAME, CONTRIBUTION_WEEKS),
-      (weeks, theme) => renderBanner(PROFILE, weeks, theme),
+      async () => {
+        const [weeks, conditions] = await Promise.all([
+          contributionCalendar(),
+          fetchSkopjeConditions().catch((error) => {
+            console.warn(`::warning::Weather not available, drawing the classic banner: ${error}`);
+            return null;
+          }),
+        ]);
+        return { weeks, conditions };
+      },
+      drawBanner,
     ),
-    card('about.svg', async () => PROFILE.about, renderAboutCard),
-    // Weather comes from third-party APIs, so an outage should not fail the daily run.
-    { ...card('skopje.svg', fetchSkopjeConditions, renderSkopjeCard), optional: true },
-    card('stats.svg', () => fetchUserStats(token, USERNAME), renderStatsCard),
+    card(
+      'about.svg',
+      async () => PROFILE.about,
+      (points, theme) => renderAboutCard(points, theme, animated),
+    ),
+    card(
+      'stats.svg',
+      () => fetchUserStats(token, USERNAME),
+      (stats, theme) => renderStatsCard(stats, theme, animated),
+    ),
     card(
       'top-langs.svg',
       () => fetchTopLanguages(token, USERNAME),
-      (languages, theme) => renderTopLanguagesCard(languages, theme, LANGS_COUNT),
+      (languages, theme) => renderTopLanguagesCard(languages, theme, LANGS_COUNT, animated),
+    ),
+    card(
+      'weekly.svg',
+      async () => weeklyTotals(await contributionCalendar()),
+      (weekly, theme) => renderWeeklyTile(weekly, theme, animated),
     ),
   ];
 

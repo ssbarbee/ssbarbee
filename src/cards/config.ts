@@ -15,9 +15,6 @@ export const PROFILE = {
 
 export const LANGS_COUNT = 8;
 
-// About six months of contributions in the banner.
-export const CONTRIBUTION_WEEKS = 26;
-
 export const OUTPUT_DIR = './profile';
 
 export interface Theme {

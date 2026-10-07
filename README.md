@@ -2,26 +2,39 @@
      ?v= changes on every refresh so browsers fetch the new cards instead of reusing cached ones.
      Grid cards are 410px wide so two fit side by side next to the 824px banner, and wrap to one per row on narrow screens. -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/banner.svg?v=202610062151">
-  <img alt="Filip Bozhinovski, product engineer from Skopje, North Macedonia" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/banner.svg?v=202610062151" width="824">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/banner.svg?v=202610070959">
+  <img alt="Filip Bozhinovski, product engineer from Skopje. The banner shows the Skopje sky at the last daily refresh, and the city windows light up with recent contributions." src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/banner.svg?v=202610070959" width="824">
 </picture>
 
 <p>
   <a href="https://www.linkedin.com/in/filip-bozhinovski-306464122/">LinkedIn</a> ·
   <a href="https://stackoverflow.com/users/1861016/ssbarbee">Stack Overflow</a> ·
-  <a href="mailto:ssbarbee@gmail.com">Email</a> ·
+  <a href="https://github.com/ssbarbee">GitHub</a> ·
   <a href="https://www.chess.com/member/ssbarbe_e">chess.com</a>
 </p>
 
 <p>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/about.svg?v=202610062151">
-    <img alt="About: Exploring AI&#x2F;ML tooling and integrations; Open to collaborating on open source; Ask me anything frontend: React, TypeScript, Next.js; Off the keyboard: half-marathons and chess" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/about.svg?v=202610062151" width="410">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/about.svg?v=202610070959">
+    <img alt="About: Exploring AI&#x2F;ML tooling and integrations; Open to collaborating on open source; Ask me anything frontend: React, TypeScript, Next.js; Off the keyboard: half-marathons and chess" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/about.svg?v=202610070959" width="410">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/skopje.svg?v=202610062151">
-    <img alt="Current weather and air quality in Skopje" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/skopje.svg?v=202610062151" width="410">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/stats.svg?v=202610070959">
+    <img alt="ssbarbee's GitHub stats" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/stats.svg?v=202610070959" width="410">
   </picture>
+</p>
+
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/top-langs.svg?v=202610070959">
+    <img alt="ssbarbee's most used languages" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/top-langs.svg?v=202610070959" width="410">
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/weekly.svg?v=202610070959">
+    <img alt="Contributions per week over the last year" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/weekly.svg?v=202610070959" width="410">
+  </picture>
+  <br>
+  <sub>Contributions include private work as an anonymous count. Everything else, languages included, covers public repositories only.</sub>
 </p>
 
 ### Tech stack
@@ -52,31 +65,9 @@
   <a href="https://www.jetbrains.com/webstorm/"><img src="./assets/webstorm.png" width="30" height="30" alt="WebStorm" title="WebStorm"></a>
 </p>
 
-### GitHub stats
-
-<p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/stats.svg?v=202610062151">
-    <img alt="ssbarbee's GitHub stats" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/stats.svg?v=202610062151" width="410">
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/top-langs.svg?v=202610062151">
-    <img alt="ssbarbee's most used languages" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/top-langs.svg?v=202610062151" width="410">
-  </picture>
-  <br>
-  <sub>Contributions include private work as an anonymous count. Everything else, languages included, covers public repositories only.</sub>
-</p>
-
-### Contributions in 3D
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile-3d-contrib/profile-dark.svg?v=202610062151">
-  <img alt="ssbarbee's contributions over the last year as a 3D graph" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile-3d-contrib/profile-light.svg?v=202610062151" width="824">
-</picture>
-
 <hr>
 
-<sub>Refreshed daily by GitHub Actions · Weather by <a href="https://open-meteo.com/">Open-Meteo</a> · Air quality by <a href="https://skopje.pulse.eco/">pulse.eco</a> · Last refresh: Tuesday, October 6 at 11:51 PM GMT+2</sub>
+<sub>Refreshed daily by GitHub Actions · Weather by <a href="https://open-meteo.com/">Open-Meteo</a> · Air quality by <a href="https://skopje.pulse.eco/">pulse.eco</a> · Last refresh: Wednesday, October 7 at 11:59 AM GMT+2</sub>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

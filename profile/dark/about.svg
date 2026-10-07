@@ -16,11 +16,18 @@
   .muted { fill: #9198a1; }
   .strong { font-weight: 600; }
   .icon { fill: #4493f8; }
+
+  .fade-in { animation: fade-in 0.6s ease-out both; }
+  @keyframes fade-in { from { opacity: 0; transform: translateY(4px); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+  }
 </style>
 <rect x="0.5" y="0.5" rx="6" width="466" height="194" fill="#151b23" stroke="#3d444d"/>
 <text class="header" x="25" y="35">About</text>
-<circle cx="29" cy="71" r="3" fill="#7cebf5"/><text class="body" x="42" y="76">Exploring AI/ML tooling and integrations</text>
-<circle cx="29" cy="99" r="3" fill="#7cebf5"/><text class="body" x="42" y="104">Open to collaborating on open source</text>
-<circle cx="29" cy="127" r="3" fill="#7cebf5"/><text class="body" x="42" y="132">Ask me anything frontend: React, TypeScript, Next.js</text>
-<circle cx="29" cy="155" r="3" fill="#7cebf5"/><text class="body" x="42" y="160">Off the keyboard: half-marathons and chess</text>
+<g class="fade-in" style="animation-delay: 200ms"><circle cx="29" cy="71" r="3" fill="#7cebf5"/><text class="body" x="42" y="76">Exploring AI/ML tooling and integrations</text></g>
+<g class="fade-in" style="animation-delay: 360ms"><circle cx="29" cy="99" r="3" fill="#7cebf5"/><text class="body" x="42" y="104">Open to collaborating on open source</text></g>
+<g class="fade-in" style="animation-delay: 520ms"><circle cx="29" cy="127" r="3" fill="#7cebf5"/><text class="body" x="42" y="132">Ask me anything frontend: React, TypeScript, Next.js</text></g>
+<g class="fade-in" style="animation-delay: 680ms"><circle cx="29" cy="155" r="3" fill="#7cebf5"/><text class="body" x="42" y="160">Off the keyboard: half-marathons and chess</text></g>
 </svg>

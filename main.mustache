@@ -1,9 +1,10 @@
-<!-- Cards in profile/light and profile/dark are rendered daily by src/cards; <picture> picks the one matching the viewer's GitHub theme.
+<!-- The sky banner is rendered hourly and published to GitHub Pages (.github/workflows/sky.yaml); the other cards in
+     profile/light and profile/dark are rendered daily by src/cards. <picture> picks the one matching the viewer's GitHub theme.
      ?v= changes on every refresh so browsers fetch the new cards instead of reusing cached ones.
      Grid cards are 410px wide so two fit side by side next to the 824px banner, and wrap to one per row on narrow screens. -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/banner.svg?v={{cacheKey}}">
-  <img alt="Filip Bozhinovski, product engineer from Skopje. The banner shows the Skopje sky at the last daily refresh, and the city windows light up with recent contributions." src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/banner.svg?v={{cacheKey}}" width="824">
+  <source media="(prefers-color-scheme: dark)" srcset="https://ssbarbee.github.io/ssbarbee/dark/banner.svg?v={{cacheKey}}">
+  <img alt="Filip Bozhinovski, product engineer from Skopje. The banner shows the Skopje sky, refreshed every hour, and the city windows light up with recent contributions." src="https://ssbarbee.github.io/ssbarbee/light/banner.svg?v={{cacheKey}}" width="824">
 </picture>
 
 <p>

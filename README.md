@@ -3,8 +3,8 @@
      ?v= changes on every refresh so browsers fetch the new cards instead of reusing cached ones.
      Grid cards are 410px wide so two fit side by side next to the 824px banner, and wrap to one per row on narrow screens. -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://ssbarbee.github.io/ssbarbee/dark/banner.svg?v=202610081618">
-  <img alt="Filip Bozhinovski, product engineer from Skopje. The banner shows the Skopje sky, refreshed every hour, and the city windows light up with recent contributions." src="https://ssbarbee.github.io/ssbarbee/light/banner.svg?v=202610081618" width="824">
+  <source media="(prefers-color-scheme: dark)" srcset="https://ssbarbee.github.io/ssbarbee/dark/banner.svg?v=202610082018">
+  <img alt="Filip Bozhinovski, product engineer from Skopje. The banner shows the Skopje sky, refreshed every hour, and the city windows light up with recent contributions." src="https://ssbarbee.github.io/ssbarbee/light/banner.svg?v=202610082018" width="824">
 </picture>
 
 <p>
@@ -16,23 +16,23 @@
 
 <p>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/about.svg?v=202610081618">
-    <img alt="About: Exploring AI&#x2F;ML tooling and integrations; Open to collaborating on open source; Ask me anything frontend: React, TypeScript, Next.js; Off the keyboard: half-marathons and chess" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/about.svg?v=202610081618" width="410">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/about.svg?v=202610082018">
+    <img alt="About: Exploring AI&#x2F;ML tooling and integrations; Open to collaborating on open source; Ask me anything frontend: React, TypeScript, Next.js; Off the keyboard: half-marathons and chess" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/about.svg?v=202610082018" width="410">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/stats.svg?v=202610081618">
-    <img alt="ssbarbee's GitHub stats" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/stats.svg?v=202610081618" width="410">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/stats.svg?v=202610082018">
+    <img alt="ssbarbee's GitHub stats" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/stats.svg?v=202610082018" width="410">
   </picture>
 </p>
 
 <p>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/top-langs.svg?v=202610081618">
-    <img alt="ssbarbee's most used languages" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/top-langs.svg?v=202610081618" width="410">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/top-langs.svg?v=202610082018">
+    <img alt="ssbarbee's most used languages" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/top-langs.svg?v=202610082018" width="410">
   </picture>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/weekly.svg?v=202610081618">
-    <img alt="Contributions per week over the last year" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/weekly.svg?v=202610081618" width="410">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/dark/weekly.svg?v=202610082018">
+    <img alt="Contributions per week over the last year" src="https://raw.githubusercontent.com/ssbarbee/ssbarbee/main/profile/light/weekly.svg?v=202610082018" width="410">
   </picture>
   <br>
   <sub>Contributions include private work as an anonymous count. Everything else, languages included, covers public repositories only.</sub>
@@ -68,7 +68,7 @@
 
 <hr>
 
-<sub>Refreshed daily by GitHub Actions · Weather by <a href="https://open-meteo.com/">Open-Meteo</a> · Air quality by <a href="https://skopje.pulse.eco/">pulse.eco</a> · Last refresh: Thursday, October 8 at 6:18 PM GMT+2</sub>
+<sub>Refreshed daily by GitHub Actions · Weather by <a href="https://open-meteo.com/">Open-Meteo</a> · Air quality by <a href="https://skopje.pulse.eco/">pulse.eco</a> · Last refresh: Thursday, October 8 at 10:18 PM GMT+2</sub>
 
 <!---
 ssbarbee/ssbarbee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

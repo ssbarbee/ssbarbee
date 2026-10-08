@@ -13,3 +13,5 @@ coverage/
 /.yarn/plugins/** binary
 .yarn/install-state.gz
 .idea
+# Sky banner build output, published to GitHub Pages
+site/

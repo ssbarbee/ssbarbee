@@ -17,6 +17,9 @@ export const LANGS_COUNT = 8;
 
 export const OUTPUT_DIR = './profile';
 
+// The sky banner is published to GitHub Pages from here, not committed.
+export const SKY_OUTPUT_DIR = './site';
+
 export interface Theme {
   background: string;
   border: string;
@@ -26,7 +29,8 @@ export interface Theme {
   muted: string;
 }
 
-// Every card is rendered once per theme into profile/<theme>/, matching GitHub's light and dark modes.
+// Every card is rendered once per theme into <output>/<theme>/ (profile/ daily, site/ hourly for the sky),
+// matching GitHub's light and dark modes.
 export const THEMES: { light: Theme; dark: Theme } = {
   light: {
     background: '#f6f8fa',

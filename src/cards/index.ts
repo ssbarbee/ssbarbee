@@ -1,6 +1,14 @@
 import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { LANGS_COUNT, OUTPUT_DIR, PROFILE, THEMES, USERNAME, type Theme } from './config';
+import {
+  LANGS_COUNT,
+  OUTPUT_DIR,
+  PROFILE,
+  SKY_OUTPUT_DIR,
+  THEMES,
+  USERNAME,
+  type Theme,
+} from './config';
 import {
   fetchContributionCalendar,
   fetchTopLanguages,
@@ -84,25 +92,41 @@ export async function runCardJobs(
   return failures;
 }
 
-async function generateCards(): Promise<void> {
-  const token = process.env.GITHUB_TOKEN;
-  if (!token) {
-    throw new Error('GITHUB_TOKEN is not set');
-  }
+// Cards that change slowly: rendered once a day and committed to the repo.
+export function dailyJobs(token: string): CardJob[] {
+  return [
+    card(
+      'about.svg',
+      async () => PROFILE.about,
+      (points, theme) => renderAboutCard(points, theme, ANIMATED),
+    ),
+    card(
+      'stats.svg',
+      () => fetchUserStats(token, USERNAME),
+      (stats, theme) => renderStatsCard(stats, theme, ANIMATED),
+    ),
+    card(
+      'top-langs.svg',
+      () => fetchTopLanguages(token, USERNAME),
+      (languages, theme) => renderTopLanguagesCard(languages, theme, LANGS_COUNT, ANIMATED),
+    ),
+    card(
+      'weekly.svg',
+      async () => weeklyTotals(await fetchContributionCalendar(token, USERNAME)),
+      (weekly, theme) => renderWeeklyTile(weekly, theme, ANIMATED),
+    ),
+  ];
+}
 
-  // Every card animates once on load and stops; viewers who prefer reduced motion see it still.
-  const animated = ANIMATED;
-  // The sky banner and the weekly chart both read the contribution calendar, so it is fetched once.
-  let calendar: Promise<ContributionDay[][]> | undefined;
-  const contributionCalendar = () => (calendar ??= fetchContributionCalendar(token, USERNAME));
-
-  const jobs: CardJob[] = [
-    // Weather comes from third-party APIs: an outage draws the classic banner instead of the sky.
+// The Skopje sky follows the time of day, so it is rendered hourly and published to GitHub Pages
+// instead of being committed. Weather comes from third-party APIs: an outage draws the classic banner.
+export function skyJobs(token: string): CardJob[] {
+  return [
     card(
       'banner.svg',
       async () => {
         const [weeks, conditions] = await Promise.all([
-          contributionCalendar(),
+          fetchContributionCalendar(token, USERNAME),
           fetchSkopjeConditions().catch((error) => {
             console.warn(`::warning::Weather not available, drawing the classic banner: ${error}`);
             return null;
@@ -112,33 +136,28 @@ async function generateCards(): Promise<void> {
       },
       drawBanner,
     ),
-    card(
-      'about.svg',
-      async () => PROFILE.about,
-      (points, theme) => renderAboutCard(points, theme, animated),
-    ),
-    card(
-      'stats.svg',
-      () => fetchUserStats(token, USERNAME),
-      (stats, theme) => renderStatsCard(stats, theme, animated),
-    ),
-    card(
-      'top-langs.svg',
-      () => fetchTopLanguages(token, USERNAME),
-      (languages, theme) => renderTopLanguagesCard(languages, theme, LANGS_COUNT, animated),
-    ),
-    card(
-      'weekly.svg',
-      async () => weeklyTotals(await contributionCalendar()),
-      (weekly, theme) => renderWeeklyTile(weekly, theme, animated),
-    ),
   ];
+}
+
+// `yarn cards` renders the daily cards into profile/, `yarn sky` renders the sky into site/.
+async function generateCards(target: string | undefined): Promise<void> {
+  const token = process.env.GITHUB_TOKEN;
+  if (!token) {
+    throw new Error('GITHUB_TOKEN is not set');
+  }
+  if (target !== undefined && target !== 'sky') {
+    throw new Error(
+      `Unknown target "${target}": run without one for the daily cards, or with "sky"`,
+    );
+  }
+  const [jobs, outputDir] =
+    target === 'sky' ? [skyJobs(token), SKY_OUTPUT_DIR] : [dailyJobs(token), OUTPUT_DIR];
 
   for (const name of Object.keys(THEMES)) {
-    mkdirSync(join(OUTPUT_DIR, name), { recursive: true });
+    mkdirSync(join(outputDir, name), { recursive: true });
   }
   const failures = await runCardJobs(jobs, THEMES, (path, svg) =>
-    writeFileSync(join(OUTPUT_DIR, path), svg),
+    writeFileSync(join(outputDir, path), svg),
   );
   if (failures.length) {
     process.exitCode = 1;
@@ -146,7 +165,7 @@ async function generateCards(): Promise<void> {
 }
 
 if (require.main === module) {
-  generateCards().catch((error: Error) => {
+  generateCards(process.argv[2]).catch((error: Error) => {
     console.error(`::error::${error.message}`);
     process.exitCode = 1;
   });

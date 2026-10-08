@@ -21,6 +21,7 @@
     "prepare": "is-ci || husky",
     "update": "ts-node src/index.ts",
     "cards": "ts-node src/cards/index.ts",
+    "sky": "ts-node src/cards/index.ts sky",
     "test-weather": "TEST_WEATHER=yes ts-node src/services/weather.ts",
     "test": "node --require ts-node/register --test \"src/**/*.test.ts\"",
     "prettier:fix": "prettier --log-level silent --write './src/**/*.{ts,tsx}' './.storybook/**/*.{ts,tsx}'"

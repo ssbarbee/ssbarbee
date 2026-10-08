@@ -295,7 +295,7 @@ export function renderSkylineBanner(
     `<text class="sky-name" x="40" y="74">${escapeXml(profile.name)}</text>`,
     `<text class="sky-role" x="42" y="106">${escapeXml(profile.role)}</text>`,
     `<text class="sky-meta" x="42" y="132">${escapeXml(profile.location)}</text>`,
-    // The scene is redrawn once a day, so the caption says when, not "now".
+    // The scene is a snapshot redrawn every hour, so the caption says when, not "now".
     ...caption.map(
       (line, i) =>
         `<text class="sky-meta" x="${WIDTH - 24}" y="${HEIGHT - 14 - (caption.length - 1 - i) * 18}" text-anchor="end">${escapeXml(line)}</text>`,

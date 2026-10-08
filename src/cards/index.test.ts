@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { THEMES } from './config';
-import { drawBanner, runCardJobs } from './index';
+import { dailyJobs, drawBanner, runCardJobs, skyJobs } from './index';
 
 test('writes every theme of a card and keeps the previous files of a failed card', async () => {
   const written: string[] = [];
@@ -94,4 +94,15 @@ test('falls back to the classic banner when the weather is unavailable', () => {
   assert.ok(drawBanner({ weeks, conditions }, THEMES.dark).includes('url(#sky)'));
   assert.ok(!drawBanner({ weeks, conditions: null }, THEMES.dark).includes('url(#sky)'));
   assert.ok(drawBanner({ weeks, conditions: null }, THEMES.dark).includes('class="day"'));
+});
+
+test('splits the cards between the daily commit and the hourly sky', () => {
+  assert.deepEqual(
+    dailyJobs('token').map(({ file }) => file),
+    ['about.svg', 'stats.svg', 'top-langs.svg', 'weekly.svg'],
+  );
+  assert.deepEqual(
+    skyJobs('token').map(({ file }) => file),
+    ['banner.svg'],
+  );
 });

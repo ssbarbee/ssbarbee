@@ -1,0 +1,63 @@
+name: Refresh Skopje sky
+
+# The sky banner follows the time of day, so it is redrawn every hour and published to GitHub
+# Pages instead of being committed. Minute 17 avoids the top of the hour, when GitHub delays
+# scheduled runs the most. The daily README workflow keeps the repository active, which stops
+# GitHub from pausing this schedule after 60 days without commits.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/cards/**'
+      - 'src/services/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.nvmrc'
+      - '.github/workflows/sky.yaml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; a run that is waiting is replaced by a newer one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sky:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+
+      # A failed render stops here, so the previous sky stays published.
+      - name: Render the sky banner
+        run: yarn sky
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

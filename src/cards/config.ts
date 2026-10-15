@@ -4,7 +4,7 @@ export const USERNAME = 'ssbarbee';
 export const PROFILE = {
   name: 'Filip Bozhinovski',
   role: 'Product Engineer · Frontend-first · TypeScript & React',
-  location: 'Skopje, North Macedonia · @ssbarbee',
+  location: 'Skopje, Macedonia · @ssbarbee',
   about: [
     'Exploring AI/ML tooling and integrations',
     'Open to collaborating on open source',

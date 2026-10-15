@@ -126,7 +126,8 @@ export function renderSkylineBanner(
       .join('')}</linearGradient>`,
     `<linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity="0.32"/><stop offset="0.55" stop-color="#000" stop-opacity="0"/></linearGradient>`,
     `<filter id="shadow" x="-10%" y="-30%" width="120%" height="160%"><feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.35"/></filter>`,
-    `<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3"/></filter>`,
+    `<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.5"/></filter>`,
+    `<radialGradient id="halo"><stop offset="0" stop-color="#fff3c4" stop-opacity="0.24"/><stop offset="0.35" stop-color="#fff3c4" stop-opacity="0.08"/><stop offset="1" stop-color="#fff3c4" stop-opacity="0"/></radialGradient>`,
     `<mask id="moon"><circle cx="905" cy="52" r="16" fill="#fff"/><circle cx="913" cy="46" r="14" fill="#000"/></mask>`,
     `<clipPath id="frame"><rect x="1" y="1" width="${WIDTH - 2}" height="${HEIGHT - 2}" rx="6"/></clipPath></defs>`,
     `<g clip-path="url(#frame)">`,
@@ -237,7 +238,9 @@ export function renderSkylineBanner(
     `<path d="M 470 ${HEIGHT} L 560 200 Q 620 170 680 146 Q 740 118 790 108 Q 845 116 890 140 Q 940 166 ${WIDTH} 180 L ${WIDTH} ${HEIGHT} Z" fill="${land.mountain}"/>`,
     ...(phase === 'night'
       ? [
-          `<rect x="782" y="72" width="16" height="40" fill="#fff3c4" opacity="0.35" filter="url(#glow)"/>`,
+          // A soft halo for the light in the air, and a blurred cross so the glow follows its shape.
+          `<circle cx="790" cy="90" r="34" fill="url(#halo)"/>`,
+          `<g fill="#fff3c4" opacity="0.6" filter="url(#glow)"><rect x="787.5" y="75" width="5" height="34"/><rect x="781" y="83" width="18" height="5"/></g>`,
         ]
       : []),
     `<rect x="788.5" y="76" width="3" height="32" fill="${crossColor}"/>`,

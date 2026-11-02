@@ -77,7 +77,7 @@
 <rect class="bar" style="animation-delay: 982ms" x="411.5" y="110.1" width="5.9" height="49.9" rx="1.5" fill="#0b7285" fill-opacity="0.55"/>
 <rect class="bar" style="animation-delay: 1000ms" x="419.4" y="108.1" width="5.9" height="51.9" rx="1.5" fill="#0b7285" fill-opacity="0.55"/>
 <rect class="bar" style="animation-delay: 1018ms" x="427.3" y="60.0" width="5.9" height="100.0" rx="1.5" fill="#0b7285" fill-opacity="1"/>
-<rect class="bar" style="animation-delay: 1036ms" x="435.1" y="158.3" width="5.9" height="1.7" rx="1.5" fill="#0b7285" fill-opacity="0.55"/>
+<rect class="bar" style="animation-delay: 1036ms" x="435.1" y="154.5" width="5.9" height="5.5" rx="1.5" fill="#0b7285" fill-opacity="0.55"/>
 <text class="small" x="430.2" y="54" text-anchor="middle">1.7k</text>
 <text class="small" x="25" y="178">a year ago</text>
 <text class="small" x="442" y="178" text-anchor="end">this week</text>

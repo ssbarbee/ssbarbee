@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="467" height="195" viewBox="0 0 467 195" fill="none" role="img" aria-labelledby="title desc">
 <title id="title">Most Used Languages</title>
-<desc id="desc">TypeScript 47.44%, HTML 25.64%, JavaScript 18.54%, Monkey C 5.88%, CSS 1.14%, Mustache 0.93%, Shell 0.28%, Makefile 0.14%</desc>
+<desc id="desc">TypeScript 47.41%, HTML 25.68%, JavaScript 18.53%, Monkey C 5.88%, CSS 1.14%, Mustache 0.93%, Shell 0.28%, Makefile 0.14%</desc>
 <style>
   .header { font: 600 18px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #7cebf5; }
   .stat { font: 600 14px 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; fill: #e6edf3; }
@@ -30,10 +30,10 @@
 <rect x="0.5" y="0.5" rx="6" width="466" height="194" fill="#151b23" stroke="#3d444d"/>
 <text class="header" x="25" y="35">Most Used Languages</text>
 <clipPath id="bar"><rect x="25" y="55" width="417" height="8" rx="5"/></clipPath>
-<g clip-path="url(#bar)"><rect class="grow-x" style="animation-delay: 200ms" x="25" y="55" width="197.82444977691125" height="8" fill="#3178c6"/><rect class="grow-x" style="animation-delay: 596ms" x="222.82444977691125" y="55" width="106.92435979153387" height="8" fill="#e34c26"/><rect class="grow-x" style="animation-delay: 809ms" x="329.74880956844515" y="55" width="77.29142139402346" height="8" fill="#f1e05a"/><rect class="grow-x" style="animation-delay: 964ms" x="407.0402309624686" y="55" width="24.5354204941697" height="8" fill="#8D6747"/><rect class="grow-x" style="animation-delay: 1013ms" x="431.5756514566383" y="55" width="4.757196955494733" height="8" fill="#663399"/><rect class="grow-x" style="animation-delay: 1023ms" x="436.33284841213305" y="55" width="3.8878932173521807" height="8" fill="#724b3b"/><rect class="grow-x" style="animation-delay: 1030ms" x="440.22074162948525" y="55" width="1.1747066101758463" height="8" fill="#89e051"/><rect class="grow-x" style="animation-delay: 1033ms" x="441.3954482396611" y="55" width="0.604551760338945" height="8" fill="#427819"/></g>
-<g class="fade-in" style="animation-delay: 400ms"><circle cx="30" cy="86" r="5" fill="#3178c6"/><text class="label" x="40" y="90">TypeScript 47.44%</text></g>
-<g class="fade-in" style="animation-delay: 490ms"><circle cx="30" cy="111" r="5" fill="#e34c26"/><text class="label" x="40" y="115">HTML 25.64%</text></g>
-<g class="fade-in" style="animation-delay: 580ms"><circle cx="30" cy="136" r="5" fill="#f1e05a"/><text class="label" x="40" y="140">JavaScript 18.54%</text></g>
+<g clip-path="url(#bar)"><rect class="grow-x" style="animation-delay: 200ms" x="25" y="55" width="197.7194283965499" height="8" fill="#3178c6"/><rect class="grow-x" style="animation-delay: 595ms" x="222.7194283965499" y="55" width="107.08897327479062" height="8" fill="#e34c26"/><rect class="grow-x" style="animation-delay: 810ms" x="329.8084016713405" y="55" width="77.25038879277501" height="8" fill="#f1e05a"/><rect class="grow-x" style="animation-delay: 964ms" x="407.05879046411553" y="55" width="24.522395088407418" height="8" fill="#8D6747"/><rect class="grow-x" style="animation-delay: 1013ms" x="431.5811855525229" y="55" width="4.754671446683863" height="8" fill="#663399"/><rect class="grow-x" style="animation-delay: 1023ms" x="436.3358569992068" y="55" width="3.8858292059883457" height="8" fill="#724b3b"/><rect class="grow-x" style="animation-delay: 1030ms" x="440.2216862051951" y="55" width="1.1740829799326717" height="8" fill="#89e051"/><rect class="grow-x" style="animation-delay: 1033ms" x="441.3957691851278" y="55" width="0.6042308148721823" height="8" fill="#427819"/></g>
+<g class="fade-in" style="animation-delay: 400ms"><circle cx="30" cy="86" r="5" fill="#3178c6"/><text class="label" x="40" y="90">TypeScript 47.41%</text></g>
+<g class="fade-in" style="animation-delay: 490ms"><circle cx="30" cy="111" r="5" fill="#e34c26"/><text class="label" x="40" y="115">HTML 25.68%</text></g>
+<g class="fade-in" style="animation-delay: 580ms"><circle cx="30" cy="136" r="5" fill="#f1e05a"/><text class="label" x="40" y="140">JavaScript 18.53%</text></g>
 <g class="fade-in" style="animation-delay: 670ms"><circle cx="30" cy="161" r="5" fill="#8D6747"/><text class="label" x="40" y="165">Monkey C 5.88%</text></g>
 <g class="fade-in" style="animation-delay: 760ms"><circle cx="250" cy="86" r="5" fill="#663399"/><text class="label" x="260" y="90">CSS 1.14%</text></g>
 <g class="fade-in" style="animation-delay: 850ms"><circle cx="250" cy="111" r="5" fill="#724b3b"/><text class="label" x="260" y="115">Mustache 0.93%</text></g>
